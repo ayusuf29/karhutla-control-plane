@@ -1,0 +1,117 @@
+services:
+  # ===========================================================================
+  # 1. PostgreSQL 16 + PostGIS 3.4
+  # Stores H3 hexagonal peat grid, spatiotemporal features & daily risk snapshots
+  # ===========================================================================
+  sentinel-postgres:
+    image: postgis/postgis:16-3.4
+    container_name: sentinel-postgres-gcp-local
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-fire_sentinel_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/01-init-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-fire_sentinel_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sentinel-control-network
+
+  # ===========================================================================
+  # 2. Redis 7 Alpine
+  # High-throughput spatial cache for H3 hexagons, active alerts & agent states
+  # ===========================================================================
+  sentinel-redis:
+    image: redis:7-alpine
+    container_name: sentinel-redis-gcp-local
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sentinel-control-network
+
+  # ===========================================================================
+  # 3. Java 21 / Spring Boot 3.3 Core Orchestrator Backend
+  # Spatial engine, Google DeepMind Supervisor Agent, and VRP Patrol Optimizer
+  # ===========================================================================
+  sentinel-backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sentinel-backend-gcp-local
+    restart: unless-stopped
+    depends_on:
+      sentinel-postgres:
+        condition: service_healthy
+      sentinel-redis:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      POSTGRES_HOST: sentinel-postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-fire_sentinel_db}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      REDIS_HOST: sentinel-redis
+      REDIS_PORT: 6379
+      ML_SERVICE_URL: ${ML_SERVICE_URL:-host.docker.internal:50051}
+      SENTINEL_ML_SERVICE_USE_TLS: ${SENTINEL_ML_SERVICE_USE_TLS:-false}
+      SENTINEL_ML_SERVICE_TIMEOUT_MS: "30000"
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-1.5-flash}
+    ports:
+      - "${BACKEND_PORT:-8080}:8080"
+    networks:
+      - sentinel-control-network
+
+  # ===========================================================================
+  # 4. Next.js 14 Mission Command Frontend Dashboard
+  # Deck.gl WebGL 3D hexagonal layers, telemetry header, DeepMind briefing card
+  # ===========================================================================
+  sentinel-frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ""
+    container_name: sentinel-frontend-gcp-local
+    restart: unless-stopped
+    depends_on:
+      - sentinel-backend
+    environment:
+      PORT: 3000
+      INTERNAL_BACKEND_URL: http://sentinel-backend:8080
+      NEXT_PUBLIC_API_URL: ""
+    ports:
+      - "${FRONTEND_PORT:-3000}:3000"
+    networks:
+      - sentinel-control-network
+
+# =============================================================================
+# Networks and Persistent Volumes
+# =============================================================================
+networks:
+  sentinel-control-network:
+    name: sentinel-control-plane-network
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: sentinel_control_postgres_data
+  redis_data:
+    name: sentinel_control_redis_data

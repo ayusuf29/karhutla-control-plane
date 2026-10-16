@@ -1,0 +1,3 @@
+# Robots.txt for Nusantara Fire Sentinel
+User-agent: *
+Disallow: /

@@ -1,0 +1,134 @@
+name: Deploy Control Plane to Google Cloud Platform
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - 'frontend/**'
+      - 'proto/**'
+      - 'deploy/**'
+      - '.github/workflows/deploy-gcp.yml'
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  REGION: asia-southeast2 # Jakarta Region
+  GAR_REPOSITORY: karhutla-sentinel # Artifact Registry repository name
+  BACKEND_SERVICE: sentinel-backend
+  FRONTEND_SERVICE: sentinel-frontend
+
+jobs:
+  deploy-backend:
+    name: Build & Deploy Backend (Spring Boot)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build & Push Backend Container Image
+        id: build-backend
+        run: |
+          IMAGE_TAG="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.BACKEND_SERVICE }}:${{ github.sha }}"
+          IMAGE_LATEST="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.BACKEND_SERVICE }}:latest"
+          
+          docker build \
+            -t "$IMAGE_TAG" \
+            -t "$IMAGE_LATEST" \
+            -f backend/Dockerfile \
+            backend/
+            
+          docker push "$IMAGE_TAG"
+          docker push "$IMAGE_LATEST"
+          echo "image=$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Deploy Backend to Cloud Run
+        id: deploy-backend-run
+        run: |
+          gcloud run deploy ${{ env.BACKEND_SERVICE }} \
+            --image "${{ steps.build-backend.outputs.image }}" \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --memory 1Gi \
+            --cpu 1 \
+            --min-instances 0 \
+            --max-instances 5 \
+            --port 8080 \
+            --set-env-vars "SPRING_PROFILES_ACTIVE=prod,POSTGRES_HOST=${{ secrets.POSTGRES_HOST }},POSTGRES_PORT=5432,POSTGRES_DB=${{ secrets.POSTGRES_DB || 'fire_sentinel_db' }},POSTGRES_USER=${{ secrets.POSTGRES_USER }},POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }},REDIS_HOST=${{ secrets.REDIS_HOST }},REDIS_PORT=6379,ML_SERVICE_URL=${{ secrets.AMD_ML_SERVICE_URL }},SENTINEL_ML_SERVICE_USE_TLS=${{ secrets.AMD_ML_USE_TLS || 'false' }},SENTINEL_ML_SERVICE_TIMEOUT_MS=30000,GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" \
+            --vpc-connector ${{ secrets.GCP_VPC_CONNECTOR }} \
+            --quiet
+            
+          BACKEND_URL=$(gcloud run services describe ${{ env.BACKEND_SERVICE }} --region ${{ env.REGION }} --format 'value(status.url)')
+          echo "backend_url=$BACKEND_URL" >> $GITHUB_OUTPUT
+    outputs:
+      backend_url: ${{ steps.deploy-backend-run.outputs.backend_url }}
+
+  deploy-frontend:
+    name: Build & Deploy Frontend (Next.js Dashboard)
+    needs: deploy-backend
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build & Push Frontend Container Image
+        id: build-frontend
+        run: |
+          IMAGE_TAG="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.FRONTEND_SERVICE }}:${{ github.sha }}"
+          IMAGE_LATEST="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.GAR_REPOSITORY }}/${{ env.FRONTEND_SERVICE }}:latest"
+          
+          docker build \
+            --build-arg NEXT_PUBLIC_API_URL="" \
+            -t "$IMAGE_TAG" \
+            -t "$IMAGE_LATEST" \
+            -f frontend/Dockerfile \
+            frontend/
+            
+          docker push "$IMAGE_TAG"
+          docker push "$IMAGE_LATEST"
+          echo "image=$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Deploy Frontend to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.FRONTEND_SERVICE }} \
+            --image "${{ steps.build-frontend.outputs.image }}" \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --memory 512Mi \
+            --cpu 1 \
+            --min-instances 0 \
+            --max-instances 5 \
+            --port 3000 \
+            --set-env-vars "INTERNAL_BACKEND_URL=${{ needs.deploy-backend.outputs.backend_url }},NEXT_PUBLIC_API_URL=" \
+            --quiet

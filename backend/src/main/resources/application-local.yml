@@ -1,0 +1,73 @@
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,text/plain,application/geo+json,application/xml,text/html,text/xml,text/css
+    min-response-size: 2048
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/${POSTGRES_DB:fire_sentinel_db}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 25
+      minimum-idle: 5
+      connection-timeout: 20000
+      idle-timeout: 30000
+      max-lifetime: 1800000
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          batch_size: 50
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+
+sentinel:
+  spatial:
+    default-resolution: 8
+    pilot-areas:
+      - id: kubu-raya
+        name: Kabupaten Kubu Raya
+        center-lat: -0.28
+        center-lon: 109.35
+      - id: pulang-pisau
+        name: Kabupaten Pulang Pisau
+        center-lat: -2.75
+        center-lon: 114.25
+  ml-service:
+    target-endpoint: ${ML_SERVICE_URL:localhost:50051}
+    use-tls: false
+    timeout-ms: 30000
+    mock-fallback-enabled: true
+  deepmind:
+    api-key: ${GEMINI_API_KEY:}
+    model: ${GEMINI_MODEL:gemini-1.5-flash}
+    enabled: true
+  patrol:
+    max-squads: 3
+    max-points-per-squad: 4
+    base-camps:
+      - id: POSKO-KUBU-RAYA
+        name: Posko Daops Manggala Agni Kubu Raya
+        latitude: -0.25
+        longitude: 109.34
+      - id: POSKO-PULANG-PISAU
+        name: Posko Daops Manggala Agni Pulang Pisau
+        latitude: -2.74
+        longitude: 114.24
+
+logging:
+  level:
+    root: INFO
+    com.sentinel: DEBUG

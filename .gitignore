@@ -1,0 +1,34 @@
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+.pnp
+.pnp.js
+
+# Environment & Local files
+.env
+.env*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE & OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
