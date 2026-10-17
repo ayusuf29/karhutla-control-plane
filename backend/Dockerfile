@@ -14,6 +14,6 @@ COPY --from=builder /app/target/sentinel-backend-*.jar app.jar
 
 EXPOSE 8080
 
-ENV JAVA_OPTS="-XX:+UseG1GC -Xms256m -Xmx1024m"
+ENV JAVA_OPTS="-XX:+UseG1GC -Xms512m -Xmx2048m"
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

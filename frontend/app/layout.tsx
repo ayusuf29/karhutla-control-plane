@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Nusantara Fire Sentinel - Mission Command & Karhutla Prevention",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark">
       <body className="antialiased bg-obsidian text-slate-100 font-sans h-screen w-screen overflow-hidden">
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

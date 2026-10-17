@@ -23,47 +23,89 @@ public class PatrolOptimizerAgent {
     private final H3DailyRiskSnapshotRepository snapshotRepository;
     private final RiskAssessorAgent riskAssessorAgent;
     private final DeepMindSupervisorAgent deepMindSupervisorAgent;
+    private final com.sentinel.repository.ManggalaAgniDaopsRepository daopsRepository;
 
     public PatrolOptimizerAgent(
             PeatH3GridRepository gridRepository,
             H3DailyRiskSnapshotRepository snapshotRepository,
             RiskAssessorAgent riskAssessorAgent,
-            DeepMindSupervisorAgent deepMindSupervisorAgent) {
+            DeepMindSupervisorAgent deepMindSupervisorAgent,
+            com.sentinel.repository.ManggalaAgniDaopsRepository daopsRepository) {
         this.gridRepository = gridRepository;
         this.snapshotRepository = snapshotRepository;
         this.riskAssessorAgent = riskAssessorAgent;
         this.deepMindSupervisorAgent = deepMindSupervisorAgent;
+        this.daopsRepository = daopsRepository;
+    }
+
+    private volatile AgentDto.RecommendationOverview cachedRecommendations = null;
+    private volatile long cacheTimestamp = 0;
+    private static final long CACHE_TTL_MS = 60_000;
+
+    public synchronized void invalidateCache() {
+        this.cachedRecommendations = null;
+        this.cacheTimestamp = 0;
+        log.info("PatrolOptimizerAgent recommendation cache invalidated.");
+    }
+
+    public com.sentinel.entity.ManggalaAgniDaops findNearestDaops(double lat, double lon) {
+        return daopsRepository.findNearestDaops(lon, lat).orElse(null);
+    }
+
+    public List<com.sentinel.entity.ManggalaAgniDaops> getAllDaops() {
+        return daopsRepository.findAll();
     }
 
     @Transactional(readOnly = true)
     public AgentDto.RecommendationOverview generateFullRecommendations() {
-        List<H3DailyRiskSnapshot> snapshots = snapshotRepository.findLatestSnapshotsForAllHexagons();
-        AgentDto.AssessorSummary assessorSummary = riskAssessorAgent.evaluateRiskSummaryFromSnapshots(snapshots);
+        if (cachedRecommendations != null && (System.currentTimeMillis() - cacheTimestamp) < CACHE_TTL_MS) {
+            return cachedRecommendations;
+        }
 
-        List<PeatH3Grid> grids = gridRepository.findAll();
+        AgentDto.AssessorSummary assessorSummary = riskAssessorAgent.evaluateCurrentRiskSummary();
+
+        List<H3DailyRiskSnapshot> criticalCells = snapshotRepository.findTopCriticalSnapshots();
+        List<H3DailyRiskSnapshot> dryingCells = snapshotRepository.findTopDryingSnapshots();
+        List<H3DailyRiskSnapshot> sarHits = snapshotRepository.findTopSarAlerts();
+
+        // Extract H3 indices needed for these records
+        Set<String> neededHexIds = new HashSet<>();
+        criticalCells.forEach(c -> neededHexIds.add(c.getH3Index()));
+        dryingCells.forEach(c -> neededHexIds.add(c.getH3Index()));
+        sarHits.forEach(c -> neededHexIds.add(c.getH3Index()));
+
+        List<PeatH3Grid> grids = gridRepository.findAllById(neededHexIds);
         Map<String, PeatH3Grid> gridMap = grids.stream()
                 .collect(Collectors.toMap(PeatH3Grid::getH3Index, g -> g, (g1, g2) -> g1));
 
-        // Filter high and extreme risk cells
-        List<H3DailyRiskSnapshot> criticalCells = snapshots.stream()
-                .filter(s -> "EXTREME".equals(s.getRiskCategory()) || "HIGH".equals(s.getRiskCategory()))
-                .sorted((a, b) -> Double.compare(b.getIgnitionRiskScore(), a.getIgnitionRiskScore()))
-                .toList();
-
-        // Partition by region (Kubu Raya around lon ~ 109, Pulang Pisau around lon ~ 114)
+        // Partition by region (Kalimantan vs Sumatera)
         List<H3DailyRiskSnapshot> kubuCritical = new ArrayList<>();
         List<H3DailyRiskSnapshot> pulangCritical = new ArrayList<>();
+        List<H3DailyRiskSnapshot> sumateraCritical = new ArrayList<>();
 
         for (H3DailyRiskSnapshot s : criticalCells) {
             PeatH3Grid g = gridMap.get(s.getH3Index());
             if (g != null && g.getCentroid() != null) {
-                if (g.getCentroid().getX() < 112.0) {
+                double lon = g.getCentroid().getX();
+                if (lon < 108.0) {
+                    sumateraCritical.add(s);
+                } else if (lon < 112.0) {
                     kubuCritical.add(s);
                 } else {
                     pulangCritical.add(s);
                 }
             }
         }
+
+        // Fetch Daops stations from PostgreSQL PostGIS database
+        com.sentinel.entity.ManggalaAgniDaops daopsKubu = daopsRepository.findByShortCode("KUBU_RAYA")
+                .orElseGet(() -> daopsRepository.findNearestDaops(109.34, -0.25).orElse(null));
+        com.sentinel.entity.ManggalaAgniDaops daopsPulang = daopsRepository.findByShortCode("PULANG_PISAU")
+                .orElseGet(() -> daopsRepository.findNearestDaops(114.24, -2.74).orElse(null));
+        com.sentinel.entity.ManggalaAgniDaops daopsSumatera = daopsRepository.findByShortCode("SIAK")
+                .orElseGet(() -> daopsRepository.findNearestDaops(102.10, 0.55).orElse(null));
+        com.sentinel.entity.ManggalaAgniDaops daopsRapid = daopsRepository.findByShortCode("RAPID_RESPONSE")
+                .orElseGet(() -> daopsRepository.findNearestDaops(109.36, -0.28).orElse(null));
 
         List<AgentDto.PatrolCard> patrolCards = new ArrayList<>();
 
@@ -72,7 +114,7 @@ public class PatrolOptimizerAgent {
                 "DAOP-KBR-ALPHA",
                 "Regu Alpha Daops Manggala Agni Kubu Raya",
                 "Kab. Kubu Raya",
-                -0.25, 109.34,
+                daopsKubu,
                 kubuCritical, gridMap, 4, "08:30 WIB"
         ));
 
@@ -81,32 +123,41 @@ public class PatrolOptimizerAgent {
                 "DAOP-PLP-BETA",
                 "Regu Beta Daops Manggala Agni Pulang Pisau",
                 "Kab. Pulang Pisau",
-                -2.74, 114.24,
+                daopsPulang,
                 pulangCritical, gridMap, 4, "08:45 WIB"
         ));
 
-        // 3. Squad Charlie - Cadangan Khusus Patroli Cepat (Rapid Response)
+        // 3. Squad Delta - Daops Riau & Jambi (Sumatera Peatlands)
+        patrolCards.add(buildSquadRoute(
+                "DAOP-RIAU-DELTA",
+                "Regu Delta Daops Manggala Agni Riau & Jambi",
+                "Kubah Gambut Sumatera",
+                daopsSumatera,
+                sumateraCritical, gridMap, 4, "08:30 WIB"
+        ));
+
+        // 4. Squad Charlie - Cadangan Khusus Patroli Cepat (Rapid Response)
         List<H3DailyRiskSnapshot> remainingCritical = new ArrayList<>(criticalCells);
         patrolCards.add(buildSquadRoute(
                 "DAOP-RAPID-CHARLIE",
                 "Regu Charlie Quick-Response (Water Saturation Squad)",
                 "Lintas Wilayah Prioritas",
-                -0.28, 109.36,
+                daopsRapid,
                 remainingCritical, gridMap, 3, "09:15 WIB"
         ));
 
         // Generate OMC Targets
-        List<AgentDto.OmcTarget> omcTargets = buildOmcTargets(snapshots, gridMap);
+        List<AgentDto.OmcTarget> omcTargets = buildOmcTargets(dryingCells, gridMap);
 
         // Generate SAR Alerts
-        List<AgentDto.SarAlert> sarAlerts = buildSarAlerts(snapshots, gridMap);
+        List<AgentDto.SarAlert> sarAlerts = buildSarAlerts(sarHits, gridMap);
 
         // Generate DeepMind Tactical Action Plan from critical cells
         AgentDto.TacticalActionPlan tacticalActionPlan = deepMindSupervisorAgent.generateTacticalActionPlan(
-                criticalCells, gridMap, "Kab. Kubu Raya & Pulang Pisau"
+                criticalCells, gridMap, "Kubah Gambut Nasional (Kalimantan & Sumatera)"
         );
 
-        return new AgentDto.RecommendationOverview(
+        AgentDto.RecommendationOverview overview = new AgentDto.RecommendationOverview(
                 Instant.now(),
                 "ACTIVE_MONITORING",
                 assessorSummary,
@@ -115,17 +166,24 @@ public class PatrolOptimizerAgent {
                 sarAlerts,
                 tacticalActionPlan
         );
+
+        this.cachedRecommendations = overview;
+        this.cacheTimestamp = System.currentTimeMillis();
+        return overview;
     }
 
     private AgentDto.PatrolCard buildSquadRoute(
             String squadId,
             String squadName,
             String regionName,
-            double baseLat, double baseLon,
+            com.sentinel.entity.ManggalaAgniDaops daops,
             List<H3DailyRiskSnapshot> candidateSnapshots,
             Map<String, PeatH3Grid> gridMap,
             int maxPoints,
             String startHour) {
+
+        double baseLat = daops != null ? daops.getLatitude() : -0.25;
+        double baseLon = daops != null ? daops.getLongitude() : 109.34;
 
         List<AgentDto.Waypoint> waypoints = new ArrayList<>();
         double totalDistanceKm = 0.0;
@@ -190,7 +248,7 @@ public class PatrolOptimizerAgent {
                 "Alat Ukur Muka Air Gambut Manual (Peat Ruler)"
         );
 
-        return new AgentDto.PatrolCard(
+        AgentDto.PatrolCard card = new AgentDto.PatrolCard(
                 squadId, squadName, regionName,
                 "READY_FOR_DISPATCH",
                 waypoints.size(),
@@ -200,6 +258,24 @@ public class PatrolOptimizerAgent {
                 equipment,
                 waypoints
         );
+
+        if (daops != null) {
+            card.setDaopsId(daops.getDaopsId());
+            card.setDaopsName(daops.getName());
+            card.setCommanderName(daops.getCommanderName());
+            card.setRadioFrequency(daops.getRadioFrequency());
+            card.setPersonnelCount(daops.getPersonnelCount());
+            card.setDepotLatitude(daops.getLatitude());
+            card.setDepotLongitude(daops.getLongitude());
+        }
+
+        // Generate squad-specific DeepMind / Edge AI Tactical Action Plan
+        AgentDto.TacticalActionPlan squadTacticalPlan = deepMindSupervisorAgent.generateTacticalActionPlan(
+                selected, gridMap, regionName
+        );
+        card.setTacticalActionPlan(squadTacticalPlan);
+
+        return card;
     }
 
     private List<AgentDto.OmcTarget> buildOmcTargets(List<H3DailyRiskSnapshot> snapshots, Map<String, PeatH3Grid> gridMap) {

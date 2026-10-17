@@ -161,6 +161,7 @@ export default function Home() {
         onDispatchSquad={handleDispatchSquad}
         dispatchedSquads={dispatchedSquads}
         tacticalActionPlan={recommendations?.tacticalActionPlan}
+        selectedRegion={selectedRegion}
       />
 
       {/* 5. Modals */}

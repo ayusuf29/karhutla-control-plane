@@ -46,6 +46,7 @@ public class AgentController {
     public ResponseEntity<BatchRiskResponse> triggerReassessment(
             @RequestParam(value = "regionId", defaultValue = "ALL_PILOT_AREAS") String regionId) {
         BatchRiskResponse response = riskAssessorAgent.triggerBatchReassessment(regionId);
+        patrolOptimizerAgent.invalidateCache();
         return ResponseEntity.ok(response);
     }
 }

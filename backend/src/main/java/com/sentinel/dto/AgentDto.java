@@ -126,6 +126,16 @@ public class AgentDto {
         private String primaryObjective;
         private List<String> recommendedEquipment;
         private List<Waypoint> waypoints;
+        private TacticalActionPlan tacticalActionPlan;
+
+        // Base Daops Station Metadata
+        private String daopsId;
+        private String daopsName;
+        private String commanderName;
+        private String radioFrequency;
+        private int personnelCount = 30;
+        private double depotLatitude;
+        private double depotLongitude;
 
         public PatrolCard() {}
 
@@ -171,6 +181,103 @@ public class AgentDto {
 
         public List<Waypoint> getWaypoints() { return waypoints; }
         public void setWaypoints(List<Waypoint> waypoints) { this.waypoints = waypoints; }
+
+        public TacticalActionPlan getTacticalActionPlan() { return tacticalActionPlan; }
+        public void setTacticalActionPlan(TacticalActionPlan tacticalActionPlan) { this.tacticalActionPlan = tacticalActionPlan; }
+
+        public String getDaopsId() { return daopsId; }
+        public void setDaopsId(String daopsId) { this.daopsId = daopsId; }
+
+        public String getDaopsName() { return daopsName; }
+        public void setDaopsName(String daopsName) { this.daopsName = daopsName; }
+
+        public String getCommanderName() { return commanderName; }
+        public void setCommanderName(String commanderName) { this.commanderName = commanderName; }
+
+        public String getRadioFrequency() { return radioFrequency; }
+        public void setRadioFrequency(String radioFrequency) { this.radioFrequency = radioFrequency; }
+
+        public int getPersonnelCount() { return personnelCount; }
+        public void setPersonnelCount(int personnelCount) { this.personnelCount = personnelCount; }
+
+        public double getDepotLatitude() { return depotLatitude; }
+        public void setDepotLatitude(double depotLatitude) { this.depotLatitude = depotLatitude; }
+
+        public double getDepotLongitude() { return depotLongitude; }
+        public void setDepotLongitude(double depotLongitude) { this.depotLongitude = depotLongitude; }
+    }
+
+    public static class DaopsStationDto {
+        private String daopsId;
+        private String name;
+        private String shortCode;
+        private String provinceName;
+        private String regencyName;
+        private String districtName;
+        private double latitude;
+        private double longitude;
+        private String commanderName;
+        private String radioFrequency;
+        private int personnelCount;
+        private String operationalStatus;
+        private double distanceKm;
+
+        public DaopsStationDto() {}
+
+        public DaopsStationDto(String daopsId, String name, String shortCode, String provinceName, String regencyName, String districtName, double latitude, double longitude, String commanderName, String radioFrequency, int personnelCount, String operationalStatus, double distanceKm) {
+            this.daopsId = daopsId;
+            this.name = name;
+            this.shortCode = shortCode;
+            this.provinceName = provinceName;
+            this.regencyName = regencyName;
+            this.districtName = districtName;
+            this.latitude = latitude;
+            this.longitude = longitude;
+            this.commanderName = commanderName;
+            this.radioFrequency = radioFrequency;
+            this.personnelCount = personnelCount;
+            this.operationalStatus = operationalStatus;
+            this.distanceKm = distanceKm;
+        }
+
+        public String getDaopsId() { return daopsId; }
+        public void setDaopsId(String daopsId) { this.daopsId = daopsId; }
+
+        public String getName() { return name; }
+        public void setName(String name) { this.name = name; }
+
+        public String getShortCode() { return shortCode; }
+        public void setShortCode(String shortCode) { this.shortCode = shortCode; }
+
+        public String getProvinceName() { return provinceName; }
+        public void setProvinceName(String provinceName) { this.provinceName = provinceName; }
+
+        public String getRegencyName() { return regencyName; }
+        public void setRegencyName(String regencyName) { this.regencyName = regencyName; }
+
+        public String getDistrictName() { return districtName; }
+        public void setDistrictName(String districtName) { this.districtName = districtName; }
+
+        public double getLatitude() { return latitude; }
+        public void setLatitude(double latitude) { this.latitude = latitude; }
+
+        public double getLongitude() { return longitude; }
+        public void setLongitude(double longitude) { this.longitude = longitude; }
+
+        public String getCommanderName() { return commanderName; }
+        public void setCommanderName(String commanderName) { this.commanderName = commanderName; }
+
+        public String getRadioFrequency() { return radioFrequency; }
+        public void setRadioFrequency(String radioFrequency) { this.radioFrequency = radioFrequency; }
+
+        public int getPersonnelCount() { return personnelCount; }
+        public void setPersonnelCount(int personnelCount) { this.personnelCount = personnelCount; }
+
+        public String getOperationalStatus() { return operationalStatus; }
+        public void setOperationalStatus(String operationalStatus) { this.operationalStatus = operationalStatus; }
+
+        public double getDistanceKm() { return distanceKm; }
+        public void setDistanceKm(double distanceKm) { this.distanceKm = distanceKm; }
     }
 
     public static class Waypoint {

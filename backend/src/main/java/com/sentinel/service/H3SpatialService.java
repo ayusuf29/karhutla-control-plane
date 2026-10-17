@@ -92,6 +92,9 @@ public class H3SpatialService {
             props.put("distanceToCanalMeters", grid.getDistanceToCanalMeters());
             props.put("distanceToRoadMeters", grid.getDistanceToRoadMeters());
             props.put("concessionId", grid.getConcessionId());
+            props.put("province", grid.getProvinceName() != null ? grid.getProvinceName() : "");
+            props.put("regency", grid.getRegencyName() != null ? grid.getRegencyName() : "");
+            props.put("district", grid.getDistrictName() != null ? grid.getDistrictName() : "");
 
             if (grid.getCentroid() != null) {
                 props.put("centroidLon", grid.getCentroid().getX());

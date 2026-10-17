@@ -35,6 +35,15 @@ public class PeatH3Grid {
     @Column(name = "concession_id", length = 64)
     private String concessionId;
 
+    @Column(name = "province_name", length = 64)
+    private String provinceName;
+
+    @Column(name = "regency_name", length = 64)
+    private String regencyName;
+
+    @Column(name = "district_name", length = 64)
+    private String districtName;
+
     @Column(name = "created_at")
     private Instant createdAt = Instant.now();
 
@@ -75,6 +84,15 @@ public class PeatH3Grid {
 
     public String getConcessionId() { return concessionId; }
     public void setConcessionId(String concessionId) { this.concessionId = concessionId; }
+
+    public String getProvinceName() { return provinceName; }
+    public void setProvinceName(String provinceName) { this.provinceName = provinceName; }
+
+    public String getRegencyName() { return regencyName; }
+    public void setRegencyName(String regencyName) { this.regencyName = regencyName; }
+
+    public String getDistrictName() { return districtName; }
+    public void setDistrictName(String districtName) { this.districtName = districtName; }
 
     public Instant getCreatedAt() { return createdAt; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }

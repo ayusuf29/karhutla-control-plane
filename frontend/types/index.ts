@@ -17,6 +17,21 @@ export interface H3CellProperties {
   sarClearingDetected?: boolean;
   recommendedAction?: string;
   snapshotDate?: string;
+  province?: string;
+  regency?: string;
+  district?: string;
+}
+
+export interface DistrictHierarchyItem {
+  id: string;
+  province: string;
+  regency: string;
+  district: string;
+  label: string;
+  fullTitle: string;
+  h3Count: number;
+  center: [number, number];
+  bounds: [number, number, number, number];
 }
 
 export interface GeoJsonGeometry {
@@ -82,6 +97,30 @@ export interface PatrolCard {
   primaryObjective: string;
   recommendedEquipment: string[];
   waypoints: Waypoint[];
+  tacticalActionPlan?: TacticalActionPlan;
+  daopsId?: string;
+  daopsName?: string;
+  commanderName?: string;
+  radioFrequency?: string;
+  personnelCount?: number;
+  depotLatitude?: number;
+  depotLongitude?: number;
+}
+
+export interface DaopsStation {
+  daopsId: string;
+  name: string;
+  shortCode: string;
+  provinceName: string;
+  regencyName: string;
+  districtName?: string;
+  latitude: number;
+  longitude: number;
+  commanderName?: string;
+  radioFrequency?: string;
+  personnelCount: number;
+  operationalStatus: string;
+  distanceKm?: number;
 }
 
 export interface OmcTarget {

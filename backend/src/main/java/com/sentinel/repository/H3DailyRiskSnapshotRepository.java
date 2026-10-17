@@ -34,17 +34,58 @@ public interface H3DailyRiskSnapshotRepository extends JpaRepository<H3DailyRisk
     List<H3DailyRiskSnapshot> findExtremeRiskSnapshots();
 
     @Query(value = """
-        SELECT s.*
-        FROM h3_daily_risk_snapshot s
-        INNER JOIN peat_h3_grid g ON s.h3_index = g.h3_index
-        WHERE s.snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
-          AND ST_Intersects(g.geom, ST_MakeEnvelope(:minLon, :minLat, :maxLon, :maxLat, 4326))
-        ORDER BY s.ignition_risk_score DESC
+        SELECT *
+        FROM h3_daily_risk_snapshot
+        WHERE (risk_category = 'EXTREME' OR risk_category = 'HIGH')
+          AND snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
+        ORDER BY ignition_risk_score DESC
+        LIMIT 300
         """, nativeQuery = true)
-    List<H3DailyRiskSnapshot> findLatestWithinBoundingBox(
-            @Param("minLon") double minLon,
-            @Param("minLat") double minLat,
-            @Param("maxLon") double maxLon,
-            @Param("maxLat") double maxLat
-    );
+    List<H3DailyRiskSnapshot> findTopCriticalSnapshots();
+
+    @Query(value = """
+        SELECT *
+        FROM h3_daily_risk_snapshot
+        WHERE gwl_cm < -45.0
+          AND snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
+        ORDER BY gwl_cm ASC
+        LIMIT 10
+        """, nativeQuery = true)
+    List<H3DailyRiskSnapshot> findTopDryingSnapshots();
+
+    @Query(value = """
+        SELECT *
+        FROM h3_daily_risk_snapshot
+        WHERE sar_clearing_detected = true
+          AND snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
+        ORDER BY ignition_risk_score DESC
+        LIMIT 50
+        """, nativeQuery = true)
+    List<H3DailyRiskSnapshot> findTopSarAlerts();
+
+    @Query(value = """
+        SELECT 
+            COUNT(*) as totalHexagons,
+            COUNT(CASE WHEN risk_category = 'EXTREME' THEN 1 END) as extremeRiskCount,
+            COUNT(CASE WHEN risk_category = 'HIGH' THEN 1 END) as highRiskCount,
+            COUNT(CASE WHEN risk_category = 'MEDIUM' THEN 1 END) as mediumRiskCount,
+            COUNT(CASE WHEN risk_category = 'LOW' THEN 1 END) as lowRiskCount,
+            COALESCE(AVG(gwl_cm), 0.0) as averageGwlCm,
+            COALESCE(AVG(ignition_risk_score), 0.0) as averageRiskScore,
+            COUNT(CASE WHEN sar_clearing_detected = true THEN 1 END) as sarClearingAlertCount
+        FROM h3_daily_risk_snapshot
+        WHERE snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
+        """, nativeQuery = true)
+    RiskSummaryProjection findLatestRiskSummaryAggregates();
+
+    interface RiskSummaryProjection {
+        long getTotalHexagons();
+        long getExtremeRiskCount();
+        long getHighRiskCount();
+        long getMediumRiskCount();
+        long getLowRiskCount();
+        double getAverageGwlCm();
+        double getAverageRiskScore();
+        long getSarClearingAlertCount();
+    }
 }

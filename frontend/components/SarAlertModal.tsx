@@ -4,6 +4,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Radar, ShieldAlert, ArrowRight } from "lucide-react";
 import { SarAlert } from "@/types";
+import { useTranslation } from "@/context/LanguageContext";
 
 interface SarAlertModalProps {
   isOpen: boolean;
@@ -18,6 +19,8 @@ export default function SarAlertModal({
   alerts,
   onSelectCellByIndex,
 }: SarAlertModalProps) {
+  const { t, language } = useTranslation();
+
   if (!isOpen) return null;
 
   return (
@@ -38,16 +41,19 @@ export default function SarAlertModal({
               </div>
               <div>
                 <h3 className="text-sm font-bold text-slate-100">
-                  DETEKSI DINI RADAR SATELIT SENTINEL-1 (SAR)
+                  {t.sarModalTitle}
                 </h3>
                 <div className="text-[10px] text-slate-400 font-mono">
-                  SAR C-BAND CHANGE DETECTION • PENGAWASAN TEBAS-BAKAR (PRE-BURN)
+                  {language === "id"
+                    ? "SAR C-BAND CHANGE DETECTION • PENGAWASAN TEBAS-BAKAR (PRE-BURN)"
+                    : "SAR C-BAND CHANGE DETECTION • PRE-BURN SLASH-AND-CLEAR SURVEILLANCE"}
                 </div>
               </div>
             </div>
             <button
               onClick={onClose}
               className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10"
+              aria-label={t.drawerBtnClose}
             >
               <X className="w-4 h-4" />
             </button>
@@ -56,8 +62,7 @@ export default function SarAlertModal({
           {/* Body */}
           <div className="p-4 overflow-y-auto space-y-3">
             <div className="text-xs text-slate-300 leading-relaxed bg-obsidian/40 p-3 rounded-lg border border-white/5">
-              Radar satelit Sentinel-1 C-Band mampu menembus asap dan tutupan awan. Sinyal backscatter
-              yang turun drastis mengindikasikan pembukaan tutupan vegetasi (land clearing) sebelum api dinyalakan:
+              {t.sarModalSubtitle}
             </div>
 
             <div className="space-y-2">
@@ -74,19 +79,19 @@ export default function SarAlertModal({
                       </span>
                     </div>
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                      CONFIDENCE: {(alert.radarConfidence * 100).toFixed(0)}%
+                      {t.sarColConfidence}: {(alert.radarConfidence * 100).toFixed(0)}%
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs font-mono text-slate-400 pt-1">
                     <div>
-                      H3 Cell: <span className="text-slate-200">{alert.h3Index}</span>
+                      {t.sarColCell}: <span className="text-slate-200">{alert.h3Index}</span>
                     </div>
                     <div>
-                      Waktu Deteksi: <span className="text-slate-300">{alert.detectedAt}</span>
+                      {t.sarColDetectionDate}: <span className="text-slate-300">{alert.detectedAt}</span>
                     </div>
                     <div className="col-span-2">
-                      Konsesi Terkait:{" "}
+                      {language === "id" ? "Konsesi Terkait:" : "Concession:"}{" "}
                       <span className="text-sentinel-cyan">{alert.concessionId}</span>
                     </div>
                   </div>
@@ -98,24 +103,15 @@ export default function SarAlertModal({
                         onSelectCellByIndex(alert.h3Index);
                         onClose();
                       }}
-                      className="text-sentinel-cyan hover:underline flex items-center gap-1 font-mono text-xs"
+                      className="flex items-center gap-1 text-xs font-mono text-amber-400 hover:text-amber-300 transition-colors not-italic"
                     >
-                      Lihat di Peta <ArrowRight className="w-3 h-3" />
+                      <span>{t.sarBtnInspect}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Footer */}
-          <div className="p-4 border-t border-sentinel-border bg-obsidian/40 flex justify-end">
-            <button
-              onClick={onClose}
-              className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-semibold"
-            >
-              Tutup
-            </button>
           </div>
         </motion.div>
       </div>

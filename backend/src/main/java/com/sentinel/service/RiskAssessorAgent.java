@@ -42,8 +42,31 @@ public class RiskAssessorAgent {
 
     @Transactional(readOnly = true)
     public AgentDto.AssessorSummary evaluateCurrentRiskSummary() {
-        List<H3DailyRiskSnapshot> snapshots = snapshotRepository.findLatestSnapshotsForAllHexagons();
-        return evaluateRiskSummaryFromSnapshots(snapshots);
+        H3DailyRiskSnapshotRepository.RiskSummaryProjection agg = snapshotRepository.findLatestRiskSummaryAggregates();
+        if (agg == null || agg.getTotalHexagons() == 0) {
+            return new AgentDto.AssessorSummary(0, 0, 0, 0, 0, 0.0, 0.0, 0, "No snapshots recorded yet.", "Run initial data ingestion.");
+        }
+
+        String narrative = String.format(
+                "Pemantauan aktif mencakup %d heksagon gambut nasional. Terdeteksi %d area risiko ekstrem dan %d area risiko tinggi. Rata-rata GWL berada pada %.1f cm.",
+                agg.getTotalHexagons(), agg.getExtremeRiskCount(), agg.getHighRiskCount(), agg.getAverageGwlCm()
+        );
+        String recommendation = agg.getExtremeRiskCount() > 0
+                ? "Prioritaskan pembasahan darat dan aktivasi pintu sekat kanal pada heksagon prioritas."
+                : "Pertahankan patroli rutin pencegahan.";
+
+        return new AgentDto.AssessorSummary(
+                (int) agg.getTotalHexagons(),
+                (int) agg.getExtremeRiskCount(),
+                (int) agg.getHighRiskCount(),
+                (int) agg.getMediumRiskCount(),
+                (int) agg.getLowRiskCount(),
+                Math.round(agg.getAverageGwlCm() * 10.0) / 10.0,
+                Math.round(agg.getAverageRiskScore() * 100.0) / 100.0,
+                (int) agg.getSarClearingAlertCount(),
+                narrative,
+                recommendation
+        );
     }
 
     public AgentDto.AssessorSummary evaluateRiskSummaryFromSnapshots(List<H3DailyRiskSnapshot> snapshots) {

@@ -61,6 +61,7 @@ services:
       sentinel-redis:
         condition: service_healthy
     environment:
+      JAVA_OPTS: "-XX:+UseG1GC -Xms512m -Xmx2048m"
       SPRING_PROFILES_ACTIVE: local
       POSTGRES_HOST: sentinel-postgres
       POSTGRES_PORT: 5432
