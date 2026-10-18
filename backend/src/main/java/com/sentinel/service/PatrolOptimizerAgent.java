@@ -269,8 +269,8 @@ public class PatrolOptimizerAgent {
             card.setDepotLongitude(daops.getLongitude());
         }
 
-        // Generate squad-specific DeepMind / Edge AI Tactical Action Plan
-        AgentDto.TacticalActionPlan squadTacticalPlan = deepMindSupervisorAgent.generateTacticalActionPlan(
+        // Generate squad-specific fast Edge AI Tactical Action Plan
+        AgentDto.TacticalActionPlan squadTacticalPlan = deepMindSupervisorAgent.generateFastTacticalPlan(
                 selected, gridMap, regionName
         );
         card.setTacticalActionPlan(squadTacticalPlan);

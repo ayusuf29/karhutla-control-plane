@@ -106,6 +106,31 @@ public class DeepMindSupervisorAgent {
         return buildLocalTacticalPlan(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion, false);
     }
 
+    public AgentDto.TacticalActionPlan generateFastTacticalPlan(
+            List<H3DailyRiskSnapshot> criticalSnapshots,
+            Map<String, PeatH3Grid> gridMap,
+            String regionName) {
+
+        if (criticalSnapshots == null || criticalSnapshots.isEmpty()) {
+            return buildControlledPlan(regionName);
+        }
+
+        H3DailyRiskSnapshot focal = criticalSnapshots.stream()
+                .max(Comparator.comparingDouble((H3DailyRiskSnapshot s) ->
+                        s.getIgnitionRiskScore() + (Boolean.TRUE.equals(s.getSarClearingDetected()) ? 0.3 : 0.0)))
+                .orElse(criticalSnapshots.get(0));
+
+        PeatH3Grid grid = gridMap != null ? gridMap.get(focal.getH3Index()) : null;
+        double canalDist = (grid != null && grid.getDistanceToCanalMeters() != null) ? grid.getDistanceToCanalMeters() : 200.0;
+        double roadDist = (grid != null && grid.getDistanceToRoadMeters() != null) ? grid.getDistanceToRoadMeters() : 1200.0;
+        double peatDepth = (grid != null && grid.getPeatDepthMeters() != null) ? grid.getPeatDepthMeters() : 2.5;
+
+        boolean isSarAnomaly = Boolean.TRUE.equals(focal.getSarClearingDetected());
+        String actualRegion = regionName != null && !regionName.isBlank() ? regionName : "Kab. Kubu Raya";
+
+        return buildLocalTacticalPlan(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion, false);
+    }
+
     private AgentDto.TacticalActionPlan callAmdTokenFactoryApi(
             H3DailyRiskSnapshot focal,
             double canalDist,
