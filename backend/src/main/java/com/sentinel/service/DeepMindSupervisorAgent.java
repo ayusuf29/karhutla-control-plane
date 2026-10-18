@@ -173,8 +173,9 @@ public class DeepMindSupervisorAgent {
                         Map.of("role", "system", "content", "Anda adalah AI Tactical Supervisor Karhutla berbasis akselerator AMD Instinct Cloud (Team 1348). Berikan respon JSON murni TANPA markdown block."),
                         Map.of("role", "user", "content", prompt)
                 ),
-                "max_tokens", 2500,
-                "temperature", 0.3
+                "chat_template_kwargs", Map.of("enable_thinking", false),
+                "max_tokens", 800,
+                "temperature", 0.2
         );
 
         String endpoint = amdBaseUrl.replaceAll("/+$", "") + "/chat/completions";
@@ -183,7 +184,7 @@ public class DeepMindSupervisorAgent {
                 .uri(URI.create(endpoint))
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Bearer " + amdApiKey)
-                .timeout(Duration.ofSeconds(45))
+                .timeout(Duration.ofSeconds(60))
                 .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(requestBody)))
                 .build();
 
