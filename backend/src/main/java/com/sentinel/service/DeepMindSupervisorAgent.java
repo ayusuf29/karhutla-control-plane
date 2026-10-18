@@ -125,7 +125,7 @@ public class DeepMindSupervisorAgent {
                 "Anomali Radar SAR Sentinel-1: %s\n" +
                 "Hari Tanpa Hujan: %d hari\n" +
                 "Kondisi Atmosfer: Angin berhembus 18 km/jam ke barat daya menuju permukiman.\n\n" +
-                "Hasilkan Action Plan Taktis pemadaman untuk Tim Daops Manggala Agni dalam format JSON murni TANPA markdown block:\n" +
+                "Hasilkan Action Plan Taktis pemadaman untuk Tim Daops Manggala Agni dalam format JSON murni TANPA markdown block. Tulis secara ringkas, padat, dan langsung to the point:\n" +
                 "{\n" +
                 "  \"situationAssessment\": \"ringkasan analisis situasi kognitif mendalam\",\n" +
                 "  \"threatLevel\": \"EXTREME\",\n" +
@@ -148,7 +148,8 @@ public class DeepMindSupervisorAgent {
                         Map.of("role", "system", "content", "Anda adalah AI Tactical Supervisor Karhutla berbasis akselerator AMD Instinct Cloud (Team 1348). Berikan respon JSON murni TANPA markdown block."),
                         Map.of("role", "user", "content", prompt)
                 ),
-                "max_tokens", 1000
+                "max_tokens", 2500,
+                "temperature", 0.3
         );
 
         String endpoint = amdBaseUrl.replaceAll("/+$", "") + "/chat/completions";
@@ -400,13 +401,37 @@ public class DeepMindSupervisorAgent {
     private String cleanJsonMarkdown(String raw) {
         if (raw == null) return "{}";
         String s = raw.trim();
-        if (s.startsWith("```json")) {
-            s = s.substring(7);
-        } else if (s.startsWith("```")) {
-            s = s.substring(3);
+
+        // 1. Remove <think>...</think> reasoning blocks if model outputs thought tags
+        s = s.replaceAll("(?s)<think>.*?</think>", "").trim();
+
+        // 2. Extract content from markdown code fences if wrapped
+        if (s.contains("```json")) {
+            int start = s.indexOf("```json") + 7;
+            int end = s.indexOf("```", start);
+            s = (end != -1) ? s.substring(start, end) : s.substring(start);
+        } else if (s.contains("```")) {
+            int start = s.indexOf("```") + 3;
+            int end = s.indexOf("```", start);
+            s = (end != -1) ? s.substring(start, end) : s.substring(start);
         }
-        if (s.endsWith("```")) {
-            s = s.substring(0, s.length() - 3);
+
+        s = s.trim();
+
+        // 3. Keep only the outermost JSON object between first '{' and last '}'
+        int firstBrace = s.indexOf('{');
+        int lastBrace = s.lastIndexOf('}');
+        if (firstBrace != -1 && lastBrace > firstBrace) {
+            s = s.substring(firstBrace, lastBrace + 1);
+        } else if (firstBrace != -1) {
+            // In case of truncated string, attempt auto-closing
+            s = s.substring(firstBrace).trim();
+            if (!s.endsWith("\"") && !s.endsWith("}")) {
+                s += "\"";
+            }
+            if (!s.endsWith("}")) {
+                s += "\n}";
+            }
         }
         return s.trim();
     }
