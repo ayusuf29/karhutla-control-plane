@@ -22,8 +22,15 @@ CREATE TABLE peat_h3_grid (
     distance_to_canal_meters NUMERIC(8, 2),
     distance_to_road_meters NUMERIC(8, 2),
     concession_id VARCHAR(64),
+    province_name VARCHAR(64),
+    regency_name VARCHAR(64),
+    district_name VARCHAR(64),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+ALTER TABLE peat_h3_grid ADD COLUMN IF NOT EXISTS province_name VARCHAR(64);
+ALTER TABLE peat_h3_grid ADD COLUMN IF NOT EXISTS regency_name VARCHAR(64);
+ALTER TABLE peat_h3_grid ADD COLUMN IF NOT EXISTS district_name VARCHAR(64);
 
 CREATE INDEX idx_peat_h3_grid_geom ON peat_h3_grid USING GIST(geom);
 CREATE INDEX idx_peat_h3_grid_centroid ON peat_h3_grid USING GIST(centroid);
