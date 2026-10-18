@@ -72,9 +72,11 @@ services:
       REDIS_PORT: 6379
       ML_SERVICE_URL: ${ML_SERVICE_URL:-host.docker.internal:50051}
       SENTINEL_ML_SERVICE_USE_TLS: ${SENTINEL_ML_SERVICE_USE_TLS:-false}
-      SENTINEL_ML_SERVICE_TIMEOUT_MS: "30000"
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
       GEMINI_MODEL: ${GEMINI_MODEL:-gemini-1.5-flash}
+      AMD_API_KEY: ${AMD_API_KEY:-rc-b32b0aa6e51830128d08358ea3268d48a3aa34c40c458437}
+      AMD_BASE_URL: ${AMD_BASE_URL:-https://developer.amd.com.cn/radeon/api/v1}
+      AMD_MODEL: ${AMD_MODEL:-Qwen3.8-Flash-Next}
     ports:
       - "${BACKEND_PORT:-8080}:8080"
     networks:

@@ -26,25 +26,39 @@ public class DeepMindSupervisorAgent {
     private final String apiKey;
     private final String model;
     private final boolean enabled;
+    private final String amdApiKey;
+    private final String amdBaseUrl;
+    private final String amdModel;
+    private final boolean amdEnabled;
     private final ObjectMapper objectMapper;
     private final HttpClient httpClient;
 
     public DeepMindSupervisorAgent(
             @Value("${sentinel.deepmind.api-key:}") String apiKey,
             @Value("${sentinel.deepmind.model:gemini-1.5-flash}") String model,
-            @Value("${sentinel.deepmind.enabled:true}") boolean enabled) {
+            @Value("${sentinel.deepmind.enabled:true}") boolean enabled,
+            @Value("${sentinel.amd.api-key:}") String amdApiKey,
+            @Value("${sentinel.amd.base-url:https://developer.amd.com.cn/radeon/api/v1}") String amdBaseUrl,
+            @Value("${sentinel.amd.model:Qwen3.8-Flash-Next}") String amdModel,
+            @Value("${sentinel.amd.enabled:true}") boolean amdEnabled) {
         this.apiKey = apiKey != null ? apiKey.trim() : "";
         this.model = model != null ? model.trim() : "gemini-1.5-flash";
         this.enabled = enabled;
+        this.amdApiKey = amdApiKey != null ? amdApiKey.trim() : "";
+        this.amdBaseUrl = amdBaseUrl != null ? amdBaseUrl.trim() : "https://developer.amd.com.cn/radeon/api/v1";
+        this.amdModel = amdModel != null ? amdModel.trim() : "Qwen3.8-Flash-Next";
+        this.amdEnabled = amdEnabled;
         this.objectMapper = new ObjectMapper();
         this.httpClient = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofSeconds(10))
+                .connectTimeout(Duration.ofSeconds(15))
                 .build();
 
-        if (!this.apiKey.isEmpty()) {
+        if (!this.amdApiKey.isEmpty()) {
+            log.info("DeepMindSupervisorAgent initialized with live AMD Instinct Cloud Model: {} (AMD Token Factory)", this.amdModel);
+        } else if (!this.apiKey.isEmpty()) {
             log.info("DeepMindSupervisorAgent initialized with live Google DeepMind Gemini model: {}", this.model);
         } else {
-            log.info("DeepMindSupervisorAgent initialized in autonomous deterministic mode (Set GEMINI_API_KEY for live DeepMind Vertex/Studio AI).");
+            log.info("DeepMindSupervisorAgent initialized in autonomous deterministic mode (Set AMD_API_KEY or GEMINI_API_KEY).");
         }
     }
 
@@ -71,6 +85,16 @@ public class DeepMindSupervisorAgent {
         boolean isSarAnomaly = Boolean.TRUE.equals(focal.getSarClearingDetected());
         String actualRegion = regionName != null && !regionName.isBlank() ? regionName : "Kab. Kubu Raya";
 
+        // 1. Primary AI Provider: AMD Instinct Cloud (AMD Token Factory)
+        if (amdEnabled && !amdApiKey.isEmpty()) {
+            try {
+                return callAmdTokenFactoryApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
+            } catch (Exception e) {
+                log.warn("AMD Token Factory API encountered error: {}. Trying fallback AI provider.", e.getMessage());
+            }
+        }
+
+        // 2. Secondary AI Provider: Google DeepMind Gemini
         if (enabled && !apiKey.isEmpty()) {
             try {
                 return callDeepMindGeminiApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
@@ -80,6 +104,103 @@ public class DeepMindSupervisorAgent {
         }
 
         return buildLocalTacticalPlan(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion, false);
+    }
+
+    private AgentDto.TacticalActionPlan callAmdTokenFactoryApi(
+            H3DailyRiskSnapshot focal,
+            double canalDist,
+            double roadDist,
+            double peatDepth,
+            boolean isSarAnomaly,
+            String regionName) throws Exception {
+
+        String prompt = String.format(
+                "Wilayah: %s\n" +
+                "Heksagon H3: %s\n" +
+                "Status Risiko: %s (Skor: %.2f / 1.00)\n" +
+                "Ground Water Level (GWL): %.1f cm (Ambang Kritis PP 57/2016 < -40 cm)\n" +
+                "Kedalaman Gambut: %.1f meter\n" +
+                "Jarak ke Kanal Drainase Primer: %.0f meter\n" +
+                "Jarak ke Akses Jalan: %.0f meter\n" +
+                "Anomali Radar SAR Sentinel-1: %s\n" +
+                "Hari Tanpa Hujan: %d hari\n" +
+                "Kondisi Atmosfer: Angin berhembus 18 km/jam ke barat daya menuju permukiman.\n\n" +
+                "Hasilkan Action Plan Taktis pemadaman untuk Tim Daops Manggala Agni dalam format JSON murni TANPA markdown block:\n" +
+                "{\n" +
+                "  \"situationAssessment\": \"ringkasan analisis situasi kognitif mendalam\",\n" +
+                "  \"threatLevel\": \"EXTREME\",\n" +
+                "  \"recommendedPersonnel\": \"rekomendasi jumlah personel regu dan relawan\",\n" +
+                "  \"specificEquipment\": [\"alat 1\", \"alat 2\", \"alat 3\", \"alat 4\"],\n" +
+                "  \"fireBreakStrategy\": \"rekomendasi titik penyekatan api dan sekat bakar\",\n" +
+                "  \"waterSourceRecommendation\": \"rekomendasi sumber air untuk pompa apung\",\n" +
+                "  \"meteorologicalWatch\": \"peringatan arah angin dan cuaca\",\n" +
+                "  \"executiveSummary\": \"instruksi komando singkat tegas\"\n" +
+                "}",
+                regionName, focal.getH3Index(), focal.getRiskCategory(), focal.getIgnitionRiskScore(),
+                focal.getGwlCm(), peatDepth, canalDist, roadDist,
+                isSarAnomaly ? "TERDETEKSI TEBAS-BAKAR (CONFIDENCE 92%)" : "TIDAK TERDETEKSI",
+                focal.getDaysWithoutRain()
+        );
+
+        Map<String, Object> requestBody = Map.of(
+                "model", amdModel,
+                "messages", List.of(
+                        Map.of("role", "system", "content", "Anda adalah AI Tactical Supervisor Karhutla berbasis akselerator AMD Instinct Cloud (Team 1348). Berikan respon JSON murni TANPA markdown block."),
+                        Map.of("role", "user", "content", prompt)
+                ),
+                "max_tokens", 1000
+        );
+
+        String endpoint = amdBaseUrl.replaceAll("/+$", "") + "/chat/completions";
+
+        HttpRequest req = HttpRequest.newBuilder()
+                .uri(URI.create(endpoint))
+                .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + amdApiKey)
+                .timeout(Duration.ofSeconds(45))
+                .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(requestBody)))
+                .build();
+
+        HttpResponse<String> resp = httpClient.send(req, HttpResponse.BodyHandlers.ofString());
+
+        if (resp.statusCode() == 200) {
+            JsonNode root = objectMapper.readTree(resp.body());
+            JsonNode choices = root.path("choices");
+            if (choices.isArray() && !choices.isEmpty()) {
+                String text = choices.get(0).path("message").path("content").asText();
+                JsonNode parsed = objectMapper.readTree(cleanJsonMarkdown(text));
+
+                List<String> equipmentList = new ArrayList<>();
+                if (parsed.has("specificEquipment") && parsed.get("specificEquipment").isArray()) {
+                    for (JsonNode eq : parsed.get("specificEquipment")) {
+                        equipmentList.add(eq.asText());
+                    }
+                }
+                if (equipmentList.isEmpty()) {
+                    equipmentList = getDefaultEquipment();
+                }
+
+                log.info("Successfully generated Tactical Action Plan from live AMD Instinct Cloud ({}) for H3: {}", amdModel, focal.getH3Index());
+
+                return new AgentDto.TacticalActionPlan(
+                        "PLAN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase(),
+                        Instant.now(),
+                        "AMD Instinct Cloud • " + amdModel + " (Team 1348)",
+                        focal.getH3Index(),
+                        regionName,
+                        parsed.path("situationAssessment").asText("Analisis situasi darurat gambut aktif dari AMD Instinct Cloud."),
+                        parsed.path("threatLevel").asText(focal.getRiskCategory()),
+                        parsed.path("recommendedPersonnel").asText("1 Regu Inti Daops Manggala Agni (6 Personel) + 4 Relawan MPA"),
+                        equipmentList,
+                        parsed.path("fireBreakStrategy").asText("Buat sekat api selebar 3-4 meter di koridor barat daya."),
+                        parsed.path("waterSourceRecommendation").asText("Kanal primer berjarak " + (int)canalDist + "m."),
+                        parsed.path("meteorologicalWatch").asText("Angin berhembus ke barat daya. Operasi pembasahan dilakukan pagi hari."),
+                        parsed.path("executiveSummary").asText("Instruksi Taktis: Lakukan penyekatan dini dan pembasahan intensif sekat kanal.")
+                );
+            }
+        }
+
+        throw new RuntimeException("AMD API returned HTTP " + resp.statusCode() + ": " + resp.body());
     }
 
     private AgentDto.TacticalActionPlan callDeepMindGeminiApi(

@@ -205,8 +205,8 @@ const translations: Record<Language, Translations> = {
     patrolApprovedBy: "Disetujui Oleh:",
     patrolDaopsHeadquarters: "Komandan Daops Manggala Agni (Pusat Pengendali Operasi)",
 
-    // Google DeepMind Tactical Briefing
-    deepmindSupervisorBadge: "KOGNITIF SUPERVISOR AGENT • GOOGLE DEEPMIND GEMINI",
+    // Google DeepMind & AMD Instinct Tactical Briefing
+    deepmindSupervisorBadge: "KOGNITIF SUPERVISOR AGENT • AMD INSTINCT CLOUD (TEAM 1348)",
     deepmindBriefingTitle: "Briefing Taktis Pemadaman Preskriptif",
     deepmindTacticalAction: "Instruksi Tindakan Lapangan:",
     deepmindFirebreakTarget: "Titik Penyekatan Api (Firebreak):",
@@ -329,8 +329,8 @@ const translations: Record<Language, Translations> = {
     patrolApprovedBy: "Approved By:",
     patrolDaopsHeadquarters: "Manggala Agni Daops Commander (Mission Command Center)",
 
-    // Google DeepMind Tactical Briefing
-    deepmindSupervisorBadge: "COGNITIVE SUPERVISOR AGENT • GOOGLE DEEPMIND GEMINI",
+    // Google DeepMind & AMD Instinct Tactical Briefing
+    deepmindSupervisorBadge: "COGNITIVE SUPERVISOR AGENT • AMD INSTINCT CLOUD (TEAM 1348)",
     deepmindBriefingTitle: "Prescriptive Tactical Suppression Briefing",
     deepmindTacticalAction: "Field Tactical Instructions:",
     deepmindFirebreakTarget: "Firebreak Barrier Coordinates:",

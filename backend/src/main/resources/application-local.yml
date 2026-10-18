@@ -54,6 +54,11 @@ sentinel:
     api-key: ${GEMINI_API_KEY:}
     model: ${GEMINI_MODEL:gemini-1.5-flash}
     enabled: true
+  amd:
+    api-key: ${AMD_API_KEY:}
+    base-url: ${AMD_BASE_URL:https://developer.amd.com.cn/radeon/api/v1}
+    model: ${AMD_MODEL:Qwen3.8-Flash-Next}
+    enabled: true
   patrol:
     max-squads: 3
     max-points-per-squad: 4

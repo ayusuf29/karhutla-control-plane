@@ -329,7 +329,7 @@ export default function PatrolDispatchPanel({
                       </div>
                       <div className="flex items-center gap-1.5">
                         <span className="hidden sm:inline-block px-1.5 py-0.5 rounded text-[9px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                          {activePlan.aiEngine || "DeepMind AI"}
+                          {activePlan.aiEngine || "AMD Instinct Cloud • Team 1348"}
                         </span>
                         <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-sentinel-cyan/20 text-sentinel-cyan border border-sentinel-cyan/40">
                           {activePlan.threatLevel || "EXTREME"}
