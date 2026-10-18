@@ -15,6 +15,9 @@ import {
 } from "@/types";
 
 const BACKEND_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_HEADERS: HeadersInit = {
+  "ngrok-skip-browser-warning": "true",
+};
 
 export default function Home() {
   const [geojsonData, setGeojsonData] = useState<GeoJsonFeatureCollection | null>(null);
@@ -31,7 +34,9 @@ export default function Home() {
   // 1. Fetch Spatial H3 Grid
   const fetchSpatialGrid = useCallback(async () => {
     try {
-      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/spatial/h3-grid`);
+      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/spatial/h3-grid`, {
+        headers: API_HEADERS,
+      });
       if (res.ok) {
         const data = await res.json();
         setGeojsonData(data);
@@ -44,7 +49,9 @@ export default function Home() {
   // 2. Fetch Agent Recommendations
   const fetchRecommendations = useCallback(async () => {
     try {
-      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/agents/recommendations`);
+      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/agents/recommendations`, {
+        headers: API_HEADERS,
+      });
       if (res.ok) {
         const data = await res.json();
         setRecommendations(data);
@@ -73,6 +80,7 @@ export default function Home() {
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/agents/reassess`, {
         method: "POST",
+        headers: API_HEADERS,
       });
       if (res.ok) {
         await fetchSpatialGrid();
@@ -93,7 +101,7 @@ export default function Home() {
 
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/patrol/dispatch`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...API_HEADERS },
         body: JSON.stringify({
           squadId,
           approvedBy: "Komandan Daops Manggala Agni (Pusat Pengendali Operasi)",
