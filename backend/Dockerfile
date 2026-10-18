@@ -6,8 +6,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests -B
 
-# Runtime Image
-FROM eclipse-temurin:21-jre-alpine
+# Runtime Image (Use glibc-based Ubuntu Jammy to support Netty tcnative SSL JNI)
+FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 
 COPY --from=builder /app/target/sentinel-backend-*.jar app.jar
