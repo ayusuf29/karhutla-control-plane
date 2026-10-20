@@ -29,6 +29,7 @@ interface HeaderCommandBarProps {
   onOpenSarModal: () => void;
   omcCount: number;
   sarCount: number;
+  activeScenarioName?: string | null;
 }
 
 export default function HeaderCommandBar({
@@ -41,6 +42,7 @@ export default function HeaderCommandBar({
   onOpenSarModal,
   omcCount,
   sarCount,
+  activeScenarioName,
 }: HeaderCommandBarProps) {
   const { t, language, setLanguage } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -432,12 +434,24 @@ export default function HeaderCommandBar({
         <button
           onClick={onTriggerReassessment}
           disabled={isReassessing}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 disabled:opacity-50 text-white text-xs font-semibold shadow-md shadow-cyan-900/20 transition-all border border-cyan-400/30"
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md transition-all border ${
+            activeScenarioName
+              ? "bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white border-amber-400/50 shadow-rose-950/40 ring-1 ring-amber-400/30"
+              : "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-cyan-400/30 shadow-cyan-900/20"
+          } disabled:opacity-50`}
           title={t.btnSimulationTooltip}
         >
-          <RefreshCw className={`w-3.5 h-3.5 ${isReassessing ? "animate-spin" : ""}`} />
-          <span className="hidden sm:inline">
-            {isReassessing ? t.btnEvaluating : t.btnSimulation}
+          {activeScenarioName ? (
+            <Flame className="w-3.5 h-3.5 text-amber-200 animate-pulse" />
+          ) : (
+            <RefreshCw className={`w-3.5 h-3.5 ${isReassessing ? "animate-spin" : ""}`} />
+          )}
+          <span className="hidden sm:inline truncate max-w-[150px]">
+            {isReassessing
+              ? t.btnEvaluating
+              : activeScenarioName
+              ? activeScenarioName
+              : t.btnSimulation}
           </span>
         </button>
       </div>

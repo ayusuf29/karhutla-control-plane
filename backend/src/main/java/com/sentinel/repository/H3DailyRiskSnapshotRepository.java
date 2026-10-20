@@ -78,6 +78,34 @@ public interface H3DailyRiskSnapshotRepository extends JpaRepository<H3DailyRisk
         """, nativeQuery = true)
     RiskSummaryProjection findLatestRiskSummaryAggregates();
 
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.transaction.annotation.Transactional
+    @Query(value = """
+        UPDATE h3_daily_risk_snapshot
+        SET 
+            baseline_gwl_cm = COALESCE(baseline_gwl_cm, gwl_cm),
+            baseline_days_without_rain = COALESCE(baseline_days_without_rain, days_without_rain),
+            baseline_vpd_kpa = COALESCE(baseline_vpd_kpa, vpd_kpa),
+            baseline_ignition_risk_score = COALESCE(baseline_ignition_risk_score, ignition_risk_score),
+            baseline_risk_category = COALESCE(baseline_risk_category, risk_category)
+        WHERE baseline_gwl_cm IS NULL
+        """, nativeQuery = true)
+    void initializeBaselinesIfEmpty();
+
+    @org.springframework.data.jpa.repository.Modifying
+    @org.springframework.transaction.annotation.Transactional
+    @Query(value = """
+        UPDATE h3_daily_risk_snapshot
+        SET 
+            gwl_cm = COALESCE(baseline_gwl_cm, gwl_cm),
+            days_without_rain = COALESCE(baseline_days_without_rain, days_without_rain),
+            vpd_kpa = COALESCE(baseline_vpd_kpa, vpd_kpa),
+            ignition_risk_score = COALESCE(baseline_ignition_risk_score, ignition_risk_score),
+            risk_category = COALESCE(baseline_risk_category, risk_category),
+            sar_clearing_detected = false
+        """, nativeQuery = true)
+    void restoreBaseline();
+
     interface RiskSummaryProjection {
         long getTotalHexagons();
         long getExtremeRiskCount();

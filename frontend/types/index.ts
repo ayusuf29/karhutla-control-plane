@@ -185,3 +185,55 @@ export interface DispatchResponse {
   targetWaypoints?: string[];
 }
 
+export interface SimulationStats {
+  totalHexagons: number;
+  extremeCount: number;
+  highCount: number;
+  mediumCount: number;
+  lowCount: number;
+  avgGwlCm: number;
+  avgRiskScore: number;
+  sarAlerts: number;
+  omcTargets: number;
+}
+
+export interface SimulationDeltas {
+  extremeDiff: number;
+  highDiff: number;
+  avgGwlDiff: number;
+  avgRiskScoreDiff: number;
+  sarAlertsDiff: number;
+  omcTargetsDiff: number;
+}
+
+export interface SimulationRunResult {
+  simulationId: number;
+  scenarioName: string;
+  executionTimeMs: number;
+  before: SimulationStats;
+  after: SimulationStats;
+  deltas: SimulationDeltas;
+  isActive: boolean;
+}
+
+export interface SimulationHistoryItem {
+  id: number;
+  scenarioName: string;
+  dwrDelta: number;
+  gwlDelta: number;
+  vpdDelta: number;
+  sarBoost: boolean;
+  totalHexagons: number;
+  extremeCount: number;
+  highCount: number;
+  mediumCount: number;
+  lowCount: number;
+  avgGwlCm: number;
+  avgRiskScore: number;
+  sarAlerts: number;
+  omcTargets: number;
+  executionTimeMs: number;
+  isActive: boolean;
+  createdAt: string;
+}
+

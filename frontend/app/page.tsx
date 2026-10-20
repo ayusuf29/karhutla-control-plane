@@ -7,6 +7,7 @@ import CellInspectionDrawer from "@/components/CellInspectionDrawer";
 import PatrolDispatchPanel from "@/components/PatrolDispatchPanel";
 import OmcModal from "@/components/OmcModal";
 import SarAlertModal from "@/components/SarAlertModal";
+import SimulationModal from "@/components/SimulationModal";
 import {
   GeoJsonFeature,
   GeoJsonFeatureCollection,
@@ -30,6 +31,8 @@ export default function Home() {
   // Modals state
   const [isOmcModalOpen, setIsOmcModalOpen] = useState<boolean>(false);
   const [isSarModalOpen, setIsSarModalOpen] = useState<boolean>(false);
+  const [isSimulationModalOpen, setIsSimulationModalOpen] = useState<boolean>(false);
+  const [activeScenarioName, setActiveScenarioName] = useState<string | null>(null);
 
   // 1. Fetch Spatial H3 Grid
   const fetchSpatialGrid = useCallback(async () => {
@@ -61,9 +64,30 @@ export default function Home() {
     }
   }, []);
 
+  const checkActiveScenario = useCallback(async () => {
+    try {
+      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/simulation/active`, {
+        headers: API_HEADERS,
+      });
+      if (res.ok && res.status !== 204) {
+        const data = await res.json();
+        if (data && data.scenarioName) {
+          setActiveScenarioName(data.scenarioName);
+        } else {
+          setActiveScenarioName(null);
+        }
+      } else {
+        setActiveScenarioName(null);
+      }
+    } catch {
+      setActiveScenarioName(null);
+    }
+  }, []);
+
   useEffect(() => {
     fetchSpatialGrid();
     fetchRecommendations();
+    checkActiveScenario();
 
     // Poll lightweight agent recommendations & alerts every 25 seconds
     // (Large spatial grid is loaded once on mount and refreshed upon simulation)
@@ -72,26 +96,23 @@ export default function Home() {
     }, 25000);
 
     return () => clearInterval(interval);
-  }, [fetchSpatialGrid, fetchRecommendations]);
+  }, [fetchSpatialGrid, fetchRecommendations, checkActiveScenario]);
 
-  // 3. Trigger Drought Reassessment Simulation
-  const handleTriggerReassessment = async () => {
+  // 3. Open Drought Crisis Simulation Center Modal
+  const handleTriggerReassessment = () => {
+    setIsSimulationModalOpen(true);
+  };
+
+  const handleSimulationApplied = useCallback(async () => {
     setIsReassessing(true);
     try {
-      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/agents/reassess`, {
-        method: "POST",
-        headers: API_HEADERS,
-      });
-      if (res.ok) {
-        await fetchSpatialGrid();
-        await fetchRecommendations();
-      }
-    } catch (err) {
-      console.error("Reassessment trigger error:", err);
+      await fetchSpatialGrid();
+      await fetchRecommendations();
+      await checkActiveScenario();
     } finally {
       setIsReassessing(false);
     }
-  };
+  }, [fetchSpatialGrid, fetchRecommendations, checkActiveScenario]);
 
   // 4. Handle Patrol Squad Dispatch Approval
   const handleDispatchSquad = async (squadId: string): Promise<DispatchResponse | null> => {
@@ -143,6 +164,7 @@ export default function Home() {
         onOpenSarModal={() => setIsSarModalOpen(true)}
         omcCount={recommendations?.omcTargets?.length || 0}
         sarCount={recommendations?.sarAlerts?.length || 0}
+        activeScenarioName={activeScenarioName}
       />
 
       {/* 2. Fullscreen Deck.gl Map Viewport */}
@@ -184,6 +206,13 @@ export default function Home() {
         onClose={() => setIsSarModalOpen(false)}
         alerts={recommendations?.sarAlerts || []}
         onSelectCellByIndex={handleSelectCellByIndex}
+      />
+
+      <SimulationModal
+        isOpen={isSimulationModalOpen}
+        onClose={() => setIsSimulationModalOpen(false)}
+        onSimulationApplied={handleSimulationApplied}
+        activeScenarioName={activeScenarioName}
       />
     </main>
   );

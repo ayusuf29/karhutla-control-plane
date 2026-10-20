@@ -47,6 +47,21 @@ public class H3DailyRiskSnapshot {
     @Column(name = "recommended_action", length = 32)
     private String recommendedAction;
 
+    @Column(name = "baseline_gwl_cm")
+    private Double baselineGwlCm;
+
+    @Column(name = "baseline_days_without_rain")
+    private Integer baselineDaysWithoutRain;
+
+    @Column(name = "baseline_vpd_kpa")
+    private Double baselineVpdKpa;
+
+    @Column(name = "baseline_ignition_risk_score")
+    private Double baselineIgnitionRiskScore;
+
+    @Column(name = "baseline_risk_category", length = 16)
+    private String baselineRiskCategory;
+
     @Column(name = "created_at")
     private Instant createdAt = Instant.now();
 
@@ -87,4 +102,19 @@ public class H3DailyRiskSnapshot {
 
     public Instant getCreatedAt() { return createdAt; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
+
+    public Double getBaselineGwlCm() { return baselineGwlCm; }
+    public void setBaselineGwlCm(Double baselineGwlCm) { this.baselineGwlCm = baselineGwlCm; }
+
+    public Integer getBaselineDaysWithoutRain() { return baselineDaysWithoutRain; }
+    public void setBaselineDaysWithoutRain(Integer baselineDaysWithoutRain) { this.baselineDaysWithoutRain = baselineDaysWithoutRain; }
+
+    public Double getBaselineVpdKpa() { return baselineVpdKpa; }
+    public void setBaselineVpdKpa(Double baselineVpdKpa) { this.baselineVpdKpa = baselineVpdKpa; }
+
+    public Double getBaselineIgnitionRiskScore() { return baselineIgnitionRiskScore; }
+    public void setBaselineIgnitionRiskScore(Double baselineIgnitionRiskScore) { this.baselineIgnitionRiskScore = baselineIgnitionRiskScore; }
+
+    public String getBaselineRiskCategory() { return baselineRiskCategory; }
+    public void setBaselineRiskCategory(String baselineRiskCategory) { this.baselineRiskCategory = baselineRiskCategory; }
 }
