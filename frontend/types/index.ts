@@ -65,6 +65,7 @@ export interface AssessorSummary {
   averageGwlCm: number;
   averageRiskScore: number;
   sarClearingAlerts: number;
+  omcTargetCount?: number;
   hazardDiagnosis: string;
   suggestedOverallStrategy: string;
 }

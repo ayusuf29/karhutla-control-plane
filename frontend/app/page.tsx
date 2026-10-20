@@ -162,8 +162,8 @@ export default function Home() {
         isReassessing={isReassessing}
         onOpenOmcModal={() => setIsOmcModalOpen(true)}
         onOpenSarModal={() => setIsSarModalOpen(true)}
-        omcCount={recommendations?.omcTargets?.length || 0}
-        sarCount={recommendations?.sarAlerts?.length || 0}
+        omcCount={recommendations?.assessorSummary?.omcTargetCount ?? (recommendations?.omcTargets?.length || 0)}
+        sarCount={recommendations?.assessorSummary?.sarClearingAlerts ?? (recommendations?.sarAlerts?.length || 0)}
         activeScenarioName={activeScenarioName}
       />
 

@@ -66,12 +66,17 @@ public class AgentDto {
         private double averageGwlCm;
         private double averageRiskScore;
         private int sarClearingAlerts;
+        private int omcTargetCount;
         private String hazardDiagnosis;
         private String suggestedOverallStrategy;
 
         public AssessorSummary() {}
 
         public AssessorSummary(int totalMonitoredHexagons, int extremeRiskCount, int highRiskCount, int mediumRiskCount, int lowRiskCount, double averageGwlCm, double averageRiskScore, int sarClearingAlerts, String hazardDiagnosis, String suggestedOverallStrategy) {
+            this(totalMonitoredHexagons, extremeRiskCount, highRiskCount, mediumRiskCount, lowRiskCount, averageGwlCm, averageRiskScore, sarClearingAlerts, Math.min(25, extremeRiskCount / 4 + (extremeRiskCount > 0 ? 2 : 0)), hazardDiagnosis, suggestedOverallStrategy);
+        }
+
+        public AssessorSummary(int totalMonitoredHexagons, int extremeRiskCount, int highRiskCount, int mediumRiskCount, int lowRiskCount, double averageGwlCm, double averageRiskScore, int sarClearingAlerts, int omcTargetCount, String hazardDiagnosis, String suggestedOverallStrategy) {
             this.totalMonitoredHexagons = totalMonitoredHexagons;
             this.extremeRiskCount = extremeRiskCount;
             this.highRiskCount = highRiskCount;
@@ -80,6 +85,7 @@ public class AgentDto {
             this.averageGwlCm = averageGwlCm;
             this.averageRiskScore = averageRiskScore;
             this.sarClearingAlerts = sarClearingAlerts;
+            this.omcTargetCount = omcTargetCount;
             this.hazardDiagnosis = hazardDiagnosis;
             this.suggestedOverallStrategy = suggestedOverallStrategy;
         }
@@ -107,6 +113,9 @@ public class AgentDto {
 
         public int getSarClearingAlerts() { return sarClearingAlerts; }
         public void setSarClearingAlerts(int sarClearingAlerts) { this.sarClearingAlerts = sarClearingAlerts; }
+
+        public int getOmcTargetCount() { return omcTargetCount; }
+        public void setOmcTargetCount(int omcTargetCount) { this.omcTargetCount = omcTargetCount; }
 
         public String getHazardDiagnosis() { return hazardDiagnosis; }
         public void setHazardDiagnosis(String hazardDiagnosis) { this.hazardDiagnosis = hazardDiagnosis; }

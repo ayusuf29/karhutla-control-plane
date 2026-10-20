@@ -55,15 +55,19 @@ public class RiskAssessorAgent {
                 ? "Prioritaskan pembasahan darat dan aktivasi pintu sekat kanal pada heksagon prioritas."
                 : "Pertahankan patroli rutin pencegahan.";
 
+        int ext = (int) agg.getExtremeRiskCount();
+        int omc = Math.min(25, ext / 4 + (ext > 0 ? 2 : 0));
+
         return new AgentDto.AssessorSummary(
                 (int) agg.getTotalHexagons(),
-                (int) agg.getExtremeRiskCount(),
+                ext,
                 (int) agg.getHighRiskCount(),
                 (int) agg.getMediumRiskCount(),
                 (int) agg.getLowRiskCount(),
                 Math.round(agg.getAverageGwlCm() * 10.0) / 10.0,
                 Math.round(agg.getAverageRiskScore() * 100.0) / 100.0,
                 (int) agg.getSarClearingAlertCount(),
+                omc,
                 narrative,
                 recommendation
         );
@@ -71,7 +75,7 @@ public class RiskAssessorAgent {
 
     public AgentDto.AssessorSummary evaluateRiskSummaryFromSnapshots(List<H3DailyRiskSnapshot> snapshots) {
         if (snapshots == null || snapshots.isEmpty()) {
-            return new AgentDto.AssessorSummary(0, 0, 0, 0, 0, 0.0, 0.0, 0, "No snapshots recorded yet.", "Run initial data ingestion.");
+            return new AgentDto.AssessorSummary(0, 0, 0, 0, 0, 0.0, 0.0, 0, 0, "No snapshots recorded yet.", "Run initial data ingestion.");
         }
 
         int extreme = 0;
@@ -100,13 +104,14 @@ public class RiskAssessorAgent {
         int total = snapshots.size();
         double avgGwl = Math.round((sumGwl / total) * 100.0) / 100.0;
         double avgScore = Math.round((sumScore / total) * 1000.0) / 1000.0;
+        int omc = Math.min(25, extreme / 4 + (extreme > 0 ? 2 : 0));
 
         String diagnosis = generatePrescriptiveDiagnosis(extreme, high, avgGwl, sarAlerts);
         String strategy = generateOverallStrategy(extreme, sarAlerts);
 
         return new AgentDto.AssessorSummary(
                 total, extreme, high, medium, low,
-                avgGwl, avgScore, sarAlerts, diagnosis, strategy
+                avgGwl, avgScore, sarAlerts, omc, diagnosis, strategy
         );
     }
 

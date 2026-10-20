@@ -53,12 +53,12 @@ public class DeepMindSupervisorAgent {
                 .connectTimeout(Duration.ofSeconds(15))
                 .build();
 
-        if (!this.amdApiKey.isEmpty()) {
+        if (!this.apiKey.isEmpty()) {
+            log.info("DeepMindSupervisorAgent initialized with Google DeepMind Gemini model: {} as FIRST PRIORITY", this.model);
+        } else if (!this.amdApiKey.isEmpty()) {
             log.info("DeepMindSupervisorAgent initialized with live AMD Instinct Cloud Model: {} (AMD Token Factory)", this.amdModel);
-        } else if (!this.apiKey.isEmpty()) {
-            log.info("DeepMindSupervisorAgent initialized with live Google DeepMind Gemini model: {}", this.model);
         } else {
-            log.info("DeepMindSupervisorAgent initialized in autonomous deterministic mode (Set AMD_API_KEY or GEMINI_API_KEY).");
+            log.info("DeepMindSupervisorAgent initialized in autonomous deterministic mode (Set GEMINI_API_KEY or AMD_API_KEY).");
         }
     }
 
@@ -85,21 +85,21 @@ public class DeepMindSupervisorAgent {
         boolean isSarAnomaly = Boolean.TRUE.equals(focal.getSarClearingDetected());
         String actualRegion = regionName != null && !regionName.isBlank() ? regionName : "Kab. Kubu Raya";
 
-        // 1. Primary AI Provider: AMD Instinct Cloud (AMD Token Factory)
-        if (amdEnabled && !amdApiKey.isEmpty()) {
-            try {
-                return callAmdTokenFactoryApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
-            } catch (Exception e) {
-                log.warn("AMD Token Factory API encountered error: {}. Trying fallback AI provider.", e.getMessage());
-            }
-        }
-
-        // 2. Secondary AI Provider: Google DeepMind Gemini
+        // 1. Primary AI Provider: Google DeepMind Gemini (USER FIRST PRIORITY)
         if (enabled && !apiKey.isEmpty()) {
             try {
                 return callDeepMindGeminiApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
             } catch (Exception e) {
-                log.warn("DeepMind Gemini API call encountered error: {}. Reverting to local tactical protocol.", e.getMessage());
+                log.warn("DeepMind Gemini API call encountered error: {}. Trying fallback AI provider.", e.getMessage());
+            }
+        }
+
+        // 2. Secondary AI Provider: AMD Instinct Cloud (AMD Token Factory)
+        if (amdEnabled && !amdApiKey.isEmpty()) {
+            try {
+                return callAmdTokenFactoryApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
+            } catch (Exception e) {
+                log.warn("AMD Token Factory API encountered error: {}. Reverting to local tactical protocol.", e.getMessage());
             }
         }
 

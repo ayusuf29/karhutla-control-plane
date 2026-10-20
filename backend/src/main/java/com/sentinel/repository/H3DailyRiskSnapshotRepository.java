@@ -49,7 +49,7 @@ public interface H3DailyRiskSnapshotRepository extends JpaRepository<H3DailyRisk
         WHERE gwl_cm < -45.0
           AND snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
         ORDER BY gwl_cm ASC
-        LIMIT 10
+        LIMIT 50
         """, nativeQuery = true)
     List<H3DailyRiskSnapshot> findTopDryingSnapshots();
 
@@ -59,7 +59,7 @@ public interface H3DailyRiskSnapshotRepository extends JpaRepository<H3DailyRisk
         WHERE sar_clearing_detected = true
           AND snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
         ORDER BY ignition_risk_score DESC
-        LIMIT 50
+        LIMIT 100
         """, nativeQuery = true)
     List<H3DailyRiskSnapshot> findTopSarAlerts();
 

@@ -284,7 +284,7 @@ public class PatrolOptimizerAgent {
         List<H3DailyRiskSnapshot> extremeGwl = snapshots.stream()
                 .filter(s -> s.getGwlCm() < -45.0)
                 .sorted(Comparator.comparingDouble(H3DailyRiskSnapshot::getGwlCm))
-                .limit(5)
+                .limit(25)
                 .toList();
 
         for (H3DailyRiskSnapshot s : extremeGwl) {
@@ -314,7 +314,7 @@ public class PatrolOptimizerAgent {
         List<H3DailyRiskSnapshot> sarHits = snapshots.stream()
                 .filter(s -> Boolean.TRUE.equals(s.getSarClearingDetected()))
                 .sorted((a, b) -> Double.compare(b.getIgnitionRiskScore(), a.getIgnitionRiskScore()))
-                .limit(50)
+                .limit(100)
                 .toList();
 
         for (H3DailyRiskSnapshot s : sarHits) {

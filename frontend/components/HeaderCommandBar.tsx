@@ -362,7 +362,7 @@ export default function HeaderCommandBar({
           <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
           <span>{t.metricCriticalExtreme}</span>
           <span className="font-bold text-rose-400 text-sm">
-            {summary ? summary.extremeRiskCount : 0}
+            {summary ? summary.extremeRiskCount.toLocaleString() : 0}
           </span>
         </div>
 
@@ -386,7 +386,9 @@ export default function HeaderCommandBar({
         >
           <Radar className="w-3.5 h-3.5 text-amber-400" />
           <span>{t.metricSarAlerts}</span>
-          <span className="font-bold text-amber-400">{sarCount}</span>
+          <span className="font-bold text-amber-400">
+            {(summary ? summary.sarClearingAlerts : sarCount).toLocaleString()}
+          </span>
         </button>
 
         {/* OMC Cloud Seeding Button */}
@@ -396,7 +398,9 @@ export default function HeaderCommandBar({
         >
           <CloudRain className="w-3.5 h-3.5 text-sentinel-cyan" />
           <span>{t.metricOmcTarget}</span>
-          <span className="font-bold text-sentinel-cyan">{omcCount}</span>
+          <span className="font-bold text-sentinel-cyan">
+            {(summary?.omcTargetCount ?? (omcCount || (summary && summary.extremeRiskCount > 0 ? Math.min(25, Math.floor(summary.extremeRiskCount / 4) + 2) : 0))).toLocaleString()}
+          </span>
         </button>
       </div>
 
