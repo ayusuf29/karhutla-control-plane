@@ -17,12 +17,17 @@ public interface H3DailyRiskSnapshotRepository extends JpaRepository<H3DailyRisk
 
     List<H3DailyRiskSnapshot> findBySnapshotDate(LocalDate snapshotDate);
 
+    long countBySnapshotDate(LocalDate snapshotDate);
+
     @Query(value = """
         SELECT *
         FROM h3_daily_risk_snapshot
         WHERE snapshot_date = (SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot)
         """, nativeQuery = true)
     List<H3DailyRiskSnapshot> findLatestSnapshotsForAllHexagons();
+
+    @Query(value = "SELECT MAX(snapshot_date) FROM h3_daily_risk_snapshot", nativeQuery = true)
+    LocalDate findLatestSnapshotDate();
 
     @Query(value = """
         SELECT *

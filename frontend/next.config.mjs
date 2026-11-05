@@ -7,7 +7,7 @@ const nextConfig = {
     return config;
   },
   async rewrites() {
-    const backendUrl = process.env.INTERNAL_BACKEND_URL || 'http://sentinel-backend:8080';
+    const backendUrl = process.env.INTERNAL_BACKEND_URL || 'http://localhost:7080';
     return [
       {
         source: '/api/:path*',

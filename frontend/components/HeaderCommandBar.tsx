@@ -15,6 +15,7 @@ import {
   Search,
   X,
   Compass,
+  Calendar,
 } from "lucide-react";
 import { AssessorSummary, DistrictHierarchyItem } from "@/types";
 import { useTranslation } from "@/context/LanguageContext";
@@ -23,13 +24,17 @@ interface HeaderCommandBarProps {
   summary: AssessorSummary | null;
   selectedRegion: string;
   onSelectRegion: (region: string) => void;
-  onTriggerReassessment: () => void;
-  isReassessing: boolean;
-  onOpenOmcModal: () => void;
-  onOpenSarModal: () => void;
-  omcCount: number;
-  sarCount: number;
+  onTriggerReassessment?: () => void;
+  isReassessing?: boolean;
+  onOpenOmcModal?: () => void;
+  onOpenSarModal?: () => void;
+  omcCount?: number;
+  sarCount?: number;
   activeScenarioName?: string | null;
+  lastFetchedDate?: string | null;
+  todayDate?: string;
+  onSyncTelemetry?: () => void;
+  isSyncingTelemetry?: boolean;
 }
 
 export default function HeaderCommandBar({
@@ -43,6 +48,10 @@ export default function HeaderCommandBar({
   omcCount,
   sarCount,
   activeScenarioName,
+  lastFetchedDate,
+  todayDate,
+  onSyncTelemetry,
+  isSyncingTelemetry = false,
 }: HeaderCommandBarProps) {
   const { t, language, setLanguage } = useTranslation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -81,6 +90,12 @@ export default function HeaderCommandBar({
       label: t.regionKalimantan,
       badge: t.regionKalimantanBadge,
       subtitle: t.regionKalimantanSubtitle,
+    },
+    {
+      id: "PAPUA",
+      label: t.regionPapua,
+      badge: t.regionPapuaBadge,
+      subtitle: t.regionPapuaSubtitle,
     },
     {
       id: "KUBU_RAYA",
@@ -350,10 +365,10 @@ export default function HeaderCommandBar({
       </div>
 
       {/* Center: Mission Critical Metric Counters */}
-      <div className="hidden md:flex items-center gap-2">
+      <div className="hidden md:flex items-center gap-3">
         {/* Extreme Alert Pill */}
         <div
-          className={`flex items-center gap-1.5 px-3 py-1 rounded-md border text-xs font-mono tabular-nums ${
+          className={`flex items-center gap-1.5 px-3 py-1 rounded-lg border text-xs font-mono tabular-nums ${
             summary && summary.extremeRiskCount > 0
               ? "bg-rose-950/40 border-rose-500/40 text-rose-300 beacon-extreme"
               : "bg-obsidian-surface border-sentinel-border text-slate-400"
@@ -367,7 +382,7 @@ export default function HeaderCommandBar({
         </div>
 
         {/* Average Ground Water Level */}
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-obsidian-surface border border-sentinel-border text-xs font-mono tabular-nums text-slate-300">
+        <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-obsidian-surface border border-sentinel-border text-xs font-mono tabular-nums text-slate-300">
           <Droplets className="w-3.5 h-3.5 text-sentinel-cyan" />
           <span>{t.metricAvgGwl}</span>
           <span
@@ -379,33 +394,65 @@ export default function HeaderCommandBar({
           </span>
         </div>
 
-        {/* SAR Pre-Burn Alerts Button */}
-        <button
-          onClick={onOpenSarModal}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-obsidian-surface border border-sentinel-border hover:border-amber-500/40 text-xs font-mono tabular-nums text-slate-300 transition-colors"
-        >
-          <Radar className="w-3.5 h-3.5 text-amber-400" />
-          <span>{t.metricSarAlerts}</span>
-          <span className="font-bold text-amber-400">
-            {(summary ? summary.sarClearingAlerts : sarCount).toLocaleString()}
-          </span>
-        </button>
-
-        {/* OMC Cloud Seeding Button */}
-        <button
-          onClick={onOpenOmcModal}
-          className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-obsidian-surface border border-sentinel-border hover:border-sentinel-cyan/40 text-xs font-mono tabular-nums text-slate-300 transition-colors"
-        >
-          <CloudRain className="w-3.5 h-3.5 text-sentinel-cyan" />
-          <span>{t.metricOmcTarget}</span>
-          <span className="font-bold text-sentinel-cyan">
-            {(summary?.omcTargetCount ?? (omcCount || (summary && summary.extremeRiskCount > 0 ? Math.min(25, Math.floor(summary.extremeRiskCount / 4) + 2) : 0))).toLocaleString()}
-          </span>
-        </button>
+        {/* Active Scenario Indicator Pill (if any scenario is running) */}
+        {activeScenarioName && (
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300 animate-fadeIn">
+            <Flame className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <span className="text-slate-400 text-[10px] uppercase font-bold tracking-wider">
+              {language === "id" ? "Skenario:" : "Scenario:"}
+            </span>
+            <span className="font-semibold text-amber-200 truncate max-w-[160px]">
+              {activeScenarioName}
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Right: Language Switcher & Simulation Controls */}
-      <div className="flex items-center gap-2">
+      {/* Right: Telemetry Update Status & Bilingual Switcher */}
+      <div className="flex items-center gap-2.5">
+        {/* Last Data Fetched Date Display */}
+        {lastFetchedDate && (
+          <div
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-obsidian-surface border border-sentinel-border text-[11px] font-mono tabular-nums text-slate-300 shadow-sm"
+            title={language === "id" ? `Tanggal telemetri cuaca terakhir: ${lastFetchedDate}` : `Latest weather telemetry date: ${lastFetchedDate}`}
+          >
+            <Calendar className="w-3.5 h-3.5 text-sentinel-cyan shrink-0" />
+            <span className="text-slate-400 hidden xl:inline">
+              {language === "id" ? "Data Terakhir:" : "Last Data:"}
+            </span>
+            <span className="font-semibold text-slate-200">
+              {lastFetchedDate}
+            </span>
+          </div>
+        )}
+
+        {/* Conditional Real-Time Update Data Button */}
+        {/* VALIDATION: Only visible if todayDate != lastFetchedDate */}
+        {lastFetchedDate && todayDate && lastFetchedDate !== todayDate ? (
+          <button
+            onClick={onSyncTelemetry}
+            disabled={isSyncingTelemetry}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-md shadow-emerald-950/40 border border-emerald-400/40 animate-pulse transition-all disabled:opacity-50"
+            title={
+              language === "id"
+                ? `Update data real-time & retrain XGBoost dari ${lastFetchedDate} ke ${todayDate}`
+                : `Fetch real-time data & retrain XGBoost from ${lastFetchedDate} to ${todayDate}`
+            }
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${isSyncingTelemetry ? "animate-spin" : ""}`} />
+            <span className="truncate max-w-[140px] md:max-w-none">
+              {isSyncingTelemetry
+                ? (language === "id" ? "Melatih Ulang..." : "Retraining...")
+                : (language === "id" ? "Update Data" : "Update Data")}
+            </span>
+          </button>
+        ) : lastFetchedDate && todayDate && lastFetchedDate === todayDate ? (
+          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-mono text-emerald-300">
+            <Check className="w-3.5 h-3.5 text-emerald-400" />
+            <span>{language === "id" ? "Terkini (Hari Ini)" : "Up to Date"}</span>
+          </div>
+        ) : null}
+
         {/* Bilingual Switcher (ID / EN) */}
         <div className="flex items-center bg-obsidian-surface p-0.5 rounded-lg border border-sentinel-border shadow-sm">
           <button
@@ -433,31 +480,6 @@ export default function HeaderCommandBar({
             <span>EN</span>
           </button>
         </div>
-
-        {/* Simulation Button */}
-        <button
-          onClick={onTriggerReassessment}
-          disabled={isReassessing}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md transition-all border ${
-            activeScenarioName
-              ? "bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white border-amber-400/50 shadow-rose-950/40 ring-1 ring-amber-400/30"
-              : "bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-cyan-400/30 shadow-cyan-900/20"
-          } disabled:opacity-50`}
-          title={t.btnSimulationTooltip}
-        >
-          {activeScenarioName ? (
-            <Flame className="w-3.5 h-3.5 text-amber-200 animate-pulse" />
-          ) : (
-            <RefreshCw className={`w-3.5 h-3.5 ${isReassessing ? "animate-spin" : ""}`} />
-          )}
-          <span className="hidden sm:inline truncate max-w-[150px]">
-            {isReassessing
-              ? t.btnEvaluating
-              : activeScenarioName
-              ? activeScenarioName
-              : t.btnSimulation}
-          </span>
-        </button>
       </div>
     </header>
   );

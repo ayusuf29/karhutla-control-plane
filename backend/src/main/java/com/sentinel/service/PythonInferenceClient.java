@@ -36,10 +36,11 @@ public class PythonInferenceClient {
         if (!useTls) {
             builder.usePlaintext();
         }
+        builder.maxInboundMessageSize(100 * 1024 * 1024); // 100 MB buffer for 124k H3 nationwide vectors
         this.channel = builder.build();
         this.blockingStub = FireRiskInferenceServiceGrpc.newBlockingStub(channel);
 
-        log.info("Initialized PythonInferenceClient targeting gRPC endpoint: {}", endpoint);
+        log.info("Initialized PythonInferenceClient targeting gRPC endpoint: {} with 100MB inbound message size", endpoint);
     }
 
     public BatchRiskResponse evaluateBatch(BatchRiskRequest request) {
@@ -75,30 +76,52 @@ public class PythonInferenceClient {
             double gwl = f.getGroundWaterLevelCm();
             int dwr = f.getDaysWithoutRain();
             double vpd = f.getVaporPressureDeficit();
-            double peatDepth = f.getPeatDepthMeters();
+            double depth = f.getPeatDepthMeters();
+            double distRoad = f.getDistanceToRoadMeters();
+            double distCanal = f.getDistanceToCanalMeters();
 
-            // Heuristic scoring:
-            // GWL < -40 cm contributes heavily
-            double gwlScore = Math.max(0.0, Math.min(1.0, (-gwl - 15.0) / 45.0)); // -15 to -60 cm
-            double rainScore = Math.max(0.0, Math.min(1.0, dwr / 20.0));
-            double vpdScore = Math.max(0.0, Math.min(1.0, (vpd - 1.0) / 3.0));
-            double depthScore = Math.max(0.0, Math.min(1.0, peatDepth / 5.0));
+            // Deterministic empirical model aligned with PP 57/2016 and Python PeatFireRiskModel
+            // 1. GWL factor (negative cm: -18cm is wet, -40cm is threshold, -65cm is severely dried)
+            double fGwl = Math.max(0.0, Math.min(1.0, (-gwl - 18.0) / 42.0));
 
-            double combinedScore = (0.45 * gwlScore) + (0.25 * rainScore) + (0.20 * vpdScore) + (0.10 * depthScore);
-            combinedScore = Math.round(combinedScore * 1000.0) / 1000.0;
+            // 2. Drought factor: Days without rain (0 to 20 days)
+            double fRain = Math.max(0.0, Math.min(1.0, dwr / 20.0));
+
+            // 3. Atmospheric drying: VPD (1.2 to 4.0 kPa)
+            double fVpd = Math.max(0.0, Math.min(1.0, (vpd - 1.2) / 2.8));
+
+            // 4. Drainage canal proximity (closer canal = increased drained dome subsidence)
+            double fCanal = Math.max(0.0, Math.min(1.0, (1800.0 - distCanal) / 1800.0));
+
+            // 5. Road proximity (anthropogenic human access / slash-and-burn)
+            double fRoad = Math.max(0.0, Math.min(1.0, (3000.0 - distRoad) / 3000.0));
+
+            // 6. Peat depth (deep peat domes store higher combustible fuel load)
+            double fDepth = Math.max(0.0, Math.min(1.0, depth / 4.5));
+
+            // Core weighted combination
+            double combinedScore = (0.42 * fGwl) + (0.22 * fRain) + (0.18 * fVpd) +
+                                   (0.08 * fCanal) + (0.06 * fRoad) + (0.04 * fDepth);
+
+            // Non-linear synergy: when GWL drops beyond critical PP 57/2016 threshold (< -40cm) AND dwr >= 12 days
+            if (gwl < -40.0 && dwr >= 12) {
+                combinedScore = Math.min(1.0, combinedScore * 1.15);
+            }
+
+            combinedScore = Math.max(0.010, Math.min(0.995, Math.round(combinedScore * 1000.0) / 1000.0));
 
             String category;
-            if (combinedScore >= 0.85) {
+            if (combinedScore >= 0.750) {
                 category = "EXTREME";
-            } else if (combinedScore >= 0.60) {
+            } else if (combinedScore >= 0.550) {
                 category = "HIGH";
-            } else if (combinedScore >= 0.30) {
+            } else if (combinedScore >= 0.300) {
                 category = "MEDIUM";
             } else {
                 category = "LOW";
             }
 
-            boolean sarAnomaly = category.equals("EXTREME") && combinedScore > 0.90;
+            boolean sarAnomaly = (category.equals("EXTREME") || category.equals("HIGH")) && (combinedScore >= 0.70 || gwl < -45.0);
             results.add(new H3RiskResult(f.getH3Index(), combinedScore, category, sarAnomaly));
         }
 

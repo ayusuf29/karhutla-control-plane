@@ -1,6 +1,6 @@
 {
-  "totalDistricts": 175,
-  "totalHexagons": 35216,
+  "totalDistricts": 556,
+  "totalHexagons": 124485,
   "districts": [
     {
       "id": "Aceh::Aceh Barat::Samatiga",
@@ -212,6 +212,1355 @@
       ]
     },
     {
+      "id": "Bengkulu::Bengkulu Selatan::Kedurang",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Selatan",
+      "district": "Kedurang",
+      "label": "Kec. Kedurang, Bengkulu Selatan",
+      "fullTitle": "Kecamatan Kedurang (Bengkulu Selatan, Bengkulu)",
+      "h3Count": 2,
+      "center": [
+        103.23539,
+        -4.3283
+      ],
+      "bounds": [
+        103.20135,
+        -4.36309,
+        103.26942,
+        -4.29352
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Selatan::Pinoraya",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Selatan",
+      "district": "Pinoraya",
+      "label": "Kec. Pinoraya, Bengkulu Selatan",
+      "fullTitle": "Kecamatan Pinoraya (Bengkulu Selatan, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.88106,
+        -4.239
+      ],
+      "bounds": [
+        102.88106,
+        -4.239,
+        102.88106,
+        -4.239
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Tengah::Merigi Kelindang",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Tengah",
+      "district": "Merigi Kelindang",
+      "label": "Kec. Merigi Kelindang, Bengkulu Tengah",
+      "fullTitle": "Kecamatan Merigi Kelindang (Bengkulu Tengah, Bengkulu)",
+      "h3Count": 131,
+      "center": [
+        102.46608,
+        -3.60065
+      ],
+      "bounds": [
+        102.39375,
+        -3.67596,
+        102.52214,
+        -3.5025
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Tengah::Pagar Jati",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Tengah",
+      "district": "Pagar Jati",
+      "label": "Kec. Pagar Jati, Bengkulu Tengah",
+      "fullTitle": "Kecamatan Pagar Jati (Bengkulu Tengah, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.4346,
+        -3.54868
+      ],
+      "bounds": [
+        102.4346,
+        -3.54868,
+        102.4346,
+        -3.54868
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Tengah::Taba Penanjung",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Tengah",
+      "district": "Taba Penanjung",
+      "label": "Kec. Taba Penanjung, Bengkulu Tengah",
+      "fullTitle": "Kecamatan Taba Penanjung (Bengkulu Tengah, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.44942,
+        -3.66885
+      ],
+      "bounds": [
+        102.44942,
+        -3.66885,
+        102.44942,
+        -3.66885
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Tengah::Talang Empat",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Tengah",
+      "district": "Talang Empat",
+      "label": "Kec. Talang Empat, Bengkulu Tengah",
+      "fullTitle": "Kecamatan Talang Empat (Bengkulu Tengah, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.34562,
+        -3.78849
+      ],
+      "bounds": [
+        102.34562,
+        -3.78849,
+        102.34562,
+        -3.78849
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Tengah::Wilayah Kosong",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Tengah",
+      "district": "Wilayah Kosong",
+      "label": "Kec. Wilayah Kosong, Bengkulu Tengah",
+      "fullTitle": "Kecamatan Wilayah Kosong (Bengkulu Tengah, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.60895,
+        -3.79098
+      ],
+      "bounds": [
+        102.60895,
+        -3.79098,
+        102.60895,
+        -3.79098
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Putri Hijau",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Putri Hijau",
+      "label": "Kec. Putri Hijau, Bengkulu Utara",
+      "fullTitle": "Kecamatan Putri Hijau (Bengkulu Utara, Bengkulu)",
+      "h3Count": 247,
+      "center": [
+        101.6827,
+        -3.2209
+      ],
+      "bounds": [
+        101.58331,
+        -3.30586,
+        101.77721,
+        -3.13039
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Pinang Raya",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Pinang Raya",
+      "label": "Kec. Pinang Raya, Bengkulu Utara",
+      "fullTitle": "Kecamatan Pinang Raya (Bengkulu Utara, Bengkulu)",
+      "h3Count": 211,
+      "center": [
+        101.908,
+        -3.31931
+      ],
+      "bounds": [
+        101.77492,
+        -3.42578,
+        102.15965,
+        -3.16256
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Air Besi",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Air Besi",
+      "label": "Kec. Air Besi, Bengkulu Utara",
+      "fullTitle": "Kecamatan Air Besi (Bengkulu Utara, Bengkulu)",
+      "h3Count": 99,
+      "center": [
+        102.15941,
+        -3.51955
+      ],
+      "bounds": [
+        102.082,
+        -3.55556,
+        102.24512,
+        -3.48496
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Ketahun",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Ketahun",
+      "label": "Kec. Ketahun, Bengkulu Utara",
+      "fullTitle": "Kecamatan Ketahun (Bengkulu Utara, Bengkulu)",
+      "h3Count": 7,
+      "center": [
+        101.77842,
+        -3.27639
+      ],
+      "bounds": [
+        101.71901,
+        -3.31831,
+        101.89293,
+        -3.24344
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Marga Sakti Sebelat",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Marga Sakti Sebelat",
+      "label": "Kec. Marga Sakti Sebelat, Bengkulu Utara",
+      "fullTitle": "Kecamatan Marga Sakti Sebelat (Bengkulu Utara, Bengkulu)",
+      "h3Count": 4,
+      "center": [
+        101.67432,
+        -3.14453
+      ],
+      "bounds": [
+        101.63875,
+        -3.20716,
+        101.6882,
+        -3.10242
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Air Napal",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Air Napal",
+      "label": "Kec. Air Napal, Bengkulu Utara",
+      "fullTitle": "Kecamatan Air Napal (Bengkulu Utara, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.13591,
+        -3.54367
+      ],
+      "bounds": [
+        102.13591,
+        -3.54367,
+        102.13591,
+        -3.54367
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Arma Jaya",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Arma Jaya",
+      "label": "Kec. Arma Jaya, Bengkulu Utara",
+      "fullTitle": "Kecamatan Arma Jaya (Bengkulu Utara, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.18897,
+        -3.49501
+      ],
+      "bounds": [
+        102.18897,
+        -3.49501,
+        102.18897,
+        -3.49501
+      ]
+    },
+    {
+      "id": "Bengkulu::Bengkulu Utara::Batik Nau",
+      "province": "Bengkulu",
+      "regency": "Bengkulu Utara",
+      "district": "Batik Nau",
+      "label": "Kec. Batik Nau, Bengkulu Utara",
+      "fullTitle": "Kecamatan Batik Nau (Bengkulu Utara, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        101.94042,
+        -3.32899
+      ],
+      "bounds": [
+        101.94042,
+        -3.32899,
+        101.94042,
+        -3.32899
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Padang Guci Hulu",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Padang Guci Hulu",
+      "label": "Kec. Padang Guci Hulu, Kaur",
+      "fullTitle": "Kecamatan Padang Guci Hulu (Kaur, Bengkulu)",
+      "h3Count": 454,
+      "center": [
+        103.28541,
+        -4.36952
+      ],
+      "bounds": [
+        103.19338,
+        -4.5007,
+        103.43147,
+        -4.25761
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Tetap",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Tetap",
+      "label": "Kec. Tetap, Kaur",
+      "fullTitle": "Kecamatan Tetap (Kaur, Bengkulu)",
+      "h3Count": 106,
+      "center": [
+        103.37655,
+        -4.70668
+      ],
+      "bounds": [
+        103.30753,
+        -4.77092,
+        103.46445,
+        -4.61588
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Luas",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Luas",
+      "label": "Kec. Luas, Kaur",
+      "fullTitle": "Kecamatan Luas (Kaur, Bengkulu)",
+      "h3Count": 4,
+      "center": [
+        103.36575,
+        -4.68704
+      ],
+      "bounds": [
+        103.34659,
+        -4.70425,
+        103.38925,
+        -4.6701
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Kaur Utara",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Kaur Utara",
+      "label": "Kec. Kaur Utara, Kaur",
+      "fullTitle": "Kecamatan Kaur Utara (Kaur, Bengkulu)",
+      "h3Count": 2,
+      "center": [
+        103.23136,
+        -4.47947
+      ],
+      "bounds": [
+        103.22232,
+        -4.4985,
+        103.24039,
+        -4.46044
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Kinal",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Kinal",
+      "label": "Kec. Kinal, Kaur",
+      "fullTitle": "Kecamatan Kinal (Kaur, Bengkulu)",
+      "h3Count": 2,
+      "center": [
+        103.29323,
+        -4.45017
+      ],
+      "bounds": [
+        103.26789,
+        -4.48548,
+        103.31857,
+        -4.41487
+      ]
+    },
+    {
+      "id": "Bengkulu::Kaur::Muara Sahung",
+      "province": "Bengkulu",
+      "regency": "Kaur",
+      "district": "Muara Sahung",
+      "label": "Kec. Muara Sahung, Kaur",
+      "fullTitle": "Kecamatan Muara Sahung (Kaur, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        103.34607,
+        -4.40185
+      ],
+      "bounds": [
+        103.34607,
+        -4.40185,
+        103.34607,
+        -4.40185
+      ]
+    },
+    {
+      "id": "Bengkulu::Kepahiang::Seberang Musi",
+      "province": "Bengkulu",
+      "regency": "Kepahiang",
+      "district": "Seberang Musi",
+      "label": "Kec. Seberang Musi, Kepahiang",
+      "fullTitle": "Kecamatan Seberang Musi (Kepahiang, Bengkulu)",
+      "h3Count": 124,
+      "center": [
+        102.62533,
+        -3.73292
+      ],
+      "bounds": [
+        102.57897,
+        -3.79271,
+        102.68668,
+        -3.67099
+      ]
+    },
+    {
+      "id": "Bengkulu::Kepahiang::Ujan Mas",
+      "province": "Bengkulu",
+      "regency": "Kepahiang",
+      "district": "Ujan Mas",
+      "label": "Kec. Ujan Mas, Kepahiang",
+      "fullTitle": "Kecamatan Ujan Mas (Kepahiang, Bengkulu)",
+      "h3Count": 119,
+      "center": [
+        102.52921,
+        -3.54909
+      ],
+      "bounds": [
+        102.44476,
+        -3.60007,
+        102.59469,
+        -3.51239
+      ]
+    },
+    {
+      "id": "Bengkulu::Kepahiang::Kaba Wetan",
+      "province": "Bengkulu",
+      "regency": "Kepahiang",
+      "district": "Kaba Wetan",
+      "label": "Kec. Kaba Wetan, Kepahiang",
+      "fullTitle": "Kecamatan Kaba Wetan (Kepahiang, Bengkulu)",
+      "h3Count": 3,
+      "center": [
+        102.58697,
+        -3.54888
+      ],
+      "bounds": [
+        102.55404,
+        -3.58643,
+        102.60851,
+        -3.52299
+      ]
+    },
+    {
+      "id": "Bengkulu::Kepahiang::Bermani Ilir",
+      "province": "Bengkulu",
+      "regency": "Kepahiang",
+      "district": "Bermani Ilir",
+      "label": "Kec. Bermani Ilir, Kepahiang",
+      "fullTitle": "Kecamatan Bermani Ilir (Kepahiang, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.66845,
+        -3.72054
+      ],
+      "bounds": [
+        102.66845,
+        -3.72054,
+        102.66845,
+        -3.72054
+      ]
+    },
+    {
+      "id": "Bengkulu::Kepahiang::Tebat Karai",
+      "province": "Bengkulu",
+      "regency": "Kepahiang",
+      "district": "Tebat Karai",
+      "label": "Kec. Tebat Karai, Kepahiang",
+      "fullTitle": "Kecamatan Tebat Karai (Kepahiang, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.61023,
+        -3.68693
+      ],
+      "bounds": [
+        102.61023,
+        -3.68693,
+        102.61023,
+        -3.68693
+      ]
+    },
+    {
+      "id": "Bengkulu::Kota Bengkulu::Sungai Serut",
+      "province": "Bengkulu",
+      "regency": "Kota Bengkulu",
+      "district": "Sungai Serut",
+      "label": "Kec. Sungai Serut, Kota Bengkulu",
+      "fullTitle": "Kecamatan Sungai Serut (Kota Bengkulu, Bengkulu)",
+      "h3Count": 20,
+      "center": [
+        102.31738,
+        -3.78959
+      ],
+      "bounds": [
+        102.26333,
+        -3.80269,
+        102.34928,
+        -3.77255
+      ]
+    },
+    {
+      "id": "Bengkulu::Kota Bengkulu::Muara Bangka Hulu",
+      "province": "Bengkulu",
+      "regency": "Kota Bengkulu",
+      "district": "Muara Bangka Hulu",
+      "label": "Kec. Muara Bangka Hulu, Kota Bengkulu",
+      "fullTitle": "Kecamatan Muara Bangka Hulu (Kota Bengkulu, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.31068,
+        -3.78618
+      ],
+      "bounds": [
+        102.31068,
+        -3.78618,
+        102.31068,
+        -3.78618
+      ]
+    },
+    {
+      "id": "Bengkulu::Lebong::Lebong Utara",
+      "province": "Bengkulu",
+      "regency": "Lebong",
+      "district": "Lebong Utara",
+      "label": "Kec. Lebong Utara, Lebong",
+      "fullTitle": "Kecamatan Lebong Utara (Lebong, Bengkulu)",
+      "h3Count": 26,
+      "center": [
+        102.18003,
+        -3.10879
+      ],
+      "bounds": [
+        102.14836,
+        -3.15184,
+        102.20543,
+        -3.08166
+      ]
+    },
+    {
+      "id": "Bengkulu::Lebong::Lebong Atas",
+      "province": "Bengkulu",
+      "regency": "Lebong",
+      "district": "Lebong Atas",
+      "label": "Kec. Lebong Atas, Lebong",
+      "fullTitle": "Kecamatan Lebong Atas (Lebong, Bengkulu)",
+      "h3Count": 19,
+      "center": [
+        102.17667,
+        -3.17656
+      ],
+      "bounds": [
+        102.15881,
+        -3.20237,
+        102.19893,
+        -3.15838
+      ]
+    },
+    {
+      "id": "Bengkulu::Lebong::Pelabai",
+      "province": "Bengkulu",
+      "regency": "Lebong",
+      "district": "Pelabai",
+      "label": "Kec. Pelabai, Lebong",
+      "fullTitle": "Kecamatan Pelabai (Lebong, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.17323,
+        -3.10545
+      ],
+      "bounds": [
+        102.17323,
+        -3.10545,
+        102.17323,
+        -3.10545
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Pondok Suguh",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Pondok Suguh",
+      "label": "Kec. Pondok Suguh, Mukomuko",
+      "fullTitle": "Kecamatan Pondok Suguh (Mukomuko, Bengkulu)",
+      "h3Count": 678,
+      "center": [
+        101.53159,
+        -2.72898
+      ],
+      "bounds": [
+        101.36415,
+        -2.91811,
+        101.70196,
+        -2.53016
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::V Koto",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "V Koto",
+      "label": "Kec. V Koto, Mukomuko",
+      "fullTitle": "Kecamatan V Koto (Mukomuko, Bengkulu)",
+      "h3Count": 490,
+      "center": [
+        101.2909,
+        -2.39946
+      ],
+      "bounds": [
+        101.17353,
+        -2.55162,
+        101.44091,
+        -2.27802
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Penarik",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Penarik",
+      "label": "Kec. Penarik, Mukomuko",
+      "fullTitle": "Kecamatan Penarik (Mukomuko, Bengkulu)",
+      "h3Count": 426,
+      "center": [
+        101.41937,
+        -2.59277
+      ],
+      "bounds": [
+        101.28121,
+        -2.68633,
+        101.58907,
+        -2.51261
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Teramang Jaya",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Teramang Jaya",
+      "label": "Kec. Teramang Jaya, Mukomuko",
+      "fullTitle": "Kecamatan Teramang Jaya (Mukomuko, Bengkulu)",
+      "h3Count": 389,
+      "center": [
+        101.44964,
+        -2.67412
+      ],
+      "bounds": [
+        101.29604,
+        -2.82497,
+        101.64322,
+        -2.54084
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Kota Mukomuko",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Kota Mukomuko",
+      "label": "Kec. Kota Mukomuko, Mukomuko",
+      "fullTitle": "Kecamatan Kota Mukomuko (Mukomuko, Bengkulu)",
+      "h3Count": 164,
+      "center": [
+        101.1444,
+        -2.5685
+      ],
+      "bounds": [
+        101.05723,
+        -2.64789,
+        101.20793,
+        -2.51065
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Hutan",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Hutan",
+      "label": "Kec. Hutan, Mukomuko",
+      "fullTitle": "Kecamatan Hutan (Mukomuko, Bengkulu)",
+      "h3Count": 132,
+      "center": [
+        101.62175,
+        -3.11644
+      ],
+      "bounds": [
+        101.5399,
+        -3.17738,
+        101.70855,
+        -3.05837
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Selagan Raya",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Selagan Raya",
+      "label": "Kec. Selagan Raya, Mukomuko",
+      "fullTitle": "Kecamatan Selagan Raya (Mukomuko, Bengkulu)",
+      "h3Count": 7,
+      "center": [
+        101.36422,
+        -2.50407
+      ],
+      "bounds": [
+        101.25004,
+        -2.56675,
+        101.5039,
+        -2.44051
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Sungai Rumbai",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Sungai Rumbai",
+      "label": "Kec. Sungai Rumbai, Mukomuko",
+      "fullTitle": "Kecamatan Sungai Rumbai (Mukomuko, Bengkulu)",
+      "h3Count": 2,
+      "center": [
+        101.4183,
+        -2.89276
+      ],
+      "bounds": [
+        101.40627,
+        -2.90319,
+        101.43033,
+        -2.88234
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Air Dikit",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Air Dikit",
+      "label": "Kec. Air Dikit, Mukomuko",
+      "fullTitle": "Kecamatan Air Dikit (Mukomuko, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        101.27241,
+        -2.67611
+      ],
+      "bounds": [
+        101.27241,
+        -2.67611,
+        101.27241,
+        -2.67611
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Air Rami",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Air Rami",
+      "label": "Kec. Air Rami, Mukomuko",
+      "fullTitle": "Kecamatan Air Rami (Mukomuko, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        101.60413,
+        -3.10418
+      ],
+      "bounds": [
+        101.60413,
+        -3.10418,
+        101.60413,
+        -3.10418
+      ]
+    },
+    {
+      "id": "Bengkulu::Mukomuko::Lubuk Pinang",
+      "province": "Bengkulu",
+      "regency": "Mukomuko",
+      "district": "Lubuk Pinang",
+      "label": "Kec. Lubuk Pinang, Mukomuko",
+      "fullTitle": "Kecamatan Lubuk Pinang (Mukomuko, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        101.17863,
+        -2.4438
+      ],
+      "bounds": [
+        101.17863,
+        -2.4438,
+        101.17863,
+        -2.4438
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Selupu Rejang",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Selupu Rejang",
+      "label": "Kec. Selupu Rejang, Rejang Lebong",
+      "fullTitle": "Kecamatan Selupu Rejang (Rejang Lebong, Bengkulu)",
+      "h3Count": 236,
+      "center": [
+        102.60489,
+        -3.42996
+      ],
+      "bounds": [
+        102.55086,
+        -3.52241,
+        102.67171,
+        -3.3357
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Sindang Beliti Ulu",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Sindang Beliti Ulu",
+      "label": "Kec. Sindang Beliti Ulu, Rejang Lebong",
+      "fullTitle": "Kecamatan Sindang Beliti Ulu (Rejang Lebong, Bengkulu)",
+      "h3Count": 147,
+      "center": [
+        102.80293,
+        -3.4734
+      ],
+      "bounds": [
+        102.7409,
+        -3.53036,
+        102.85061,
+        -3.41015
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Curup Tengah",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Curup Tengah",
+      "label": "Kec. Curup Tengah, Rejang Lebong",
+      "fullTitle": "Kecamatan Curup Tengah (Rejang Lebong, Bengkulu)",
+      "h3Count": 16,
+      "center": [
+        102.54813,
+        -3.48264
+      ],
+      "bounds": [
+        102.53053,
+        -3.50469,
+        102.56405,
+        -3.46562
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Curup Timur",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Curup Timur",
+      "label": "Kec. Curup Timur, Rejang Lebong",
+      "fullTitle": "Kecamatan Curup Timur (Rejang Lebong, Bengkulu)",
+      "h3Count": 11,
+      "center": [
+        102.55163,
+        -3.45821
+      ],
+      "bounds": [
+        102.53562,
+        -3.46795,
+        102.56548,
+        -3.44485
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Sindang Beliti Ilir",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Sindang Beliti Ilir",
+      "label": "Kec. Sindang Beliti Ilir, Rejang Lebong",
+      "fullTitle": "Kecamatan Sindang Beliti Ilir (Rejang Lebong, Bengkulu)",
+      "h3Count": 3,
+      "center": [
+        102.84459,
+        -3.47409
+      ],
+      "bounds": [
+        102.83976,
+        -3.49364,
+        102.84773,
+        -3.45691
+      ]
+    },
+    {
+      "id": "Bengkulu::Rejang Lebong::Curup Selatan",
+      "province": "Bengkulu",
+      "regency": "Rejang Lebong",
+      "district": "Curup Selatan",
+      "label": "Kec. Curup Selatan, Rejang Lebong",
+      "fullTitle": "Kecamatan Curup Selatan (Rejang Lebong, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.43745,
+        -3.51906
+      ],
+      "bounds": [
+        102.43745,
+        -3.51906,
+        102.43745,
+        -3.51906
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Semidang Alas",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Semidang Alas",
+      "label": "Kec. Semidang Alas, Seluma",
+      "fullTitle": "Kecamatan Semidang Alas (Seluma, Bengkulu)",
+      "h3Count": 609,
+      "center": [
+        102.87007,
+        -4.13043
+      ],
+      "bounds": [
+        102.76999,
+        -4.29672,
+        102.99413,
+        -3.97389
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Lubuk Sandi",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Lubuk Sandi",
+      "label": "Kec. Lubuk Sandi, Seluma",
+      "fullTitle": "Kecamatan Lubuk Sandi (Seluma, Bengkulu)",
+      "h3Count": 230,
+      "center": [
+        102.54132,
+        -3.91073
+      ],
+      "bounds": [
+        102.4654,
+        -4.02033,
+        102.60466,
+        -3.80346
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Ilir Talo",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Ilir Talo",
+      "label": "Kec. Ilir Talo, Seluma",
+      "fullTitle": "Kecamatan Ilir Talo (Seluma, Bengkulu)",
+      "h3Count": 109,
+      "center": [
+        102.63482,
+        -4.20711
+      ],
+      "bounds": [
+        102.53837,
+        -4.27191,
+        102.7077,
+        -4.15047
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Seluma Selatan",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Seluma Selatan",
+      "label": "Kec. Seluma Selatan, Seluma",
+      "fullTitle": "Kecamatan Seluma Selatan (Seluma, Bengkulu)",
+      "h3Count": 71,
+      "center": [
+        102.53335,
+        -4.11232
+      ],
+      "bounds": [
+        102.49032,
+        -4.1499,
+        102.58116,
+        -4.07508
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Air Periukan",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Air Periukan",
+      "label": "Kec. Air Periukan, Seluma",
+      "fullTitle": "Kecamatan Air Periukan (Seluma, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.47697,
+        -3.9755
+      ],
+      "bounds": [
+        102.47697,
+        -3.9755,
+        102.47697,
+        -3.9755
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Seluma Timur",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Seluma Timur",
+      "label": "Kec. Seluma Timur, Seluma",
+      "fullTitle": "Kecamatan Seluma Timur (Seluma, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.56737,
+        -4.12979
+      ],
+      "bounds": [
+        102.56737,
+        -4.12979,
+        102.56737,
+        -4.12979
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Semidang Alas Maras",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Semidang Alas Maras",
+      "label": "Kec. Semidang Alas Maras, Seluma",
+      "fullTitle": "Kecamatan Semidang Alas Maras (Seluma, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.7831,
+        -4.21047
+      ],
+      "bounds": [
+        102.7831,
+        -4.21047,
+        102.7831,
+        -4.21047
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Sukaraja",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Sukaraja",
+      "label": "Kec. Sukaraja, Seluma",
+      "fullTitle": "Kecamatan Sukaraja (Seluma, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.51455,
+        -3.85911
+      ],
+      "bounds": [
+        102.51455,
+        -3.85911,
+        102.51455,
+        -3.85911
+      ]
+    },
+    {
+      "id": "Bengkulu::Seluma::Talo Kecil",
+      "province": "Bengkulu",
+      "regency": "Seluma",
+      "district": "Talo Kecil",
+      "label": "Kec. Talo Kecil, Seluma",
+      "fullTitle": "Kecamatan Talo Kecil (Seluma, Bengkulu)",
+      "h3Count": 1,
+      "center": [
+        102.78157,
+        -4.13629
+      ],
+      "bounds": [
+        102.78157,
+        -4.13629,
+        102.78157,
+        -4.13629
+      ]
+    },
+    {
+      "id": "Jambi::Batang Hari::Pemayung",
+      "province": "Jambi",
+      "regency": "Batang Hari",
+      "district": "Pemayung",
+      "label": "Kec. Pemayung, Batang Hari",
+      "fullTitle": "Kecamatan Pemayung (Batang Hari, Jambi)",
+      "h3Count": 2,
+      "center": [
+        103.42085,
+        -1.64301
+      ],
+      "bounds": [
+        103.41865,
+        -1.66551,
+        103.42306,
+        -1.62052
+      ]
+    },
+    {
+      "id": "Jambi::Batang Hari::Mersam",
+      "province": "Jambi",
+      "regency": "Batang Hari",
+      "district": "Mersam",
+      "label": "Kec. Mersam, Batang Hari",
+      "fullTitle": "Kecamatan Mersam (Batang Hari, Jambi)",
+      "h3Count": 1,
+      "center": [
+        102.82688,
+        -1.39674
+      ],
+      "bounds": [
+        102.82688,
+        -1.39674,
+        102.82688,
+        -1.39674
+      ]
+    },
+    {
+      "id": "Jambi::Kota Jambi::Paal Merah",
+      "province": "Jambi",
+      "regency": "Kota Jambi",
+      "district": "Paal Merah",
+      "label": "Kec. Paal Merah, Kota Jambi",
+      "fullTitle": "Kecamatan Paal Merah (Kota Jambi, Jambi)",
+      "h3Count": 1,
+      "center": [
+        103.6622,
+        -1.6072
+      ],
+      "bounds": [
+        103.6622,
+        -1.6072,
+        103.6622,
+        -1.6072
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Kumpeh",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Kumpeh",
+      "label": "Kec. Kumpeh, Muaro Jambi",
+      "fullTitle": "Kecamatan Kumpeh (Muaro Jambi, Jambi)",
+      "h3Count": 580,
+      "center": [
+        104.03754,
+        -1.57288
+      ],
+      "bounds": [
+        103.87104,
+        -1.75403,
+        104.14879,
+        -1.32922
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Sungai Gelam",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Sungai Gelam",
+      "label": "Kec. Sungai Gelam, Muaro Jambi",
+      "fullTitle": "Kecamatan Sungai Gelam (Muaro Jambi, Jambi)",
+      "h3Count": 367,
+      "center": [
+        103.7391,
+        -1.75344
+      ],
+      "bounds": [
+        103.62131,
+        -1.84214,
+        103.90961,
+        -1.60248
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Kumpeh Ulu",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Kumpeh Ulu",
+      "label": "Kec. Kumpeh Ulu, Muaro Jambi",
+      "fullTitle": "Kecamatan Kumpeh Ulu (Muaro Jambi, Jambi)",
+      "h3Count": 157,
+      "center": [
+        103.79651,
+        -1.60138
+      ],
+      "bounds": [
+        103.65857,
+        -1.67595,
+        103.91983,
+        -1.5197
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Jambi Luar Kota",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Jambi Luar Kota",
+      "label": "Kec. Jambi Luar Kota, Muaro Jambi",
+      "fullTitle": "Kecamatan Jambi Luar Kota (Muaro Jambi, Jambi)",
+      "h3Count": 116,
+      "center": [
+        103.47204,
+        -1.60646
+      ],
+      "bounds": [
+        103.39022,
+        -1.6764,
+        103.57408,
+        -1.53298
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Mestong",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Mestong",
+      "label": "Kec. Mestong, Muaro Jambi",
+      "fullTitle": "Kecamatan Mestong (Muaro Jambi, Jambi)",
+      "h3Count": 103,
+      "center": [
+        103.48297,
+        -1.78972
+      ],
+      "bounds": [
+        103.39743,
+        -1.86947,
+        103.64591,
+        -1.74292
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Maro Sebo",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Maro Sebo",
+      "label": "Kec. Maro Sebo, Muaro Jambi",
+      "fullTitle": "Kecamatan Maro Sebo (Muaro Jambi, Jambi)",
+      "h3Count": 69,
+      "center": [
+        103.56199,
+        -1.38569
+      ],
+      "bounds": [
+        103.51236,
+        -1.54475,
+        103.63315,
+        -1.31148
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Taman Rajo",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Taman Rajo",
+      "label": "Kec. Taman Rajo, Muaro Jambi",
+      "fullTitle": "Kecamatan Taman Rajo (Muaro Jambi, Jambi)",
+      "h3Count": 52,
+      "center": [
+        103.75592,
+        -1.41209
+      ],
+      "bounds": [
+        103.62952,
+        -1.53694,
+        103.79385,
+        -1.34458
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Sekernan",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Sekernan",
+      "label": "Kec. Sekernan, Muaro Jambi",
+      "fullTitle": "Kecamatan Sekernan (Muaro Jambi, Jambi)",
+      "h3Count": 40,
+      "center": [
+        103.51469,
+        -1.49292
+      ],
+      "bounds": [
+        103.45678,
+        -1.53732,
+        103.56613,
+        -1.4495
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Bahar Selatan",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Bahar Selatan",
+      "label": "Kec. Bahar Selatan, Muaro Jambi",
+      "fullTitle": "Kecamatan Bahar Selatan (Muaro Jambi, Jambi)",
+      "h3Count": 32,
+      "center": [
+        103.48038,
+        -2.13019
+      ],
+      "bounds": [
+        103.46341,
+        -2.17509,
+        103.49472,
+        -2.09201
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Sungai Bahar",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Sungai Bahar",
+      "label": "Kec. Sungai Bahar, Muaro Jambi",
+      "fullTitle": "Kecamatan Sungai Bahar (Muaro Jambi, Jambi)",
+      "h3Count": 19,
+      "center": [
+        103.4095,
+        -1.99225
+      ],
+      "bounds": [
+        103.38993,
+        -2.01896,
+        103.43659,
+        -1.96812
+      ]
+    },
+    {
+      "id": "Jambi::Muaro Jambi::Bahar Utara",
+      "province": "Jambi",
+      "regency": "Muaro Jambi",
+      "district": "Bahar Utara",
+      "label": "Kec. Bahar Utara, Muaro Jambi",
+      "fullTitle": "Kecamatan Bahar Utara (Muaro Jambi, Jambi)",
+      "h3Count": 15,
+      "center": [
+        103.36957,
+        -1.88433
+      ],
+      "bounds": [
+        103.35431,
+        -1.89681,
+        103.3842,
+        -1.87221
+      ]
+    },
+    {
       "id": "Jambi::Sarolangun::Singkut",
       "province": "Jambi",
       "regency": "Sarolangun",
@@ -247,6 +1596,481 @@
         -2.49477,
         102.78923,
         -2.44042
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Renah Mendaluh",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Renah Mendaluh",
+      "label": "Kec. Renah Mendaluh, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Renah Mendaluh (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 433,
+      "center": [
+        102.83645,
+        -1.29268
+      ],
+      "bounds": [
+        102.68384,
+        -1.41899,
+        102.97387,
+        -1.18189
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Pengabuan",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Pengabuan",
+      "label": "Kec. Pengabuan, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Pengabuan (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 324,
+      "center": [
+        103.22838,
+        -0.90761
+      ],
+      "bounds": [
+        103.14282,
+        -1.0365,
+        103.32796,
+        -0.76849
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Tebing Tinggi",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Tebing Tinggi",
+      "label": "Kec. Tebing Tinggi, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Tebing Tinggi (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 106,
+      "center": [
+        103.16852,
+        -1.06856
+      ],
+      "bounds": [
+        103.07257,
+        -1.13723,
+        103.24226,
+        -1.01574
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Senyerang",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Senyerang",
+      "label": "Kec. Senyerang, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Senyerang (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 96,
+      "center": [
+        103.09469,
+        -0.7777
+      ],
+      "bounds": [
+        103.01611,
+        -0.81588,
+        103.16039,
+        -0.7502
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Betara",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Betara",
+      "label": "Kec. Betara, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Betara (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 84,
+      "center": [
+        103.39683,
+        -1.03249
+      ],
+      "bounds": [
+        103.33663,
+        -1.06673,
+        103.46304,
+        -0.98954
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Batang Asam",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Batang Asam",
+      "label": "Kec. Batang Asam, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Batang Asam (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 74,
+      "center": [
+        102.96229,
+        -1.10012
+      ],
+      "bounds": [
+        102.83328,
+        -1.19262,
+        103.03524,
+        -1.01725
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Muara Papalik",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Muara Papalik",
+      "label": "Kec. Muara Papalik, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Muara Papalik (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 56,
+      "center": [
+        103.14138,
+        -1.30006
+      ],
+      "bounds": [
+        103.08797,
+        -1.34127,
+        103.21662,
+        -1.24945
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Bram Itam",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Bram Itam",
+      "label": "Kec. Bram Itam, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Bram Itam (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 46,
+      "center": [
+        103.38745,
+        -0.86495
+      ],
+      "bounds": [
+        103.21231,
+        -1.0227,
+        103.43839,
+        -0.82567
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Kuala Betara",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Kuala Betara",
+      "label": "Kec. Kuala Betara, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Kuala Betara (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 42,
+      "center": [
+        103.51015,
+        -0.89484
+      ],
+      "bounds": [
+        103.45732,
+        -0.97233,
+        103.56698,
+        -0.8575
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Merlung",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Merlung",
+      "label": "Kec. Merlung, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Merlung (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 27,
+      "center": [
+        102.99526,
+        -1.25532
+      ],
+      "bounds": [
+        102.9797,
+        -1.28831,
+        103.00824,
+        -1.22623
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Seberang Kota",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Seberang Kota",
+      "label": "Kec. Seberang Kota, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Seberang Kota (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 15,
+      "center": [
+        103.31589,
+        -0.80046
+      ],
+      "bounds": [
+        103.29726,
+        -0.81802,
+        103.33603,
+        -0.78594
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Tungkal Ilir",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Tungkal Ilir",
+      "label": "Kec. Tungkal Ilir, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Tungkal Ilir (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 10,
+      "center": [
+        103.44768,
+        -0.83407
+      ],
+      "bounds": [
+        103.43474,
+        -0.85709,
+        103.47131,
+        -0.81377
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Barat::Tungkal Ulu",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Barat",
+      "district": "Tungkal Ulu",
+      "label": "Kec. Tungkal Ulu, Tanjung Jabung Barat",
+      "fullTitle": "Kecamatan Tungkal Ulu (Tanjung Jabung Barat, Jambi)",
+      "h3Count": 7,
+      "center": [
+        103.06213,
+        -1.11915
+      ],
+      "bounds": [
+        103.04625,
+        -1.13968,
+        103.09379,
+        -1.05967
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Geragai",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Geragai",
+      "label": "Kec. Geragai, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Geragai (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 237,
+      "center": [
+        103.66557,
+        -1.24798
+      ],
+      "bounds": [
+        103.58468,
+        -1.32492,
+        103.73858,
+        -1.13203
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Mendahara Ulu",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Mendahara Ulu",
+      "label": "Kec. Mendahara Ulu, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Mendahara Ulu (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 165,
+      "center": [
+        103.50512,
+        -1.12606
+      ],
+      "bounds": [
+        103.43301,
+        -1.25762,
+        103.64328,
+        -1.0771
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Sadu",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Sadu",
+      "label": "Kec. Sadu, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Sadu (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 165,
+      "center": [
+        104.39008,
+        -1.26661
+      ],
+      "bounds": [
+        104.30434,
+        -1.36399,
+        104.45308,
+        -1.02225
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Berbak",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Berbak",
+      "label": "Kec. Berbak, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Berbak (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 137,
+      "center": [
+        104.23291,
+        -1.17609
+      ],
+      "bounds": [
+        104.13002,
+        -1.22907,
+        104.32659,
+        -1.13302
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Muara Sabak Timur",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Muara Sabak Timur",
+      "label": "Kec. Muara Sabak Timur, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Muara Sabak Timur (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 124,
+      "center": [
+        103.96222,
+        -1.0919
+      ],
+      "bounds": [
+        103.84905,
+        -1.16588,
+        104.04742,
+        -1.02716
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Mendahara",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Mendahara",
+      "label": "Kec. Mendahara, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Mendahara (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 98,
+      "center": [
+        103.60001,
+        -0.98397
+      ],
+      "bounds": [
+        103.53465,
+        -1.04204,
+        103.66985,
+        -0.88169
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Muara Sabak Barat",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Muara Sabak Barat",
+      "label": "Kec. Muara Sabak Barat, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Muara Sabak Barat (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 86,
+      "center": [
+        103.78725,
+        -1.24684
+      ],
+      "bounds": [
+        103.75839,
+        -1.34396,
+        103.83051,
+        -1.1618
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Rantau Rasau",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Rantau Rasau",
+      "label": "Kec. Rantau Rasau, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Rantau Rasau (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 84,
+      "center": [
+        104.11453,
+        -1.18357
+      ],
+      "bounds": [
+        104.02881,
+        -1.21971,
+        104.20439,
+        -1.14366
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Nipah Panjang",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Nipah Panjang",
+      "label": "Kec. Nipah Panjang, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Nipah Panjang (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 43,
+      "center": [
+        104.25176,
+        -1.0748
+      ],
+      "bounds": [
+        104.16162,
+        -1.14272,
+        104.33355,
+        -1.04665
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Kuala Jambi",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Kuala Jambi",
+      "label": "Kec. Kuala Jambi, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Kuala Jambi (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 18,
+      "center": [
+        103.79062,
+        -1.04374
+      ],
+      "bounds": [
+        103.76601,
+        -1.05591,
+        103.81489,
+        -1.03302
+      ]
+    },
+    {
+      "id": "Jambi::Tanjung Jabung Timur::Hutan",
+      "province": "Jambi",
+      "regency": "Tanjung Jabung Timur",
+      "district": "Hutan",
+      "label": "Kec. Hutan, Tanjung Jabung Timur",
+      "fullTitle": "Kecamatan Hutan (Tanjung Jabung Timur, Jambi)",
+      "h3Count": 1,
+      "center": [
+        104.22095,
+        -1.20873
+      ],
+      "bounds": [
+        104.22095,
+        -1.20873,
+        104.22095,
+        -1.20873
+      ]
+    },
+    {
+      "id": "Jambi::Tebo::Tengah Ilir",
+      "province": "Jambi",
+      "regency": "Tebo",
+      "district": "Tengah Ilir",
+      "label": "Kec. Tengah Ilir, Tebo",
+      "fullTitle": "Kecamatan Tengah Ilir (Tebo, Jambi)",
+      "h3Count": 2,
+      "center": [
+        102.75245,
+        -1.274
+      ],
+      "bounds": [
+        102.73815,
+        -1.2864,
+        102.76674,
+        -1.26161
       ]
     },
     {
@@ -1542,6 +3366,690 @@
       ]
     },
     {
+      "id": "Kalimantan Tengah::Gunung Mas::Kurun",
+      "province": "Kalimantan Tengah",
+      "regency": "Gunung Mas",
+      "district": "Kurun",
+      "label": "Kec. Kurun, Gunung Mas",
+      "fullTitle": "Kecamatan Kurun (Gunung Mas, Kalimantan Tengah)",
+      "h3Count": 1,
+      "center": [
+        113.97013,
+        -1.10685
+      ],
+      "bounds": [
+        113.97013,
+        -1.10685,
+        113.97013,
+        -1.10685
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Mantangai",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Mantangai",
+      "label": "Kec. Mantangai, Kapuas",
+      "fullTitle": "Kecamatan Mantangai (Kapuas, Kalimantan Tengah)",
+      "h3Count": 3614,
+      "center": [
+        114.28187,
+        -1.8032
+      ],
+      "bounds": [
+        113.97635,
+        -2.68449,
+        114.64835,
+        -1.12187
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Hulu",
+      "label": "Kec. Kapuas Hulu, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Hulu (Kapuas, Kalimantan Tengah)",
+      "h3Count": 1003,
+      "center": [
+        113.82378,
+        -0.74332
+      ],
+      "bounds": [
+        113.6537,
+        -1.07505,
+        114.09559,
+        -0.43482
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Pasak Talawang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Pasak Talawang",
+      "label": "Kec. Pasak Talawang, Kapuas",
+      "fullTitle": "Kecamatan Pasak Talawang (Kapuas, Kalimantan Tengah)",
+      "h3Count": 548,
+      "center": [
+        114.14202,
+        -1.07409
+      ],
+      "bounds": [
+        113.97324,
+        -1.17264,
+        114.28603,
+        -0.93002
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Mandau Talawang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Mandau Talawang",
+      "label": "Kec. Mandau Talawang, Kapuas",
+      "fullTitle": "Kecamatan Mandau Talawang (Kapuas, Kalimantan Tengah)",
+      "h3Count": 242,
+      "center": [
+        114.04408,
+        -0.71659
+      ],
+      "bounds": [
+        113.97473,
+        -0.85129,
+        114.11737,
+        -0.65384
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Murung",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Murung",
+      "label": "Kec. Kapuas Murung, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Murung (Kapuas, Kalimantan Tengah)",
+      "h3Count": 173,
+      "center": [
+        114.61939,
+        -2.73429
+      ],
+      "bounds": [
+        114.47954,
+        -2.84898,
+        114.7303,
+        -2.63148
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Dadahup",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Dadahup",
+      "label": "Kec. Dadahup, Kapuas",
+      "fullTitle": "Kecamatan Dadahup (Kapuas, Kalimantan Tengah)",
+      "h3Count": 160,
+      "center": [
+        114.58599,
+        -2.65462
+      ],
+      "bounds": [
+        114.51929,
+        -2.72428,
+        114.66612,
+        -2.56367
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Barat",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Barat",
+      "label": "Kec. Kapuas Barat, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Barat (Kapuas, Kalimantan Tengah)",
+      "h3Count": 148,
+      "center": [
+        114.36594,
+        -2.80717
+      ],
+      "bounds": [
+        114.28036,
+        -2.9193,
+        114.51439,
+        -2.68891
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Timpah",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Timpah",
+      "label": "Kec. Timpah, Kapuas",
+      "fullTitle": "Kecamatan Timpah (Kapuas, Kalimantan Tengah)",
+      "h3Count": 136,
+      "center": [
+        114.44359,
+        -1.70787
+      ],
+      "bounds": [
+        114.39825,
+        -1.75645,
+        114.48683,
+        -1.65706
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Tengah",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Tengah",
+      "label": "Kec. Kapuas Tengah, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Tengah (Kapuas, Kalimantan Tengah)",
+      "h3Count": 127,
+      "center": [
+        114.38878,
+        -1.45788
+      ],
+      "bounds": [
+        114.13376,
+        -1.50986,
+        114.48724,
+        -1.25683
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Kuala",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Kuala",
+      "label": "Kec. Kapuas Kuala, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Kuala (Kapuas, Kalimantan Tengah)",
+      "h3Count": 95,
+      "center": [
+        114.28509,
+        -3.29598
+      ],
+      "bounds": [
+        114.21484,
+        -3.37593,
+        114.34833,
+        -3.24402
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Basarang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Basarang",
+      "label": "Kec. Basarang, Kapuas",
+      "fullTitle": "Kecamatan Basarang (Kapuas, Kalimantan Tengah)",
+      "h3Count": 75,
+      "center": [
+        114.32855,
+        -2.98887
+      ],
+      "bounds": [
+        114.28243,
+        -3.03811,
+        114.36454,
+        -2.88599
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Timur",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Timur",
+      "label": "Kec. Kapuas Timur, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Timur (Kapuas, Kalimantan Tengah)",
+      "h3Count": 72,
+      "center": [
+        114.47286,
+        -3.09928
+      ],
+      "bounds": [
+        114.4149,
+        -3.15253,
+        114.53233,
+        -3.04359
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Pulau Petak",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Pulau Petak",
+      "label": "Kec. Pulau Petak, Kapuas",
+      "fullTitle": "Kecamatan Pulau Petak (Kapuas, Kalimantan Tengah)",
+      "h3Count": 50,
+      "center": [
+        114.49471,
+        -2.92823
+      ],
+      "bounds": [
+        114.45944,
+        -2.97892,
+        114.5274,
+        -2.84066
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Selat",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Selat",
+      "label": "Kec. Selat, Kapuas",
+      "fullTitle": "Kecamatan Selat (Kapuas, Kalimantan Tengah)",
+      "h3Count": 40,
+      "center": [
+        114.39592,
+        -2.98798
+      ],
+      "bounds": [
+        114.36578,
+        -3.0213,
+        114.42701,
+        -2.95704
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Kapuas Hilir",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Kapuas Hilir",
+      "label": "Kec. Kapuas Hilir, Kapuas",
+      "fullTitle": "Kecamatan Kapuas Hilir (Kapuas, Kalimantan Tengah)",
+      "h3Count": 33,
+      "center": [
+        114.47454,
+        -2.96931
+      ],
+      "bounds": [
+        114.4368,
+        -2.99219,
+        114.50966,
+        -2.94618
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Bataguh",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Bataguh",
+      "label": "Kec. Bataguh, Kapuas",
+      "fullTitle": "Kecamatan Bataguh (Kapuas, Kalimantan Tengah)",
+      "h3Count": 26,
+      "center": [
+        114.38672,
+        -3.07549
+      ],
+      "bounds": [
+        114.36339,
+        -3.1658,
+        114.41921,
+        -3.03505
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kapuas::Tamban Catur",
+      "province": "Kalimantan Tengah",
+      "regency": "Kapuas",
+      "district": "Tamban Catur",
+      "label": "Kec. Tamban Catur, Kapuas",
+      "fullTitle": "Kecamatan Tamban Catur (Kapuas, Kalimantan Tengah)",
+      "h3Count": 15,
+      "center": [
+        114.39372,
+        -3.21801
+      ],
+      "bounds": [
+        114.3654,
+        -3.24321,
+        114.42352,
+        -3.18687
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Marikit",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Marikit",
+      "label": "Kec. Marikit, Katingan",
+      "fullTitle": "Kecamatan Marikit (Katingan, Kalimantan Tengah)",
+      "h3Count": 880,
+      "center": [
+        112.64196,
+        -0.92281
+      ],
+      "bounds": [
+        112.43759,
+        -1.20641,
+        112.849,
+        -0.72423
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Katingan Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Katingan Hulu",
+      "label": "Kec. Katingan Hulu, Katingan",
+      "fullTitle": "Kecamatan Katingan Hulu (Katingan, Kalimantan Tengah)",
+      "h3Count": 686,
+      "center": [
+        112.32234,
+        -1.17783
+      ],
+      "bounds": [
+        112.12523,
+        -1.30747,
+        112.64198,
+        -0.78118
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Bukit Raya",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Bukit Raya",
+      "label": "Kec. Bukit Raya, Katingan",
+      "fullTitle": "Kecamatan Bukit Raya (Katingan, Kalimantan Tengah)",
+      "h3Count": 506,
+      "center": [
+        112.22991,
+        -0.80512
+      ],
+      "bounds": [
+        112.11156,
+        -1.1378,
+        112.32887,
+        -0.61955
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Kamipang",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Kamipang",
+      "label": "Kec. Kamipang, Katingan",
+      "fullTitle": "Kecamatan Kamipang (Katingan, Kalimantan Tengah)",
+      "h3Count": 450,
+      "center": [
+        113.39808,
+        -2.32335
+      ],
+      "bounds": [
+        113.18554,
+        -2.43441,
+        113.74314,
+        -2.24561
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Sanaman Mantikei",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Sanaman Mantikei",
+      "label": "Kec. Sanaman Mantikei, Katingan",
+      "fullTitle": "Kecamatan Sanaman Mantikei (Katingan, Kalimantan Tengah)",
+      "h3Count": 445,
+      "center": [
+        113.13062,
+        -1.08847
+      ],
+      "bounds": [
+        113.04493,
+        -1.1819,
+        113.23189,
+        -0.98793
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Petak Malai",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Petak Malai",
+      "label": "Kec. Petak Malai, Katingan",
+      "fullTitle": "Kecamatan Petak Malai (Katingan, Kalimantan Tengah)",
+      "h3Count": 444,
+      "center": [
+        112.8961,
+        -0.94419
+      ],
+      "bounds": [
+        112.75091,
+        -1.03835,
+        113.04528,
+        -0.84767
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Pulau Malan",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Pulau Malan",
+      "label": "Kec. Pulau Malan, Katingan",
+      "fullTitle": "Kecamatan Pulau Malan (Katingan, Kalimantan Tengah)",
+      "h3Count": 323,
+      "center": [
+        113.20752,
+        -1.56594
+      ],
+      "bounds": [
+        113.0317,
+        -1.74767,
+        113.3422,
+        -1.44648
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Mendawai",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Mendawai",
+      "label": "Kec. Mendawai, Katingan",
+      "fullTitle": "Kecamatan Mendawai (Katingan, Kalimantan Tengah)",
+      "h3Count": 287,
+      "center": [
+        113.24946,
+        -2.96463
+      ],
+      "bounds": [
+        113.13667,
+        -3.01579,
+        113.68694,
+        -2.41776
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Katingan Tengah",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Katingan Tengah",
+      "label": "Kec. Katingan Tengah, Katingan",
+      "fullTitle": "Kecamatan Katingan Tengah (Katingan, Kalimantan Tengah)",
+      "h3Count": 258,
+      "center": [
+        112.91694,
+        -1.37851
+      ],
+      "bounds": [
+        112.82943,
+        -1.47341,
+        113.01751,
+        -1.29109
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Tewang Sangalang Garing",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Tewang Sangalang Garing",
+      "label": "Kec. Tewang Sangalang Garing, Katingan",
+      "fullTitle": "Kecamatan Tewang Sangalang Garing (Katingan, Kalimantan Tengah)",
+      "h3Count": 235,
+      "center": [
+        113.30226,
+        -1.7891
+      ],
+      "bounds": [
+        113.1499,
+        -1.85426,
+        113.47921,
+        -1.67717
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Tasik Payawan",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Tasik Payawan",
+      "label": "Kec. Tasik Payawan, Katingan",
+      "fullTitle": "Kecamatan Tasik Payawan (Katingan, Kalimantan Tengah)",
+      "h3Count": 232,
+      "center": [
+        113.49963,
+        -2.00982
+      ],
+      "bounds": [
+        113.36531,
+        -2.10587,
+        113.60532,
+        -1.89892
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Katingan Kuala",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Katingan Kuala",
+      "label": "Kec. Katingan Kuala, Katingan",
+      "fullTitle": "Kecamatan Katingan Kuala (Katingan, Kalimantan Tengah)",
+      "h3Count": 136,
+      "center": [
+        113.55222,
+        -3.03835
+      ],
+      "bounds": [
+        113.47308,
+        -3.1426,
+        113.64126,
+        -2.83508
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Katingan::Katingan Hilir",
+      "province": "Kalimantan Tengah",
+      "regency": "Katingan",
+      "district": "Katingan Hilir",
+      "label": "Kec. Katingan Hilir, Katingan",
+      "fullTitle": "Kecamatan Katingan Hilir (Katingan, Kalimantan Tengah)",
+      "h3Count": 130,
+      "center": [
+        113.25633,
+        -1.89928
+      ],
+      "bounds": [
+        113.1927,
+        -1.95864,
+        113.448,
+        -1.8533
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kota Palangka Raya::Jekan Raya",
+      "province": "Kalimantan Tengah",
+      "regency": "Kota Palangka Raya",
+      "district": "Jekan Raya",
+      "label": "Kec. Jekan Raya, Kota Palangka Raya",
+      "fullTitle": "Kecamatan Jekan Raya (Kota Palangka Raya, Kalimantan Tengah)",
+      "h3Count": 402,
+      "center": [
+        113.79222,
+        -2.20487
+      ],
+      "bounds": [
+        113.69769,
+        -2.2956,
+        113.92201,
+        -2.13441
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kota Palangka Raya::Rakumpit",
+      "province": "Kalimantan Tengah",
+      "regency": "Kota Palangka Raya",
+      "district": "Rakumpit",
+      "label": "Kec. Rakumpit, Kota Palangka Raya",
+      "fullTitle": "Kecamatan Rakumpit (Kota Palangka Raya, Kalimantan Tengah)",
+      "h3Count": 247,
+      "center": [
+        113.67108,
+        -1.69593
+      ],
+      "bounds": [
+        113.48234,
+        -1.76624,
+        113.81363,
+        -1.66384
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kota Palangka Raya::Bukit Batu",
+      "province": "Kalimantan Tengah",
+      "regency": "Kota Palangka Raya",
+      "district": "Bukit Batu",
+      "label": "Kec. Bukit Batu, Kota Palangka Raya",
+      "fullTitle": "Kecamatan Bukit Batu (Kota Palangka Raya, Kalimantan Tengah)",
+      "h3Count": 81,
+      "center": [
+        113.78355,
+        -2.03354
+      ],
+      "bounds": [
+        113.73786,
+        -2.0807,
+        113.83442,
+        -2.00296
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kota Palangka Raya::Sabangau",
+      "province": "Kalimantan Tengah",
+      "regency": "Kota Palangka Raya",
+      "district": "Sabangau",
+      "label": "Kec. Sabangau, Kota Palangka Raya",
+      "fullTitle": "Kecamatan Sabangau (Kota Palangka Raya, Kalimantan Tengah)",
+      "h3Count": 57,
+      "center": [
+        114.07066,
+        -2.22905
+      ],
+      "bounds": [
+        114.03637,
+        -2.2802,
+        114.1034,
+        -2.1873
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kota Palangka Raya::Pahandut",
+      "province": "Kalimantan Tengah",
+      "regency": "Kota Palangka Raya",
+      "district": "Pahandut",
+      "label": "Kec. Pahandut, Kota Palangka Raya",
+      "fullTitle": "Kecamatan Pahandut (Kota Palangka Raya, Kalimantan Tengah)",
+      "h3Count": 38,
+      "center": [
+        113.92276,
+        -2.18767
+      ],
+      "bounds": [
+        113.89844,
+        -2.27244,
+        113.94171,
+        -2.14176
+      ]
+    },
+    {
       "id": "Kalimantan Tengah::Kotawaringin Barat::Arut Selatan",
       "province": "Kalimantan Tengah",
       "regency": "Kotawaringin Barat",
@@ -1577,6 +4085,538 @@
         -2.6232,
         111.57486,
         -2.37481
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Mentaya Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Mentaya Hulu",
+      "label": "Kec. Mentaya Hulu, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Mentaya Hulu (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 804,
+      "center": [
+        112.50327,
+        -2.04197
+      ],
+      "bounds": [
+        112.28528,
+        -2.22526,
+        112.69052,
+        -1.91416
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Mentaya Hilir Utara",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Mentaya Hilir Utara",
+      "label": "Kec. Mentaya Hilir Utara, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Mentaya Hilir Utara (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 580,
+      "center": [
+        112.73994,
+        -2.66703
+      ],
+      "bounds": [
+        112.59901,
+        -2.80961,
+        112.93332,
+        -2.56659
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Bukit Santuai",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Bukit Santuai",
+      "label": "Kec. Bukit Santuai, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Bukit Santuai (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 561,
+      "center": [
+        112.30079,
+        -1.74071
+      ],
+      "bounds": [
+        112.09879,
+        -1.88844,
+        112.49351,
+        -1.6121
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Baamang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Baamang",
+      "label": "Kec. Baamang, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Baamang (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 550,
+      "center": [
+        112.73668,
+        -2.51541
+      ],
+      "bounds": [
+        112.47058,
+        -2.56762,
+        113.05783,
+        -2.44273
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Cempaga Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Cempaga Hulu",
+      "label": "Kec. Cempaga Hulu, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Cempaga Hulu (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 528,
+      "center": [
+        112.98933,
+        -1.92036
+      ],
+      "bounds": [
+        112.84252,
+        -2.15938,
+        113.19494,
+        -1.77053
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Antang Kalang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Antang Kalang",
+      "label": "Kec. Antang Kalang, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Antang Kalang (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 489,
+      "center": [
+        112.63255,
+        -1.37783
+      ],
+      "bounds": [
+        112.44389,
+        -1.42877,
+        112.83897,
+        -1.33335
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Telaga Antang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Telaga Antang",
+      "label": "Kec. Telaga Antang, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Telaga Antang (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 360,
+      "center": [
+        112.56854,
+        -1.64627
+      ],
+      "bounds": [
+        112.21197,
+        -1.8154,
+        112.73599,
+        -1.29225
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Tualan Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Tualan Hulu",
+      "label": "Kec. Tualan Hulu, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Tualan Hulu (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 347,
+      "center": [
+        112.78522,
+        -1.79432
+      ],
+      "bounds": [
+        112.6553,
+        -1.89245,
+        112.9136,
+        -1.65067
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Pulau Hanaut",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Pulau Hanaut",
+      "label": "Kec. Pulau Hanaut, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Pulau Hanaut (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 303,
+      "center": [
+        113.07556,
+        -2.89314
+      ],
+      "bounds": [
+        112.94774,
+        -3.05483,
+        113.16452,
+        -2.71411
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Cempaga",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Cempaga",
+      "label": "Kec. Cempaga, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Cempaga (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 270,
+      "center": [
+        113.06521,
+        -2.31523
+      ],
+      "bounds": [
+        112.91536,
+        -2.38878,
+        113.18508,
+        -2.25748
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Kota Besi",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Kota Besi",
+      "label": "Kec. Kota Besi, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Kota Besi (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 224,
+      "center": [
+        112.85003,
+        -2.35071
+      ],
+      "bounds": [
+        112.69414,
+        -2.45992,
+        112.91041,
+        -2.23745
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Telawang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Telawang",
+      "label": "Kec. Telawang, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Telawang (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 169,
+      "center": [
+        112.66777,
+        -2.28459
+      ],
+      "bounds": [
+        112.47555,
+        -2.50024,
+        112.86679,
+        -2.23168
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Parenggean",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Parenggean",
+      "label": "Kec. Parenggean, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Parenggean (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 157,
+      "center": [
+        112.78812,
+        -2.03012
+      ],
+      "bounds": [
+        112.68494,
+        -2.21342,
+        112.91319,
+        -1.90896
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Teluk Sampit",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Teluk Sampit",
+      "label": "Kec. Teluk Sampit, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Teluk Sampit (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 150,
+      "center": [
+        112.95701,
+        -2.97222
+      ],
+      "bounds": [
+        112.83455,
+        -3.03814,
+        113.03563,
+        -2.92396
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Seranau",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Seranau",
+      "label": "Kec. Seranau, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Seranau (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 47,
+      "center": [
+        113.1091,
+        -2.51099
+      ],
+      "bounds": [
+        112.96574,
+        -2.71801,
+        113.18016,
+        -2.36087
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Mentaya Hilir Selatan",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Mentaya Hilir Selatan",
+      "label": "Kec. Mentaya Hilir Selatan, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Mentaya Hilir Selatan (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 45,
+      "center": [
+        112.91232,
+        -2.84815
+      ],
+      "bounds": [
+        112.83974,
+        -2.93631,
+        113.01042,
+        -2.80368
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Kotawaringin Timur::Mentawa Baru/Ketapang",
+      "province": "Kalimantan Tengah",
+      "regency": "Kotawaringin Timur",
+      "district": "Mentawa Baru/Ketapang",
+      "label": "Kec. Mentawa Baru/Ketapang, Kotawaringin Timur",
+      "fullTitle": "Kecamatan Mentawa Baru/Ketapang (Kotawaringin Timur, Kalimantan Tengah)",
+      "h3Count": 23,
+      "center": [
+        112.93112,
+        -2.59523
+      ],
+      "bounds": [
+        112.90887,
+        -2.60793,
+        112.95753,
+        -2.58406
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Sebangau Kuala",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Sebangau Kuala",
+      "label": "Kec. Sebangau Kuala, Pulang Pisau",
+      "fullTitle": "Kecamatan Sebangau Kuala (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 5620,
+      "center": [
+        113.85459,
+        -2.79056
+      ],
+      "bounds": [
+        113.58021,
+        -3.29237,
+        114.14031,
+        -2.33699
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Jabiren Raya",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Jabiren Raya",
+      "label": "Kec. Jabiren Raya, Pulang Pisau",
+      "fullTitle": "Kecamatan Jabiren Raya (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 616,
+      "center": [
+        114.22351,
+        -2.51476
+      ],
+      "bounds": [
+        114.12231,
+        -2.66125,
+        114.32733,
+        -2.39629
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Kahayan Kuala",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Kahayan Kuala",
+      "label": "Kec. Kahayan Kuala, Pulang Pisau",
+      "fullTitle": "Kecamatan Kahayan Kuala (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 517,
+      "center": [
+        113.91003,
+        -3.32145
+      ],
+      "bounds": [
+        113.70521,
+        -3.46381,
+        114.18517,
+        -3.11681
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Kahayan Hilir",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Kahayan Hilir",
+      "label": "Kec. Kahayan Hilir, Pulang Pisau",
+      "fullTitle": "Kecamatan Kahayan Hilir (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 344,
+      "center": [
+        114.22575,
+        -2.7002
+      ],
+      "bounds": [
+        114.08047,
+        -2.81724,
+        114.33849,
+        -2.64902
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Pandih Batu",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Pandih Batu",
+      "label": "Kec. Pandih Batu, Pulang Pisau",
+      "fullTitle": "Kecamatan Pandih Batu (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 135,
+      "center": [
+        114.17798,
+        -3.08939
+      ],
+      "bounds": [
+        114.10572,
+        -3.15997,
+        114.24758,
+        -2.99864
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Kahayan Tengah",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Kahayan Tengah",
+      "label": "Kec. Kahayan Tengah, Pulang Pisau",
+      "fullTitle": "Kecamatan Kahayan Tengah (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 130,
+      "center": [
+        113.92797,
+        -1.93081
+      ],
+      "bounds": [
+        113.81755,
+        -1.99125,
+        114.02573,
+        -1.87951
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Banama Tingang",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Banama Tingang",
+      "label": "Kec. Banama Tingang, Pulang Pisau",
+      "fullTitle": "Kecamatan Banama Tingang (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 89,
+      "center": [
+        113.89774,
+        -1.71836
+      ],
+      "bounds": [
+        113.80637,
+        -1.76639,
+        113.98419,
+        -1.573
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Pulang Pisau::Maliku",
+      "province": "Kalimantan Tengah",
+      "regency": "Pulang Pisau",
+      "district": "Maliku",
+      "label": "Kec. Maliku, Pulang Pisau",
+      "fullTitle": "Kecamatan Maliku (Pulang Pisau, Kalimantan Tengah)",
+      "h3Count": 15,
+      "center": [
+        114.11165,
+        -2.95178
+      ],
+      "bounds": [
+        114.03903,
+        -2.99319,
+        114.16328,
+        -2.85026
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Seruyan::Seruyan Hilir",
+      "province": "Kalimantan Tengah",
+      "regency": "Seruyan",
+      "district": "Seruyan Hilir",
+      "label": "Kec. Seruyan Hilir, Seruyan",
+      "fullTitle": "Kecamatan Seruyan Hilir (Seruyan, Kalimantan Tengah)",
+      "h3Count": 3,
+      "center": [
+        112.71006,
+        -2.73586
+      ],
+      "bounds": [
+        112.67181,
+        -2.76287,
+        112.75583,
+        -2.71415
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Seruyan::Seruyan Hulu",
+      "province": "Kalimantan Tengah",
+      "regency": "Seruyan",
+      "district": "Seruyan Hulu",
+      "label": "Kec. Seruyan Hulu, Seruyan",
+      "fullTitle": "Kecamatan Seruyan Hulu (Seruyan, Kalimantan Tengah)",
+      "h3Count": 2,
+      "center": [
+        112.15789,
+        -0.73733
+      ],
+      "bounds": [
+        112.15628,
+        -0.74113,
+        112.1595,
+        -0.73352
+      ]
+    },
+    {
+      "id": "Kalimantan Tengah::Seruyan::Seruyan Tengah",
+      "province": "Kalimantan Tengah",
+      "regency": "Seruyan",
+      "district": "Seruyan Tengah",
+      "label": "Kec. Seruyan Tengah, Seruyan",
+      "fullTitle": "Kecamatan Seruyan Tengah (Seruyan, Kalimantan Tengah)",
+      "h3Count": 1,
+      "center": [
+        112.34288,
+        -2.18411
+      ],
+      "bounds": [
+        112.34288,
+        -2.18411,
+        112.34288,
+        -2.18411
       ]
     },
     {
@@ -1691,6 +4731,4205 @@
         3.42555,
         117.13852,
         3.48009
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka::Mendo Barat",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka",
+      "district": "Mendo Barat",
+      "label": "Kec. Mendo Barat, Bangka",
+      "fullTitle": "Kecamatan Mendo Barat (Bangka, Kepulauan Bangka Belitung)",
+      "h3Count": 3,
+      "center": [
+        105.86508,
+        -2.32514
+      ],
+      "bounds": [
+        105.82918,
+        -2.35009,
+        105.92317,
+        -2.28176
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Barat::Tempilang",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Barat",
+      "district": "Tempilang",
+      "label": "Kec. Tempilang, Bangka Barat",
+      "fullTitle": "Kecamatan Tempilang (Bangka Barat, Kepulauan Bangka Belitung)",
+      "h3Count": 497,
+      "center": [
+        105.66077,
+        -2.04567
+      ],
+      "bounds": [
+        105.52258,
+        -2.13587,
+        105.78393,
+        -1.9462
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Barat::Kelapa",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Barat",
+      "district": "Kelapa",
+      "label": "Kec. Kelapa, Bangka Barat",
+      "fullTitle": "Kecamatan Kelapa (Bangka Barat, Kepulauan Bangka Belitung)",
+      "h3Count": 9,
+      "center": [
+        105.63568,
+        -1.97622
+      ],
+      "bounds": [
+        105.59195,
+        -2.0069,
+        105.70581,
+        -1.95275
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Barat::Simpang Teritip",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Barat",
+      "district": "Simpang Teritip",
+      "label": "Kec. Simpang Teritip, Bangka Barat",
+      "fullTitle": "Kecamatan Simpang Teritip (Bangka Barat, Kepulauan Bangka Belitung)",
+      "h3Count": 4,
+      "center": [
+        105.54086,
+        -2.02194
+      ],
+      "bounds": [
+        105.52413,
+        -2.06761,
+        105.54762,
+        -1.98668
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Selatan::Kepulauan Pongok",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Selatan",
+      "district": "Kepulauan Pongok",
+      "label": "Kec. Kepulauan Pongok, Bangka Selatan",
+      "fullTitle": "Kecamatan Kepulauan Pongok (Bangka Selatan, Kepulauan Bangka Belitung)",
+      "h3Count": 58,
+      "center": [
+        107.06035,
+        -2.87321
+      ],
+      "bounds": [
+        107.02562,
+        -2.90898,
+        107.09044,
+        -2.82556
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Selatan::Payung",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Selatan",
+      "district": "Payung",
+      "label": "Kec. Payung, Bangka Selatan",
+      "fullTitle": "Kecamatan Payung (Bangka Selatan, Kepulauan Bangka Belitung)",
+      "h3Count": 3,
+      "center": [
+        106.17569,
+        -2.47532
+      ],
+      "bounds": [
+        106.08709,
+        -2.49424,
+        106.22428,
+        -2.46558
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Selatan::Air Gegas",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Selatan",
+      "district": "Air Gegas",
+      "label": "Kec. Air Gegas, Bangka Selatan",
+      "fullTitle": "Kecamatan Air Gegas (Bangka Selatan, Kepulauan Bangka Belitung)",
+      "h3Count": 1,
+      "center": [
+        106.51084,
+        -2.6564
+      ],
+      "bounds": [
+        106.51084,
+        -2.6564,
+        106.51084,
+        -2.6564
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Selatan::Simpang Rimba",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Selatan",
+      "district": "Simpang Rimba",
+      "label": "Kec. Simpang Rimba, Bangka Selatan",
+      "fullTitle": "Kecamatan Simpang Rimba (Bangka Selatan, Kepulauan Bangka Belitung)",
+      "h3Count": 1,
+      "center": [
+        106.02805,
+        -2.4381
+      ],
+      "bounds": [
+        106.02805,
+        -2.4381,
+        106.02805,
+        -2.4381
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Tengah::Sungai Selan",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Tengah",
+      "district": "Sungai Selan",
+      "label": "Kec. Sungai Selan, Bangka Tengah",
+      "fullTitle": "Kecamatan Sungai Selan (Bangka Tengah, Kepulauan Bangka Belitung)",
+      "h3Count": 876,
+      "center": [
+        106.01127,
+        -2.38545
+      ],
+      "bounds": [
+        105.78846,
+        -2.51385,
+        106.23288,
+        -2.21471
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Tengah::Lubuk Besar",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Tengah",
+      "district": "Lubuk Besar",
+      "label": "Kec. Lubuk Besar, Bangka Tengah",
+      "fullTitle": "Kecamatan Lubuk Besar (Bangka Tengah, Kepulauan Bangka Belitung)",
+      "h3Count": 690,
+      "center": [
+        106.60599,
+        -2.59494
+      ],
+      "bounds": [
+        106.43107,
+        -2.71793,
+        106.84742,
+        -2.48989
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Tengah::Simpang Katis",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Tengah",
+      "district": "Simpang Katis",
+      "label": "Kec. Simpang Katis, Bangka Tengah",
+      "fullTitle": "Kecamatan Simpang Katis (Bangka Tengah, Kepulauan Bangka Belitung)",
+      "h3Count": 5,
+      "center": [
+        106.08299,
+        -2.32838
+      ],
+      "bounds": [
+        106.01244,
+        -2.39406,
+        106.14969,
+        -2.25793
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Bangka Tengah::Koba",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Bangka Tengah",
+      "district": "Koba",
+      "label": "Kec. Koba, Bangka Tengah",
+      "fullTitle": "Kecamatan Koba (Bangka Tengah, Kepulauan Bangka Belitung)",
+      "h3Count": 1,
+      "center": [
+        106.4514,
+        -2.52599
+      ],
+      "bounds": [
+        106.4514,
+        -2.52599,
+        106.4514,
+        -2.52599
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Belitung::Membalong",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Belitung",
+      "district": "Membalong",
+      "label": "Kec. Membalong, Belitung",
+      "fullTitle": "Kecamatan Membalong (Belitung, Kepulauan Bangka Belitung)",
+      "h3Count": 1263,
+      "center": [
+        107.70163,
+        -3.04398
+      ],
+      "bounds": [
+        107.49176,
+        -3.24776,
+        107.86183,
+        -2.84955
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Belitung::Badau",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Belitung",
+      "district": "Badau",
+      "label": "Kec. Badau, Belitung",
+      "fullTitle": "Kecamatan Badau (Belitung, Kepulauan Bangka Belitung)",
+      "h3Count": 3,
+      "center": [
+        107.70267,
+        -2.86771
+      ],
+      "bounds": [
+        107.67941,
+        -2.88495,
+        107.74068,
+        -2.85881
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Belitung Timur::Dendang",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Belitung Timur",
+      "district": "Dendang",
+      "label": "Kec. Dendang, Belitung Timur",
+      "fullTitle": "Kecamatan Dendang (Belitung Timur, Kepulauan Bangka Belitung)",
+      "h3Count": 4,
+      "center": [
+        107.78714,
+        -2.92857
+      ],
+      "bounds": [
+        107.75261,
+        -3.01047,
+        107.85498,
+        -2.89311
+      ]
+    },
+    {
+      "id": "Kepulauan Bangka Belitung::Kota Pangkal Pinang::Girimaya",
+      "province": "Kepulauan Bangka Belitung",
+      "regency": "Kota Pangkal Pinang",
+      "district": "Girimaya",
+      "label": "Kec. Girimaya, Kota Pangkal Pinang",
+      "fullTitle": "Kecamatan Girimaya (Kota Pangkal Pinang, Kepulauan Bangka Belitung)",
+      "h3Count": 6,
+      "center": [
+        106.11599,
+        -2.14668
+      ],
+      "bounds": [
+        106.10601,
+        -2.15281,
+        106.12832,
+        -2.13797
+      ]
+    },
+    {
+      "id": "Lampung::Danau::Danau",
+      "province": "Lampung",
+      "regency": "Danau",
+      "district": "Danau",
+      "label": "Kec. Danau, Danau",
+      "fullTitle": "Kecamatan Danau (Danau, Lampung)",
+      "h3Count": 38,
+      "center": [
+        103.90147,
+        -4.91923
+      ],
+      "bounds": [
+        103.85212,
+        -4.95291,
+        103.94151,
+        -4.89455
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Panjang",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Panjang",
+      "label": "Kec. Panjang, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Panjang (Kota Bandar Lampung, Lampung)",
+      "h3Count": 20,
+      "center": [
+        105.33023,
+        -5.48496
+      ],
+      "bounds": [
+        105.30079,
+        -5.52019,
+        105.35308,
+        -5.43741
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Teluk Betung Barat",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Teluk Betung Barat",
+      "label": "Kec. Teluk Betung Barat, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Teluk Betung Barat (Kota Bandar Lampung, Lampung)",
+      "h3Count": 12,
+      "center": [
+        105.22912,
+        -5.44297
+      ],
+      "bounds": [
+        105.21009,
+        -5.45639,
+        105.2514,
+        -5.43245
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Langkapura",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Langkapura",
+      "label": "Kec. Langkapura, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Langkapura (Kota Bandar Lampung, Lampung)",
+      "h3Count": 7,
+      "center": [
+        105.23318,
+        -5.38979
+      ],
+      "bounds": [
+        105.22323,
+        -5.39749,
+        105.24189,
+        -5.38201
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Bumi Waras",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Bumi Waras",
+      "label": "Kec. Bumi Waras, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Bumi Waras (Kota Bandar Lampung, Lampung)",
+      "h3Count": 5,
+      "center": [
+        105.28749,
+        -5.44101
+      ],
+      "bounds": [
+        105.27862,
+        -5.4444,
+        105.29575,
+        -5.43642
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Kedaton",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Kedaton",
+      "label": "Kec. Kedaton, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Kedaton (Kota Bandar Lampung, Lampung)",
+      "h3Count": 4,
+      "center": [
+        105.26079,
+        -5.38775
+      ],
+      "bounds": [
+        105.25398,
+        -5.3915,
+        105.26759,
+        -5.38401
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Teluk Betung Utara",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Teluk Betung Utara",
+      "label": "Kec. Teluk Betung Utara, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Teluk Betung Utara (Kota Bandar Lampung, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.262,
+        -5.43759
+      ],
+      "bounds": [
+        105.25797,
+        -5.44242,
+        105.26654,
+        -5.43493
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Sukabumi",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Sukabumi",
+      "label": "Kec. Sukabumi, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Sukabumi (Kota Bandar Lampung, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.29727,
+        -5.42993
+      ],
+      "bounds": [
+        105.29727,
+        -5.42993,
+        105.29727,
+        -5.42993
+      ]
+    },
+    {
+      "id": "Lampung::Kota Bandar Lampung::Teluk Betung Selatan",
+      "province": "Lampung",
+      "regency": "Kota Bandar Lampung",
+      "district": "Teluk Betung Selatan",
+      "label": "Kec. Teluk Betung Selatan, Kota Bandar Lampung",
+      "fullTitle": "Kecamatan Teluk Betung Selatan (Kota Bandar Lampung, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.27006,
+        -5.44291
+      ],
+      "bounds": [
+        105.27006,
+        -5.44291,
+        105.27006,
+        -5.44291
+      ]
+    },
+    {
+      "id": "Lampung::Kota Metro::Metro Barat",
+      "province": "Lampung",
+      "regency": "Kota Metro",
+      "district": "Metro Barat",
+      "label": "Kec. Metro Barat, Kota Metro",
+      "fullTitle": "Kecamatan Metro Barat (Kota Metro, Lampung)",
+      "h3Count": 13,
+      "center": [
+        105.28827,
+        -5.13774
+      ],
+      "bounds": [
+        105.2764,
+        -5.15906,
+        105.31069,
+        -5.11603
+      ]
+    },
+    {
+      "id": "Lampung::Kota Metro::Metro Selatan",
+      "province": "Lampung",
+      "regency": "Kota Metro",
+      "district": "Metro Selatan",
+      "label": "Kec. Metro Selatan, Kota Metro",
+      "fullTitle": "Kecamatan Metro Selatan (Kota Metro, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.28697,
+        -5.15957
+      ],
+      "bounds": [
+        105.28697,
+        -5.15957,
+        105.28697,
+        -5.15957
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Barat::Sumber Jaya",
+      "province": "Lampung",
+      "regency": "Lampung Barat",
+      "district": "Sumber Jaya",
+      "label": "Kec. Sumber Jaya, Lampung Barat",
+      "fullTitle": "Kecamatan Sumber Jaya (Lampung Barat, Lampung)",
+      "h3Count": 128,
+      "center": [
+        104.45801,
+        -4.99339
+      ],
+      "bounds": [
+        104.39298,
+        -5.05881,
+        104.49844,
+        -4.93529
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Barat::Lumbok Seminung",
+      "province": "Lampung",
+      "regency": "Lampung Barat",
+      "district": "Lumbok Seminung",
+      "label": "Kec. Lumbok Seminung, Lampung Barat",
+      "fullTitle": "Kecamatan Lumbok Seminung (Lampung Barat, Lampung)",
+      "h3Count": 113,
+      "center": [
+        103.90533,
+        -4.93321
+      ],
+      "bounds": [
+        103.82048,
+        -4.98473,
+        103.97016,
+        -4.88113
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Barat::Gedung Surian",
+      "province": "Lampung",
+      "regency": "Lampung Barat",
+      "district": "Gedung Surian",
+      "label": "Kec. Gedung Surian, Lampung Barat",
+      "fullTitle": "Kecamatan Gedung Surian (Lampung Barat, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.48683,
+        -5.0388
+      ],
+      "bounds": [
+        104.48683,
+        -5.0388,
+        104.48683,
+        -5.0388
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Barat::Way Tenong",
+      "province": "Lampung",
+      "regency": "Lampung Barat",
+      "district": "Way Tenong",
+      "label": "Kec. Way Tenong, Lampung Barat",
+      "fullTitle": "Kecamatan Way Tenong (Lampung Barat, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.43514,
+        -5.03568
+      ],
+      "bounds": [
+        104.43514,
+        -5.03568,
+        104.43514,
+        -5.03568
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Tanjung Bintang",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Tanjung Bintang",
+      "label": "Kec. Tanjung Bintang, Lampung Selatan",
+      "fullTitle": "Kecamatan Tanjung Bintang (Lampung Selatan, Lampung)",
+      "h3Count": 214,
+      "center": [
+        105.40097,
+        -5.39319
+      ],
+      "bounds": [
+        105.30843,
+        -5.44532,
+        105.50069,
+        -5.32754
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Bakauheni",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Bakauheni",
+      "label": "Kec. Bakauheni, Lampung Selatan",
+      "fullTitle": "Kecamatan Bakauheni (Lampung Selatan, Lampung)",
+      "h3Count": 85,
+      "center": [
+        105.72131,
+        -5.83932
+      ],
+      "bounds": [
+        105.67084,
+        -5.90407,
+        105.78606,
+        -5.79631
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Pulau",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Pulau",
+      "label": "Kec. Pulau, Lampung Selatan",
+      "fullTitle": "Kecamatan Pulau (Lampung Selatan, Lampung)",
+      "h3Count": 37,
+      "center": [
+        105.42244,
+        -6.12196
+      ],
+      "bounds": [
+        105.35889,
+        -6.16402,
+        105.4618,
+        -6.07446
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Hutan",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Hutan",
+      "label": "Kec. Hutan, Lampung Selatan",
+      "fullTitle": "Kecamatan Hutan (Lampung Selatan, Lampung)",
+      "h3Count": 24,
+      "center": [
+        105.63037,
+        -5.79191
+      ],
+      "bounds": [
+        105.61109,
+        -5.80689,
+        105.66581,
+        -5.76077
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Rajabasa",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Rajabasa",
+      "label": "Kec. Rajabasa, Lampung Selatan",
+      "fullTitle": "Kecamatan Rajabasa (Lampung Selatan, Lampung)",
+      "h3Count": 5,
+      "center": [
+        105.66116,
+        -5.81822
+      ],
+      "bounds": [
+        105.6437,
+        -5.83666,
+        105.6798,
+        -5.8129
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Ketapang",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Ketapang",
+      "label": "Kec. Ketapang, Lampung Selatan",
+      "fullTitle": "Kecamatan Ketapang (Lampung Selatan, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.74791,
+        -5.82839
+      ],
+      "bounds": [
+        105.74105,
+        -5.84791,
+        105.75154,
+        -5.81167
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Merbau Mataram",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Merbau Mataram",
+      "label": "Kec. Merbau Mataram, Lampung Selatan",
+      "fullTitle": "Kecamatan Merbau Mataram (Lampung Selatan, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.39093,
+        -5.44019
+      ],
+      "bounds": [
+        105.3436,
+        -5.44088,
+        105.46845,
+        -5.43982
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Tanjung Sari",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Tanjung Sari",
+      "label": "Kec. Tanjung Sari, Lampung Selatan",
+      "fullTitle": "Kecamatan Tanjung Sari (Lampung Selatan, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.45177,
+        -5.38062
+      ],
+      "bounds": [
+        105.43838,
+        -5.39542,
+        105.46099,
+        -5.358
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Jati Agung",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Jati Agung",
+      "label": "Kec. Jati Agung, Lampung Selatan",
+      "fullTitle": "Kecamatan Jati Agung (Lampung Selatan, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.31347,
+        -5.35803
+      ],
+      "bounds": [
+        105.31347,
+        -5.35803,
+        105.31347,
+        -5.35803
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Selatan::Sragi",
+      "province": "Lampung",
+      "regency": "Lampung Selatan",
+      "district": "Sragi",
+      "label": "Kec. Sragi, Lampung Selatan",
+      "fullTitle": "Kecamatan Sragi (Lampung Selatan, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.75719,
+        -5.59443
+      ],
+      "bounds": [
+        105.75719,
+        -5.59443,
+        105.75719,
+        -5.59443
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Anak Tuha",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Anak Tuha",
+      "label": "Kec. Anak Tuha, Lampung Tengah",
+      "fullTitle": "Kecamatan Anak Tuha (Lampung Tengah, Lampung)",
+      "h3Count": 193,
+      "center": [
+        105.05578,
+        -5.00979
+      ],
+      "bounds": [
+        104.9948,
+        -5.08079,
+        105.11904,
+        -4.94088
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Kota Gajah",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Kota Gajah",
+      "label": "Kec. Kota Gajah, Lampung Tengah",
+      "fullTitle": "Kecamatan Kota Gajah (Lampung Tengah, Lampung)",
+      "h3Count": 71,
+      "center": [
+        105.32482,
+        -4.99037
+      ],
+      "bounds": [
+        105.29015,
+        -5.04342,
+        105.38905,
+        -4.92665
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Anak Ratu Aji",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Anak Ratu Aji",
+      "label": "Kec. Anak Ratu Aji, Lampung Tengah",
+      "fullTitle": "Kecamatan Anak Ratu Aji (Lampung Tengah, Lampung)",
+      "h3Count": 2,
+      "center": [
+        104.98318,
+        -4.9478
+      ],
+      "bounds": [
+        104.97509,
+        -4.97391,
+        104.99126,
+        -4.9217
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Bangunrejo",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Bangunrejo",
+      "label": "Kec. Bangunrejo, Lampung Tengah",
+      "fullTitle": "Kecamatan Bangunrejo (Lampung Tengah, Lampung)",
+      "h3Count": 2,
+      "center": [
+        105.04909,
+        -5.06148
+      ],
+      "bounds": [
+        105.04733,
+        -5.06524,
+        105.05086,
+        -5.05772
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Kalirejo",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Kalirejo",
+      "label": "Kec. Kalirejo, Lampung Tengah",
+      "fullTitle": "Kecamatan Kalirejo (Lampung Tengah, Lampung)",
+      "h3Count": 2,
+      "center": [
+        105.01623,
+        -5.23123
+      ],
+      "bounds": [
+        105.00689,
+        -5.23798,
+        105.02558,
+        -5.22448
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Padang Ratu",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Padang Ratu",
+      "label": "Kec. Padang Ratu, Lampung Tengah",
+      "fullTitle": "Kecamatan Padang Ratu (Lampung Tengah, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.00035,
+        -5.01104
+      ],
+      "bounds": [
+        105.00035,
+        -5.01104,
+        105.00035,
+        -5.01104
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Terusan Nunyai",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Terusan Nunyai",
+      "label": "Kec. Terusan Nunyai, Lampung Tengah",
+      "fullTitle": "Kecamatan Terusan Nunyai (Lampung Tengah, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.1723,
+        -4.64772
+      ],
+      "bounds": [
+        105.1723,
+        -4.64772,
+        105.1723,
+        -4.64772
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Tengah::Trimurjo",
+      "province": "Lampung",
+      "regency": "Lampung Tengah",
+      "district": "Trimurjo",
+      "label": "Kec. Trimurjo, Lampung Tengah",
+      "fullTitle": "Kecamatan Trimurjo (Lampung Tengah, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.26983,
+        -5.15856
+      ],
+      "bounds": [
+        105.26983,
+        -5.15856,
+        105.26983,
+        -5.15856
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Hutan",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Hutan",
+      "label": "Kec. Hutan, Lampung Timur",
+      "fullTitle": "Kecamatan Hutan (Lampung Timur, Lampung)",
+      "h3Count": 1671,
+      "center": [
+        105.75418,
+        -4.93232
+      ],
+      "bounds": [
+        105.55182,
+        -5.25094,
+        105.89666,
+        -4.6292
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Pasir Sakti",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Pasir Sakti",
+      "label": "Kec. Pasir Sakti, Lampung Timur",
+      "fullTitle": "Kecamatan Pasir Sakti (Lampung Timur, Lampung)",
+      "h3Count": 153,
+      "center": [
+        105.77933,
+        -5.53982
+      ],
+      "bounds": [
+        105.72767,
+        -5.61729,
+        105.82425,
+        -5.47241
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Way Jepara",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Way Jepara",
+      "label": "Kec. Way Jepara, Lampung Timur",
+      "fullTitle": "Kecamatan Way Jepara (Lampung Timur, Lampung)",
+      "h3Count": 123,
+      "center": [
+        105.69528,
+        -5.20265
+      ],
+      "bounds": [
+        105.61586,
+        -5.27545,
+        105.78066,
+        -5.15412
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Labuhan Ratu",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Labuhan Ratu",
+      "label": "Kec. Labuhan Ratu, Lampung Timur",
+      "fullTitle": "Kecamatan Labuhan Ratu (Lampung Timur, Lampung)",
+      "h3Count": 119,
+      "center": [
+        105.66858,
+        -5.11944
+      ],
+      "bounds": [
+        105.61389,
+        -5.17312,
+        105.71455,
+        -5.0581
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Bandar Sribawono",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Bandar Sribawono",
+      "label": "Kec. Bandar Sribawono, Lampung Timur",
+      "fullTitle": "Kecamatan Bandar Sribawono (Lampung Timur, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.67769,
+        -5.21159
+      ],
+      "bounds": [
+        105.67769,
+        -5.21159,
+        105.67769,
+        -5.21159
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Braja Slebah",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Braja Slebah",
+      "label": "Kec. Braja Slebah, Lampung Timur",
+      "fullTitle": "Kecamatan Braja Slebah (Lampung Timur, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.76512,
+        -5.23852
+      ],
+      "bounds": [
+        105.76512,
+        -5.23852,
+        105.76512,
+        -5.23852
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Jabung",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Jabung",
+      "label": "Kec. Jabung, Lampung Timur",
+      "fullTitle": "Kecamatan Jabung (Lampung Timur, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.74516,
+        -5.58649
+      ],
+      "bounds": [
+        105.74516,
+        -5.58649,
+        105.74516,
+        -5.58649
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Labuhan Maringgai",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Labuhan Maringgai",
+      "label": "Kec. Labuhan Maringgai, Lampung Timur",
+      "fullTitle": "Kecamatan Labuhan Maringgai (Lampung Timur, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.84859,
+        -5.22149
+      ],
+      "bounds": [
+        105.84859,
+        -5.22149,
+        105.84859,
+        -5.22149
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Timur::Way Bungur",
+      "province": "Lampung",
+      "regency": "Lampung Timur",
+      "district": "Way Bungur",
+      "label": "Kec. Way Bungur, Lampung Timur",
+      "fullTitle": "Kecamatan Way Bungur (Lampung Timur, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.58674,
+        -4.89231
+      ],
+      "bounds": [
+        105.58674,
+        -4.89231,
+        105.58674,
+        -4.89231
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Sungkai Utara",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Sungkai Utara",
+      "label": "Kec. Sungkai Utara, Lampung Utara",
+      "fullTitle": "Kecamatan Sungkai Utara (Lampung Utara, Lampung)",
+      "h3Count": 166,
+      "center": [
+        104.75188,
+        -4.62184
+      ],
+      "bounds": [
+        104.67438,
+        -4.69293,
+        104.82273,
+        -4.56046
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Blambangan Pagar",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Blambangan Pagar",
+      "label": "Kec. Blambangan Pagar, Lampung Utara",
+      "fullTitle": "Kecamatan Blambangan Pagar (Lampung Utara, Lampung)",
+      "h3Count": 115,
+      "center": [
+        105.02248,
+        -4.889
+      ],
+      "bounds": [
+        104.97155,
+        -4.95389,
+        105.05598,
+        -4.80935
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Kotabumi",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Kotabumi",
+      "label": "Kec. Kotabumi, Lampung Utara",
+      "fullTitle": "Kecamatan Kotabumi (Lampung Utara, Lampung)",
+      "h3Count": 105,
+      "center": [
+        104.85806,
+        -4.81939
+      ],
+      "bounds": [
+        104.77273,
+        -4.84815,
+        104.94779,
+        -4.79142
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Sungkai Jaya",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Sungkai Jaya",
+      "label": "Kec. Sungkai Jaya, Lampung Utara",
+      "fullTitle": "Kecamatan Sungkai Jaya (Lampung Utara, Lampung)",
+      "h3Count": 63,
+      "center": [
+        104.74895,
+        -4.81162
+      ],
+      "bounds": [
+        104.70183,
+        -4.8505,
+        104.80157,
+        -4.78412
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Abung Kunang",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Abung Kunang",
+      "label": "Kec. Abung Kunang, Lampung Utara",
+      "fullTitle": "Kecamatan Abung Kunang (Lampung Utara, Lampung)",
+      "h3Count": 2,
+      "center": [
+        104.78666,
+        -4.84074
+      ],
+      "bounds": [
+        104.77982,
+        -4.84399,
+        104.79349,
+        -4.83749
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Abung Semuli",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Abung Semuli",
+      "label": "Kec. Abung Semuli, Lampung Utara",
+      "fullTitle": "Kecamatan Abung Semuli (Lampung Utara, Lampung)",
+      "h3Count": 2,
+      "center": [
+        105.02817,
+        -4.84798
+      ],
+      "bounds": [
+        105.0034,
+        -4.85748,
+        105.05294,
+        -4.83848
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Bukit Kemuning",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Bukit Kemuning",
+      "label": "Kec. Bukit Kemuning, Lampung Utara",
+      "fullTitle": "Kecamatan Bukit Kemuning (Lampung Utara, Lampung)",
+      "h3Count": 2,
+      "center": [
+        104.49994,
+        -4.99564
+      ],
+      "bounds": [
+        104.49788,
+        -5.01774,
+        104.502,
+        -4.97353
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Abung Selatan",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Abung Selatan",
+      "label": "Kec. Abung Selatan, Lampung Utara",
+      "fullTitle": "Kecamatan Abung Selatan (Lampung Utara, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.96801,
+        -4.90663
+      ],
+      "bounds": [
+        104.96801,
+        -4.90663,
+        104.96801,
+        -4.90663
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Kotabumi Utara",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Kotabumi Utara",
+      "label": "Kec. Kotabumi Utara, Lampung Utara",
+      "fullTitle": "Kecamatan Kotabumi Utara (Lampung Utara, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.85824,
+        -4.79741
+      ],
+      "bounds": [
+        104.85824,
+        -4.79741,
+        104.85824,
+        -4.79741
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Sungkai Selatan",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Sungkai Selatan",
+      "label": "Kec. Sungkai Selatan, Lampung Utara",
+      "fullTitle": "Kecamatan Sungkai Selatan (Lampung Utara, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.74638,
+        -4.79063
+      ],
+      "bounds": [
+        104.74638,
+        -4.79063,
+        104.74638,
+        -4.79063
+      ]
+    },
+    {
+      "id": "Lampung::Lampung Utara::Sungkai Tengah",
+      "province": "Lampung",
+      "regency": "Lampung Utara",
+      "district": "Sungkai Tengah",
+      "label": "Kec. Sungkai Tengah, Lampung Utara",
+      "fullTitle": "Kecamatan Sungkai Tengah (Lampung Utara, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.78073,
+        -4.66795
+      ],
+      "bounds": [
+        104.78073,
+        -4.66795,
+        104.78073,
+        -4.66795
+      ]
+    },
+    {
+      "id": "Lampung::Mesuji::Rawajitu Utara",
+      "province": "Lampung",
+      "regency": "Mesuji",
+      "district": "Rawajitu Utara",
+      "label": "Kec. Rawajitu Utara, Mesuji",
+      "fullTitle": "Kecamatan Rawajitu Utara (Mesuji, Lampung)",
+      "h3Count": 283,
+      "center": [
+        105.65284,
+        -4.14279
+      ],
+      "bounds": [
+        105.57147,
+        -4.2192,
+        105.75668,
+        -4.0507
+      ]
+    },
+    {
+      "id": "Lampung::Mesuji::Mesuji",
+      "province": "Lampung",
+      "regency": "Mesuji",
+      "district": "Mesuji",
+      "label": "Kec. Mesuji, Mesuji",
+      "fullTitle": "Kecamatan Mesuji (Mesuji, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.60476,
+        -3.94604
+      ],
+      "bounds": [
+        105.60476,
+        -3.94604,
+        105.60476,
+        -3.94604
+      ]
+    },
+    {
+      "id": "Lampung::Mesuji::Mesuji Timur",
+      "province": "Lampung",
+      "regency": "Mesuji",
+      "district": "Mesuji Timur",
+      "label": "Kec. Mesuji Timur, Mesuji",
+      "fullTitle": "Kecamatan Mesuji Timur (Mesuji, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.58314,
+        -4.15101
+      ],
+      "bounds": [
+        105.58314,
+        -4.15101,
+        105.58314,
+        -4.15101
+      ]
+    },
+    {
+      "id": "Lampung::Pesawaran::Negeri Katon",
+      "province": "Lampung",
+      "regency": "Pesawaran",
+      "district": "Negeri Katon",
+      "label": "Kec. Negeri Katon, Pesawaran",
+      "fullTitle": "Kecamatan Negeri Katon (Pesawaran, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.03819,
+        -5.26902
+      ],
+      "bounds": [
+        105.03819,
+        -5.26902,
+        105.03819,
+        -5.26902
+      ]
+    },
+    {
+      "id": "Lampung::Pesisir Barat::Krui Selatan",
+      "province": "Lampung",
+      "regency": "Pesisir Barat",
+      "district": "Krui Selatan",
+      "label": "Kec. Krui Selatan, Pesisir Barat",
+      "fullTitle": "Kecamatan Krui Selatan (Pesisir Barat, Lampung)",
+      "h3Count": 46,
+      "center": [
+        103.95403,
+        -5.22309
+      ],
+      "bounds": [
+        103.90398,
+        -5.2495,
+        103.99178,
+        -5.20481
+      ]
+    },
+    {
+      "id": "Lampung::Pesisir Barat::Bengkunat Belimbing",
+      "province": "Lampung",
+      "regency": "Pesisir Barat",
+      "district": "Bengkunat Belimbing",
+      "label": "Kec. Bengkunat Belimbing, Pesisir Barat",
+      "fullTitle": "Kecamatan Bengkunat Belimbing (Pesisir Barat, Lampung)",
+      "h3Count": 8,
+      "center": [
+        104.5805,
+        -5.73389
+      ],
+      "bounds": [
+        104.42681,
+        -5.91662,
+        104.65986,
+        -5.49563
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Gading Rejo",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Gading Rejo",
+      "label": "Kec. Gading Rejo, Pringsewu",
+      "fullTitle": "Kecamatan Gading Rejo (Pringsewu, Lampung)",
+      "h3Count": 69,
+      "center": [
+        105.02273,
+        -5.36536
+      ],
+      "bounds": [
+        104.96953,
+        -5.41197,
+        105.06693,
+        -5.32753
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Adi Luwih",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Adi Luwih",
+      "label": "Kec. Adi Luwih, Pringsewu",
+      "fullTitle": "Kecamatan Adi Luwih (Pringsewu, Lampung)",
+      "h3Count": 65,
+      "center": [
+        105.01095,
+        -5.25124
+      ],
+      "bounds": [
+        104.93872,
+        -5.28302,
+        105.06495,
+        -5.21098
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Pardasuka",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Pardasuka",
+      "label": "Kec. Pardasuka, Pringsewu",
+      "fullTitle": "Kecamatan Pardasuka (Pringsewu, Lampung)",
+      "h3Count": 2,
+      "center": [
+        104.89535,
+        -5.54129
+      ],
+      "bounds": [
+        104.88222,
+        -5.56026,
+        104.90847,
+        -5.52233
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Ambarawa",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Ambarawa",
+      "label": "Kec. Ambarawa, Pringsewu",
+      "fullTitle": "Kecamatan Ambarawa (Pringsewu, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.97306,
+        -5.39648
+      ],
+      "bounds": [
+        104.97306,
+        -5.39648,
+        104.97306,
+        -5.39648
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Pringsewu",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Pringsewu",
+      "label": "Kec. Pringsewu, Pringsewu",
+      "fullTitle": "Kecamatan Pringsewu (Pringsewu, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.9983,
+        -5.3615
+      ],
+      "bounds": [
+        104.9983,
+        -5.3615,
+        104.9983,
+        -5.3615
+      ]
+    },
+    {
+      "id": "Lampung::Pringsewu::Sukoharjo",
+      "province": "Lampung",
+      "regency": "Pringsewu",
+      "district": "Sukoharjo",
+      "label": "Kec. Sukoharjo, Pringsewu",
+      "fullTitle": "Kecamatan Sukoharjo (Pringsewu, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.9867,
+        -5.26598
+      ],
+      "bounds": [
+        104.9867,
+        -5.26598,
+        104.9867,
+        -5.26598
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Pematang Sawa",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Pematang Sawa",
+      "label": "Kec. Pematang Sawa, Tanggamus",
+      "fullTitle": "Kecamatan Pematang Sawa (Tanggamus, Lampung)",
+      "h3Count": 291,
+      "center": [
+        104.63476,
+        -5.77034
+      ],
+      "bounds": [
+        104.48964,
+        -5.934,
+        104.73203,
+        -5.54467
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Limau",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Limau",
+      "label": "Kec. Limau, Tanggamus",
+      "fullTitle": "Kecamatan Limau (Tanggamus, Lampung)",
+      "h3Count": 223,
+      "center": [
+        104.81448,
+        -5.55508
+      ],
+      "bounds": [
+        104.73176,
+        -5.62213,
+        104.91201,
+        -5.50083
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Air Naningan",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Air Naningan",
+      "label": "Kec. Air Naningan, Tanggamus",
+      "fullTitle": "Kecamatan Air Naningan (Tanggamus, Lampung)",
+      "h3Count": 163,
+      "center": [
+        104.7137,
+        -5.2506
+      ],
+      "bounds": [
+        104.62732,
+        -5.30283,
+        104.79323,
+        -5.20412
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Semaka",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Semaka",
+      "label": "Kec. Semaka, Tanggamus",
+      "fullTitle": "Kecamatan Semaka (Tanggamus, Lampung)",
+      "h3Count": 127,
+      "center": [
+        104.46615,
+        -5.49042
+      ],
+      "bounds": [
+        104.3948,
+        -5.54417,
+        104.54067,
+        -5.42159
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Kota Agung Timur",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Kota Agung Timur",
+      "label": "Kec. Kota Agung Timur, Tanggamus",
+      "fullTitle": "Kecamatan Kota Agung Timur (Tanggamus, Lampung)",
+      "h3Count": 87,
+      "center": [
+        104.7051,
+        -5.49397
+      ],
+      "bounds": [
+        104.65036,
+        -5.54227,
+        104.74991,
+        -5.45233
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Bulok",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Bulok",
+      "label": "Kec. Bulok, Tanggamus",
+      "fullTitle": "Kecamatan Bulok (Tanggamus, Lampung)",
+      "h3Count": 52,
+      "center": [
+        104.87626,
+        -5.47911
+      ],
+      "bounds": [
+        104.85444,
+        -5.5373,
+        104.9034,
+        -5.43543
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Bandar Negeri Semuong",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Bandar Negeri Semuong",
+      "label": "Kec. Bandar Negeri Semuong, Tanggamus",
+      "fullTitle": "Kecamatan Bandar Negeri Semuong (Tanggamus, Lampung)",
+      "h3Count": 47,
+      "center": [
+        104.47609,
+        -5.42838
+      ],
+      "bounds": [
+        104.44139,
+        -5.46319,
+        104.50161,
+        -5.39563
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Cukuh Balak",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Cukuh Balak",
+      "label": "Kec. Cukuh Balak, Tanggamus",
+      "fullTitle": "Kecamatan Cukuh Balak (Tanggamus, Lampung)",
+      "h3Count": 3,
+      "center": [
+        104.89098,
+        -5.57623
+      ],
+      "bounds": [
+        104.87618,
+        -5.58022,
+        104.90696,
+        -5.57373
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Gisting",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Gisting",
+      "label": "Kec. Gisting, Tanggamus",
+      "fullTitle": "Kecamatan Gisting (Tanggamus, Lampung)",
+      "h3Count": 2,
+      "center": [
+        104.73751,
+        -5.48109
+      ],
+      "bounds": [
+        104.72006,
+        -5.50033,
+        104.75495,
+        -5.46184
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Hutan",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Hutan",
+      "label": "Kec. Hutan, Tanggamus",
+      "fullTitle": "Kecamatan Hutan (Tanggamus, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.42923,
+        -5.43011
+      ],
+      "bounds": [
+        104.42923,
+        -5.43011,
+        104.42923,
+        -5.43011
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Kota Agung",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Kota Agung",
+      "label": "Kec. Kota Agung, Tanggamus",
+      "fullTitle": "Kecamatan Kota Agung (Tanggamus, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.66551,
+        -5.4878
+      ],
+      "bounds": [
+        104.66551,
+        -5.4878,
+        104.66551,
+        -5.4878
+      ]
+    },
+    {
+      "id": "Lampung::Tanggamus::Pulau Panggung",
+      "province": "Lampung",
+      "regency": "Tanggamus",
+      "district": "Pulau Panggung",
+      "label": "Kec. Pulau Panggung, Tanggamus",
+      "fullTitle": "Kecamatan Pulau Panggung (Tanggamus, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.71234,
+        -5.28628
+      ],
+      "bounds": [
+        104.71234,
+        -5.28628,
+        104.71234,
+        -5.28628
+      ]
+    },
+    {
+      "id": "Lampung::Tulang Bawang Barat::Tulang Bawang Tengah",
+      "province": "Lampung",
+      "regency": "Tulang Bawang Barat",
+      "district": "Tulang Bawang Tengah",
+      "label": "Kec. Tulang Bawang Tengah, Tulang Bawang Barat",
+      "fullTitle": "Kecamatan Tulang Bawang Tengah (Tulang Bawang Barat, Lampung)",
+      "h3Count": 322,
+      "center": [
+        105.13019,
+        -4.53689
+      ],
+      "bounds": [
+        105.03078,
+        -4.66178,
+        105.19912,
+        -4.43865
+      ]
+    },
+    {
+      "id": "Lampung::Tulang Bawang Barat::Lambu Kibang",
+      "province": "Lampung",
+      "regency": "Tulang Bawang Barat",
+      "district": "Lambu Kibang",
+      "label": "Kec. Lambu Kibang, Tulang Bawang Barat",
+      "fullTitle": "Kecamatan Lambu Kibang (Tulang Bawang Barat, Lampung)",
+      "h3Count": 135,
+      "center": [
+        105.16273,
+        -4.35089
+      ],
+      "bounds": [
+        105.09457,
+        -4.42227,
+        105.24123,
+        -4.29245
+      ]
+    },
+    {
+      "id": "Lampung::Tulang Bawang Barat::Pagar Dewa",
+      "province": "Lampung",
+      "regency": "Tulang Bawang Barat",
+      "district": "Pagar Dewa",
+      "label": "Kec. Pagar Dewa, Tulang Bawang Barat",
+      "fullTitle": "Kecamatan Pagar Dewa (Tulang Bawang Barat, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.16941,
+        -4.42719
+      ],
+      "bounds": [
+        105.15776,
+        -4.45694,
+        105.17552,
+        -4.36874
+      ]
+    },
+    {
+      "id": "Lampung::Tulang Bawang Barat::Tulang Bawang Udik",
+      "province": "Lampung",
+      "regency": "Tulang Bawang Barat",
+      "district": "Tulang Bawang Udik",
+      "label": "Kec. Tulang Bawang Udik, Tulang Bawang Barat",
+      "fullTitle": "Kecamatan Tulang Bawang Udik (Tulang Bawang Barat, Lampung)",
+      "h3Count": 3,
+      "center": [
+        105.04831,
+        -4.49574
+      ],
+      "bounds": [
+        105.03432,
+        -4.50853,
+        105.05708,
+        -4.47773
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Rawajitu Timur",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Rawajitu Timur",
+      "label": "Kec. Rawajitu Timur, Tulangbawang",
+      "fullTitle": "Kecamatan Rawajitu Timur (Tulangbawang, Lampung)",
+      "h3Count": 227,
+      "center": [
+        105.79804,
+        -4.24787
+      ],
+      "bounds": [
+        105.75823,
+        -4.40256,
+        105.85647,
+        -4.11877
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Penawar Tama",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Penawar Tama",
+      "label": "Kec. Penawar Tama, Tulangbawang",
+      "fullTitle": "Kecamatan Penawar Tama (Tulangbawang, Lampung)",
+      "h3Count": 180,
+      "center": [
+        105.43513,
+        -4.1779
+      ],
+      "bounds": [
+        105.3658,
+        -4.22695,
+        105.51182,
+        -4.12468
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Gedung Aji Baru",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Gedung Aji Baru",
+      "label": "Kec. Gedung Aji Baru, Tulangbawang",
+      "fullTitle": "Kecamatan Gedung Aji Baru (Tulangbawang, Lampung)",
+      "h3Count": 120,
+      "center": [
+        105.57952,
+        -4.22309
+      ],
+      "bounds": [
+        105.50984,
+        -4.30688,
+        105.65264,
+        -4.1614
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Banjar Agung",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Banjar Agung",
+      "label": "Kec. Banjar Agung, Tulangbawang",
+      "fullTitle": "Kecamatan Banjar Agung (Tulangbawang, Lampung)",
+      "h3Count": 113,
+      "center": [
+        105.24528,
+        -4.29575
+      ],
+      "bounds": [
+        105.15888,
+        -4.33458,
+        105.32069,
+        -4.25653
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Gedung Aji",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Gedung Aji",
+      "label": "Kec. Gedung Aji, Tulangbawang",
+      "fullTitle": "Kecamatan Gedung Aji (Tulangbawang, Lampung)",
+      "h3Count": 113,
+      "center": [
+        105.41988,
+        -4.28293
+      ],
+      "bounds": [
+        105.32223,
+        -4.34954,
+        105.60469,
+        -4.20035
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Rawa Pitu",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Rawa Pitu",
+      "label": "Kec. Rawa Pitu, Tulangbawang",
+      "fullTitle": "Kecamatan Rawa Pitu (Tulangbawang, Lampung)",
+      "h3Count": 2,
+      "center": [
+        105.60864,
+        -4.27766
+      ],
+      "bounds": [
+        105.60203,
+        -4.29931,
+        105.61524,
+        -4.256
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Banjar Baru",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Banjar Baru",
+      "label": "Kec. Banjar Baru, Tulangbawang",
+      "fullTitle": "Kecamatan Banjar Baru (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.20131,
+        -4.37033
+      ],
+      "bounds": [
+        105.20131,
+        -4.37033,
+        105.20131,
+        -4.37033
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Banjar Margo",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Banjar Margo",
+      "label": "Kec. Banjar Margo, Tulangbawang",
+      "fullTitle": "Kecamatan Banjar Margo (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.22414,
+        -4.27608
+      ],
+      "bounds": [
+        105.22414,
+        -4.27608,
+        105.22414,
+        -4.27608
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Dente Teladas",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Dente Teladas",
+      "label": "Kec. Dente Teladas, Tulangbawang",
+      "fullTitle": "Kecamatan Dente Teladas (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.87173,
+        -4.68244
+      ],
+      "bounds": [
+        105.87173,
+        -4.68244,
+        105.87173,
+        -4.68244
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Gedung Meneng",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Gedung Meneng",
+      "label": "Kec. Gedung Meneng, Tulangbawang",
+      "fullTitle": "Kecamatan Gedung Meneng (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.35046,
+        -4.35007
+      ],
+      "bounds": [
+        105.35046,
+        -4.35007,
+        105.35046,
+        -4.35007
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Menggala",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Menggala",
+      "label": "Kec. Menggala, Tulangbawang",
+      "fullTitle": "Kecamatan Menggala (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.20065,
+        -4.58339
+      ],
+      "bounds": [
+        105.20065,
+        -4.58339,
+        105.20065,
+        -4.58339
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Meraksa Aji",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Meraksa Aji",
+      "label": "Kec. Meraksa Aji, Tulangbawang",
+      "fullTitle": "Kecamatan Meraksa Aji (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.41582,
+        -4.22166
+      ],
+      "bounds": [
+        105.41582,
+        -4.22166,
+        105.41582,
+        -4.22166
+      ]
+    },
+    {
+      "id": "Lampung::Tulangbawang::Penawar Aji",
+      "province": "Lampung",
+      "regency": "Tulangbawang",
+      "district": "Penawar Aji",
+      "label": "Kec. Penawar Aji, Tulangbawang",
+      "fullTitle": "Kecamatan Penawar Aji (Tulangbawang, Lampung)",
+      "h3Count": 1,
+      "center": [
+        105.50522,
+        -4.23453
+      ],
+      "bounds": [
+        105.50522,
+        -4.23453,
+        105.50522,
+        -4.23453
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Blambangan Umpu",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Blambangan Umpu",
+      "label": "Kec. Blambangan Umpu, Way Kanan",
+      "fullTitle": "Kecamatan Blambangan Umpu (Way Kanan, Lampung)",
+      "h3Count": 905,
+      "center": [
+        104.49494,
+        -4.52767
+      ],
+      "bounds": [
+        104.3289,
+        -4.68626,
+        104.62953,
+        -4.38402
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Bumi Agung",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Bumi Agung",
+      "label": "Kec. Bumi Agung, Way Kanan",
+      "fullTitle": "Kecamatan Bumi Agung (Way Kanan, Lampung)",
+      "h3Count": 221,
+      "center": [
+        104.53238,
+        -4.34386
+      ],
+      "bounds": [
+        104.42582,
+        -4.39268,
+        104.62283,
+        -4.2967
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Buay Bahuga",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Buay Bahuga",
+      "label": "Kec. Buay Bahuga, Way Kanan",
+      "fullTitle": "Kecamatan Buay Bahuga (Way Kanan, Lampung)",
+      "h3Count": 81,
+      "center": [
+        104.55324,
+        -4.28318
+      ],
+      "bounds": [
+        104.48776,
+        -4.31517,
+        104.60297,
+        -4.23701
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Negeri Agung",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Negeri Agung",
+      "label": "Kec. Negeri Agung, Way Kanan",
+      "fullTitle": "Kecamatan Negeri Agung (Way Kanan, Lampung)",
+      "h3Count": 4,
+      "center": [
+        104.63212,
+        -4.51181
+      ],
+      "bounds": [
+        104.59012,
+        -4.58279,
+        104.70011,
+        -4.39321
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Way Tuba",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Way Tuba",
+      "label": "Kec. Way Tuba, Way Kanan",
+      "fullTitle": "Kecamatan Way Tuba (Way Kanan, Lampung)",
+      "h3Count": 3,
+      "center": [
+        104.39101,
+        -4.45026
+      ],
+      "bounds": [
+        104.37032,
+        -4.52508,
+        104.42432,
+        -4.33693
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Negeri Besar",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Negeri Besar",
+      "label": "Kec. Negeri Besar, Way Kanan",
+      "fullTitle": "Kecamatan Negeri Besar (Way Kanan, Lampung)",
+      "h3Count": 2,
+      "center": [
+        105.04191,
+        -4.46717
+      ],
+      "bounds": [
+        105.02218,
+        -4.46964,
+        105.06165,
+        -4.46471
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Baradatu",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Baradatu",
+      "label": "Kec. Baradatu, Way Kanan",
+      "fullTitle": "Kecamatan Baradatu (Way Kanan, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.49995,
+        -4.65811
+      ],
+      "bounds": [
+        104.49995,
+        -4.65811,
+        104.49995,
+        -4.65811
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Gunung Labuhan",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Gunung Labuhan",
+      "label": "Kec. Gunung Labuhan, Way Kanan",
+      "fullTitle": "Kecamatan Gunung Labuhan (Way Kanan, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.57042,
+        -4.64774
+      ],
+      "bounds": [
+        104.57042,
+        -4.64774,
+        104.57042,
+        -4.64774
+      ]
+    },
+    {
+      "id": "Lampung::Way Kanan::Rebang Tangkas",
+      "province": "Lampung",
+      "regency": "Way Kanan",
+      "district": "Rebang Tangkas",
+      "label": "Kec. Rebang Tangkas, Way Kanan",
+      "fullTitle": "Kecamatan Rebang Tangkas (Way Kanan, Lampung)",
+      "h3Count": 1,
+      "center": [
+        104.43245,
+        -4.63926
+      ],
+      "bounds": [
+        104.43245,
+        -4.63926,
+        104.43245,
+        -4.63926
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Unir Sirau",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Unir Sirau",
+      "label": "Kec. Unir Sirau, Asmat",
+      "fullTitle": "Kecamatan Unir Sirau (Asmat, Papua)",
+      "h3Count": 1083,
+      "center": [
+        137.78109,
+        -5.20994
+      ],
+      "bounds": [
+        137.55556,
+        -5.3779,
+        138.35868,
+        -5.00768
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Suator",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Suator",
+      "label": "Kec. Suator, Asmat",
+      "fullTitle": "Kecamatan Suator (Asmat, Papua)",
+      "h3Count": 710,
+      "center": [
+        139.24221,
+        -5.31821
+      ],
+      "bounds": [
+        138.86544,
+        -5.60373,
+        139.55165,
+        -4.92549
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Jetsy",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Jetsy",
+      "label": "Kec. Jetsy, Asmat",
+      "fullTitle": "Kecamatan Jetsy (Asmat, Papua)",
+      "h3Count": 702,
+      "center": [
+        138.84924,
+        -5.11739
+      ],
+      "bounds": [
+        138.67368,
+        -5.41623,
+        138.93119,
+        -4.91501
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Pulau Tiga",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Pulau Tiga",
+      "label": "Kec. Pulau Tiga, Asmat",
+      "fullTitle": "Kecamatan Pulau Tiga (Asmat, Papua)",
+      "h3Count": 645,
+      "center": [
+        138.03943,
+        -4.97322
+      ],
+      "bounds": [
+        137.74663,
+        -5.1755,
+        138.25954,
+        -4.83184
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Sirets",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Sirets",
+      "label": "Kec. Sirets, Asmat",
+      "fullTitle": "Kecamatan Sirets (Asmat, Papua)",
+      "h3Count": 557,
+      "center": [
+        138.65079,
+        -5.5102
+      ],
+      "bounds": [
+        138.48887,
+        -5.70958,
+        138.78071,
+        -5.4066
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Atsy",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Atsy",
+      "label": "Kec. Atsy, Asmat",
+      "fullTitle": "Kecamatan Atsy (Asmat, Papua)",
+      "h3Count": 513,
+      "center": [
+        138.59857,
+        -5.73003
+      ],
+      "bounds": [
+        138.30943,
+        -5.85721,
+        138.82142,
+        -5.64292
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Fayit",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Fayit",
+      "label": "Kec. Fayit, Asmat",
+      "fullTitle": "Kecamatan Fayit (Asmat, Papua)",
+      "h3Count": 498,
+      "center": [
+        138.55304,
+        -6.04568
+      ],
+      "bounds": [
+        138.33434,
+        -6.1443,
+        138.76532,
+        -5.93205
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Agats",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Agats",
+      "label": "Kec. Agats, Asmat",
+      "fullTitle": "Kecamatan Agats (Asmat, Papua)",
+      "h3Count": 479,
+      "center": [
+        138.15468,
+        -5.56253
+      ],
+      "bounds": [
+        138.054,
+        -5.7434,
+        138.27123,
+        -5.28936
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Akat",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Akat",
+      "label": "Kec. Akat, Asmat",
+      "fullTitle": "Kecamatan Akat (Asmat, Papua)",
+      "h3Count": 461,
+      "center": [
+        138.46158,
+        -5.25627
+      ],
+      "bounds": [
+        138.19605,
+        -5.40177,
+        138.81202,
+        -5.04058
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Safan",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Safan",
+      "label": "Kec. Safan, Asmat",
+      "fullTitle": "Kecamatan Safan (Asmat, Papua)",
+      "h3Count": 457,
+      "center": [
+        138.69065,
+        -6.43209
+      ],
+      "bounds": [
+        138.38451,
+        -6.56279,
+        138.896,
+        -6.11008
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Ayip",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Ayip",
+      "label": "Kec. Ayip, Asmat",
+      "fullTitle": "Kecamatan Ayip (Asmat, Papua)",
+      "h3Count": 409,
+      "center": [
+        138.8318,
+        -5.8061
+      ],
+      "bounds": [
+        138.65712,
+        -5.8749,
+        138.94219,
+        -5.73006
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Suru-Suru",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Suru-Suru",
+      "label": "Kec. Suru-Suru, Asmat",
+      "fullTitle": "Kecamatan Suru-Suru (Asmat, Papua)",
+      "h3Count": 252,
+      "center": [
+        138.72554,
+        -4.90647
+      ],
+      "bounds": [
+        138.65164,
+        -5.00217,
+        138.81167,
+        -4.81898
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Der Koumur",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Der Koumur",
+      "label": "Kec. Der Koumur, Asmat",
+      "fullTitle": "Kecamatan Der Koumur (Asmat, Papua)",
+      "h3Count": 209,
+      "center": [
+        138.84676,
+        -6.13036
+      ],
+      "bounds": [
+        138.73112,
+        -6.17823,
+        138.9317,
+        -6.08361
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Kolf Braza",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Kolf Braza",
+      "label": "Kec. Kolf Braza, Asmat",
+      "fullTitle": "Kecamatan Kolf Braza (Asmat, Papua)",
+      "h3Count": 196,
+      "center": [
+        139.1002,
+        -5.15776
+      ],
+      "bounds": [
+        138.69145,
+        -5.41773,
+        139.2034,
+        -5.03148
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Sawa Erma",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Sawa Erma",
+      "label": "Kec. Sawa Erma, Asmat",
+      "fullTitle": "Kecamatan Sawa Erma (Asmat, Papua)",
+      "h3Count": 133,
+      "center": [
+        138.31603,
+        -5.09527
+      ],
+      "bounds": [
+        138.24795,
+        -5.16907,
+        138.37023,
+        -4.92261
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Kopay",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Kopay",
+      "label": "Kec. Kopay, Asmat",
+      "fullTitle": "Kecamatan Kopay (Asmat, Papua)",
+      "h3Count": 103,
+      "center": [
+        138.66125,
+        -6.35256
+      ],
+      "bounds": [
+        138.59529,
+        -6.43528,
+        138.70748,
+        -6.26974
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Joerat",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Joerat",
+      "label": "Kec. Joerat, Asmat",
+      "fullTitle": "Kecamatan Joerat (Asmat, Papua)",
+      "h3Count": 53,
+      "center": [
+        138.11997,
+        -5.34251
+      ],
+      "bounds": [
+        138.08765,
+        -5.38376,
+        138.14675,
+        -5.29995
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Bectbamu",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Bectbamu",
+      "label": "Kec. Bectbamu, Asmat",
+      "fullTitle": "Kecamatan Bectbamu (Asmat, Papua)",
+      "h3Count": 42,
+      "center": [
+        138.33958,
+        -5.89939
+      ],
+      "bounds": [
+        138.30547,
+        -5.93504,
+        138.36629,
+        -5.76048
+      ]
+    },
+    {
+      "id": "Papua::Asmat::Pantai Kasuari",
+      "province": "Papua",
+      "regency": "Asmat",
+      "district": "Pantai Kasuari",
+      "label": "Kec. Pantai Kasuari, Asmat",
+      "fullTitle": "Kecamatan Pantai Kasuari (Asmat, Papua)",
+      "h3Count": 26,
+      "center": [
+        138.73938,
+        -6.16983
+      ],
+      "bounds": [
+        138.71424,
+        -6.2019,
+        138.76128,
+        -6.14858
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Jair",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Jair",
+      "label": "Kec. Jair, Boven Digoel",
+      "fullTitle": "Kecamatan Jair (Boven Digoel, Papua)",
+      "h3Count": 2625,
+      "center": [
+        140.6401,
+        -6.52299
+      ],
+      "bounds": [
+        140.27306,
+        -6.73938,
+        140.96847,
+        -6.27058
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Waropko",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Waropko",
+      "label": "Kec. Waropko, Boven Digoel",
+      "fullTitle": "Kecamatan Waropko (Boven Digoel, Papua)",
+      "h3Count": 627,
+      "center": [
+        140.93077,
+        -5.43907
+      ],
+      "bounds": [
+        140.71933,
+        -5.70068,
+        140.9998,
+        -5.28086
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Sesnuk",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Sesnuk",
+      "label": "Kec. Sesnuk, Boven Digoel",
+      "fullTitle": "Kecamatan Sesnuk (Boven Digoel, Papua)",
+      "h3Count": 531,
+      "center": [
+        140.70324,
+        -6.16353
+      ],
+      "bounds": [
+        140.61038,
+        -6.37588,
+        140.92118,
+        -5.97154
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Kouh",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Kouh",
+      "label": "Kec. Kouh, Boven Digoel",
+      "fullTitle": "Kecamatan Kouh (Boven Digoel, Papua)",
+      "h3Count": 488,
+      "center": [
+        140.2478,
+        -5.86494
+      ],
+      "bounds": [
+        140.10707,
+        -5.96082,
+        140.34445,
+        -5.75304
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Kia",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Kia",
+      "label": "Kec. Kia, Boven Digoel",
+      "fullTitle": "Kecamatan Kia (Boven Digoel, Papua)",
+      "h3Count": 468,
+      "center": [
+        140.14207,
+        -6.58527
+      ],
+      "bounds": [
+        140.06752,
+        -6.74918,
+        140.27691,
+        -6.38424
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Mindiptana",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Mindiptana",
+      "label": "Kec. Mindiptana, Boven Digoel",
+      "fullTitle": "Kecamatan Mindiptana (Boven Digoel, Papua)",
+      "h3Count": 385,
+      "center": [
+        140.69241,
+        -5.98032
+      ],
+      "bounds": [
+        140.58047,
+        -6.10104,
+        140.82581,
+        -5.81677
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Arimop",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Arimop",
+      "label": "Kec. Arimop, Boven Digoel",
+      "fullTitle": "Kecamatan Arimop (Boven Digoel, Papua)",
+      "h3Count": 381,
+      "center": [
+        140.52168,
+        -5.84296
+      ],
+      "bounds": [
+        140.33635,
+        -6.01232,
+        140.61648,
+        -5.54456
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Kombay",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Kombay",
+      "label": "Kec. Kombay, Boven Digoel",
+      "fullTitle": "Kecamatan Kombay (Boven Digoel, Papua)",
+      "h3Count": 298,
+      "center": [
+        139.95045,
+        -5.18859
+      ],
+      "bounds": [
+        139.85311,
+        -5.25868,
+        140.0414,
+        -5.11618
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Firiwage",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Firiwage",
+      "label": "Kec. Firiwage, Boven Digoel",
+      "fullTitle": "Kecamatan Firiwage (Boven Digoel, Papua)",
+      "h3Count": 246,
+      "center": [
+        140.11675,
+        -5.26134
+      ],
+      "bounds": [
+        140.01712,
+        -5.33657,
+        140.30639,
+        -5.1697
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Kawagit",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Kawagit",
+      "label": "Kec. Kawagit, Boven Digoel",
+      "fullTitle": "Kecamatan Kawagit (Boven Digoel, Papua)",
+      "h3Count": 222,
+      "center": [
+        140.4023,
+        -5.52495
+      ],
+      "bounds": [
+        140.2169,
+        -5.78065,
+        140.48403,
+        -5.4545
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Ambatkwi",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Ambatkwi",
+      "label": "Kec. Ambatkwi, Boven Digoel",
+      "fullTitle": "Kecamatan Ambatkwi (Boven Digoel, Papua)",
+      "h3Count": 174,
+      "center": [
+        140.51337,
+        -5.41108
+      ],
+      "bounds": [
+        140.41777,
+        -5.47985,
+        140.59085,
+        -5.33774
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Fofi",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Fofi",
+      "label": "Kec. Fofi, Boven Digoel",
+      "fullTitle": "Kecamatan Fofi (Boven Digoel, Papua)",
+      "h3Count": 163,
+      "center": [
+        139.95433,
+        -6.30508
+      ],
+      "bounds": [
+        139.82394,
+        -6.33631,
+        140.07284,
+        -6.22711
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Manggelum",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Manggelum",
+      "label": "Kec. Manggelum, Boven Digoel",
+      "fullTitle": "Kecamatan Manggelum (Boven Digoel, Papua)",
+      "h3Count": 151,
+      "center": [
+        140.33096,
+        -5.28176
+      ],
+      "bounds": [
+        140.28941,
+        -5.437,
+        140.46134,
+        -5.19769
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Kombut",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Kombut",
+      "label": "Kec. Kombut, Boven Digoel",
+      "fullTitle": "Kecamatan Kombut (Boven Digoel, Papua)",
+      "h3Count": 122,
+      "center": [
+        140.77827,
+        -5.81138
+      ],
+      "bounds": [
+        140.72153,
+        -6.18335,
+        140.83862,
+        -5.75071
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Iniyandit",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Iniyandit",
+      "label": "Kec. Iniyandit, Boven Digoel",
+      "fullTitle": "Kecamatan Iniyandit (Boven Digoel, Papua)",
+      "h3Count": 68,
+      "center": [
+        140.6592,
+        -5.72145
+      ],
+      "bounds": [
+        140.51736,
+        -5.96188,
+        140.71625,
+        -5.6759
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Ninati",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Ninati",
+      "label": "Kec. Ninati, Boven Digoel",
+      "fullTitle": "Kecamatan Ninati (Boven Digoel, Papua)",
+      "h3Count": 35,
+      "center": [
+        140.97044,
+        -5.66376
+      ],
+      "bounds": [
+        140.94504,
+        -5.68654,
+        140.99852,
+        -5.63699
+      ]
+    },
+    {
+      "id": "Papua::Boven Digoel::Subur",
+      "province": "Papua",
+      "regency": "Boven Digoel",
+      "district": "Subur",
+      "label": "Kec. Subur, Boven Digoel",
+      "fullTitle": "Kecamatan Subur (Boven Digoel, Papua)",
+      "h3Count": 4,
+      "center": [
+        140.42641,
+        -6.70766
+      ],
+      "bounds": [
+        140.33271,
+        -6.73617,
+        140.52011,
+        -6.67916
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Obaa",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Obaa",
+      "label": "Kec. Obaa, Mappi",
+      "fullTitle": "Kecamatan Obaa (Mappi, Papua)",
+      "h3Count": 1245,
+      "center": [
+        139.3922,
+        -6.56887
+      ],
+      "bounds": [
+        139.24144,
+        -6.92884,
+        139.53879,
+        -6.20963
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Citakmitak",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Citakmitak",
+      "label": "Kec. Citakmitak, Mappi",
+      "fullTitle": "Kecamatan Citakmitak (Mappi, Papua)",
+      "h3Count": 1023,
+      "center": [
+        139.46903,
+        -5.81462
+      ],
+      "bounds": [
+        139.31213,
+        -6.09945,
+        139.68239,
+        -5.44442
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Venaha",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Venaha",
+      "label": "Kec. Venaha, Mappi",
+      "fullTitle": "Kecamatan Venaha (Mappi, Papua)",
+      "h3Count": 994,
+      "center": [
+        139.96064,
+        -6.91638
+      ],
+      "bounds": [
+        139.71536,
+        -7.19206,
+        140.06866,
+        -6.533
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Kaibar",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Kaibar",
+      "label": "Kec. Kaibar, Mappi",
+      "fullTitle": "Kecamatan Kaibar (Mappi, Papua)",
+      "h3Count": 984,
+      "center": [
+        139.70409,
+        -5.76016
+      ],
+      "bounds": [
+        139.48902,
+        -6.2119,
+        139.83929,
+        -5.04831
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Passue",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Passue",
+      "label": "Kec. Passue, Mappi",
+      "fullTitle": "Kecamatan Passue (Mappi, Papua)",
+      "h3Count": 951,
+      "center": [
+        139.69521,
+        -6.41407
+      ],
+      "bounds": [
+        139.43052,
+        -6.60336,
+        139.8571,
+        -6.26381
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Edera",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Edera",
+      "label": "Kec. Edera, Mappi",
+      "fullTitle": "Kecamatan Edera (Mappi, Papua)",
+      "h3Count": 755,
+      "center": [
+        139.64261,
+        -6.83305
+      ],
+      "bounds": [
+        139.39525,
+        -7.07642,
+        139.82431,
+        -6.68534
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Assue",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Assue",
+      "label": "Kec. Assue, Mappi",
+      "fullTitle": "Kecamatan Assue (Mappi, Papua)",
+      "h3Count": 443,
+      "center": [
+        139.20709,
+        -6.02303
+      ],
+      "bounds": [
+        139.06324,
+        -6.23316,
+        139.3373,
+        -5.87787
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Nambioman Bapai",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Nambioman Bapai",
+      "label": "Kec. Nambioman Bapai, Mappi",
+      "fullTitle": "Kecamatan Nambioman Bapai (Mappi, Papua)",
+      "h3Count": 352,
+      "center": [
+        139.15089,
+        -6.63178
+      ],
+      "bounds": [
+        138.94612,
+        -6.83446,
+        139.35053,
+        -6.41351
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Minyamur",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Minyamur",
+      "label": "Kec. Minyamur, Mappi",
+      "fullTitle": "Kecamatan Minyamur (Mappi, Papua)",
+      "h3Count": 325,
+      "center": [
+        138.95712,
+        -6.61816
+      ],
+      "bounds": [
+        138.79085,
+        -6.75222,
+        139.04354,
+        -6.43636
+      ]
+    },
+    {
+      "id": "Papua::Mappi::Haju",
+      "province": "Papua",
+      "regency": "Mappi",
+      "district": "Haju",
+      "label": "Kec. Haju, Mappi",
+      "fullTitle": "Kecamatan Haju (Mappi, Papua)",
+      "h3Count": 233,
+      "center": [
+        138.98478,
+        -6.31897
+      ],
+      "bounds": [
+        138.92528,
+        -6.42556,
+        139.36887,
+        -6.16468
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Muting",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Muting",
+      "label": "Kec. Muting, Merauke",
+      "fullTitle": "Kecamatan Muting (Merauke, Papua)",
+      "h3Count": 1825,
+      "center": [
+        140.50539,
+        -7.13269
+      ],
+      "bounds": [
+        140.30879,
+        -7.43557,
+        140.66523,
+        -6.84994
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Ulilin",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Ulilin",
+      "label": "Kec. Ulilin, Merauke",
+      "fullTitle": "Kecamatan Ulilin (Merauke, Papua)",
+      "h3Count": 1719,
+      "center": [
+        140.75164,
+        -6.95719
+      ],
+      "bounds": [
+        140.5758,
+        -7.29316,
+        140.89772,
+        -6.61951
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Kimaam",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Kimaam",
+      "label": "Kec. Kimaam, Merauke",
+      "fullTitle": "Kecamatan Kimaam (Merauke, Papua)",
+      "h3Count": 1436,
+      "center": [
+        138.79473,
+        -7.85393
+      ],
+      "bounds": [
+        138.56037,
+        -8.14578,
+        138.9996,
+        -7.63071
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Waan",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Waan",
+      "label": "Kec. Waan, Merauke",
+      "fullTitle": "Kecamatan Waan (Merauke, Papua)",
+      "h3Count": 1251,
+      "center": [
+        138.06669,
+        -8.00376
+      ],
+      "bounds": [
+        137.64229,
+        -8.44504,
+        138.41737,
+        -7.83421
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Sota",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Sota",
+      "label": "Kec. Sota, Merauke",
+      "fullTitle": "Kecamatan Sota (Merauke, Papua)",
+      "h3Count": 1225,
+      "center": [
+        140.90204,
+        -8.30675
+      ],
+      "bounds": [
+        140.7057,
+        -8.63631,
+        141.0191,
+        -8.00257
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Kaptel",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Kaptel",
+      "label": "Kec. Kaptel, Merauke",
+      "fullTitle": "Kecamatan Kaptel (Merauke, Papua)",
+      "h3Count": 1170,
+      "center": [
+        139.8966,
+        -7.88382
+      ],
+      "bounds": [
+        139.68527,
+        -8.09571,
+        140.20876,
+        -7.69929
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Animha",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Animha",
+      "label": "Kec. Animha, Merauke",
+      "fullTitle": "Kecamatan Animha (Merauke, Papua)",
+      "h3Count": 663,
+      "center": [
+        140.19701,
+        -7.97824
+      ],
+      "bounds": [
+        140.05391,
+        -8.06504,
+        140.39236,
+        -7.78171
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Tabonji",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Tabonji",
+      "label": "Kec. Tabonji, Merauke",
+      "fullTitle": "Kecamatan Tabonji (Merauke, Papua)",
+      "h3Count": 534,
+      "center": [
+        138.50047,
+        -7.55523
+      ],
+      "bounds": [
+        138.21816,
+        -7.97108,
+        138.79511,
+        -7.41417
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Jagebob",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Jagebob",
+      "label": "Kec. Jagebob, Merauke",
+      "fullTitle": "Kecamatan Jagebob (Merauke, Papua)",
+      "h3Count": 287,
+      "center": [
+        140.7111,
+        -7.84194
+      ],
+      "bounds": [
+        140.52575,
+        -8.25291,
+        140.86099,
+        -7.74931
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Malind",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Malind",
+      "label": "Kec. Malind, Merauke",
+      "fullTitle": "Kecamatan Malind (Merauke, Papua)",
+      "h3Count": 262,
+      "center": [
+        140.04489,
+        -8.13466
+      ],
+      "bounds": [
+        139.95596,
+        -8.21467,
+        140.14153,
+        -8.06414
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Eligobel",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Eligobel",
+      "label": "Kec. Eligobel, Merauke",
+      "fullTitle": "Kecamatan Eligobel (Merauke, Papua)",
+      "h3Count": 144,
+      "center": [
+        140.78602,
+        -7.42001
+      ],
+      "bounds": [
+        140.57262,
+        -7.7483,
+        140.87286,
+        -7.34358
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Okaba",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Okaba",
+      "label": "Kec. Okaba, Merauke",
+      "fullTitle": "Kecamatan Okaba (Merauke, Papua)",
+      "h3Count": 139,
+      "center": [
+        139.75395,
+        -8.01893
+      ],
+      "bounds": [
+        139.70067,
+        -8.09905,
+        139.89709,
+        -7.93693
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Tanah Miring",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Tanah Miring",
+      "label": "Kec. Tanah Miring, Merauke",
+      "fullTitle": "Kecamatan Tanah Miring (Merauke, Papua)",
+      "h3Count": 103,
+      "center": [
+        140.64308,
+        -8.32273
+      ],
+      "bounds": [
+        140.49438,
+        -8.37679,
+        140.76919,
+        -8.2515
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Semangga",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Semangga",
+      "label": "Kec. Semangga, Merauke",
+      "fullTitle": "Kecamatan Semangga (Merauke, Papua)",
+      "h3Count": 98,
+      "center": [
+        140.29827,
+        -8.36161
+      ],
+      "bounds": [
+        140.23946,
+        -8.42581,
+        140.35312,
+        -8.29557
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Kurik",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Kurik",
+      "label": "Kec. Kurik, Merauke",
+      "fullTitle": "Kecamatan Kurik (Merauke, Papua)",
+      "h3Count": 85,
+      "center": [
+        140.33438,
+        -8.25455
+      ],
+      "bounds": [
+        140.29323,
+        -8.31563,
+        140.38117,
+        -8.21631
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Merauke",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Merauke",
+      "label": "Kec. Merauke, Merauke",
+      "fullTitle": "Kecamatan Merauke (Merauke, Papua)",
+      "h3Count": 34,
+      "center": [
+        140.43576,
+        -8.53153
+      ],
+      "bounds": [
+        140.40604,
+        -8.55895,
+        140.46244,
+        -8.50514
+      ]
+    },
+    {
+      "id": "Papua::Merauke::Naukenjerai",
+      "province": "Papua",
+      "regency": "Merauke",
+      "district": "Naukenjerai",
+      "label": "Kec. Naukenjerai, Merauke",
+      "fullTitle": "Kecamatan Naukenjerai (Merauke, Papua)",
+      "h3Count": 2,
+      "center": [
+        140.7147,
+        -8.55221
+      ],
+      "bounds": [
+        140.70876,
+        -8.55696,
+        140.72064,
+        -8.54746
+      ]
+    },
+    {
+      "id": "Papua::Mimika::Jita",
+      "province": "Papua",
+      "regency": "Mimika",
+      "district": "Jita",
+      "label": "Kec. Jita, Mimika",
+      "fullTitle": "Kecamatan Jita (Mimika, Papua)",
+      "h3Count": 1,
+      "center": [
+        137.61997,
+        -5.13548
+      ],
+      "bounds": [
+        137.61997,
+        -5.13548,
+        137.61997,
+        -5.13548
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Bomberay",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Bomberay",
+      "label": "Kec. Bomberay, Fakfak",
+      "fullTitle": "Kecamatan Bomberay (Fakfak, Papua Barat)",
+      "h3Count": 1863,
+      "center": [
+        133.21678,
+        -3.09773
+      ],
+      "bounds": [
+        132.91742,
+        -3.3094,
+        133.55696,
+        -2.75096
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Fakfak Timur",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Fakfak Timur",
+      "label": "Kec. Fakfak Timur, Fakfak",
+      "fullTitle": "Kecamatan Fakfak Timur (Fakfak, Papua Barat)",
+      "h3Count": 617,
+      "center": [
+        132.69229,
+        -3.11302
+      ],
+      "bounds": [
+        132.45893,
+        -3.29724,
+        132.86169,
+        -2.82469
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Kokas",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Kokas",
+      "label": "Kec. Kokas, Fakfak",
+      "fullTitle": "Kecamatan Kokas (Fakfak, Papua Barat)",
+      "h3Count": 617,
+      "center": [
+        132.73816,
+        -2.89928
+      ],
+      "bounds": [
+        132.38559,
+        -3.08778,
+        132.937,
+        -2.64604
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Fakfak Barat",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Fakfak Barat",
+      "label": "Kec. Fakfak Barat, Fakfak",
+      "fullTitle": "Kecamatan Fakfak Barat (Fakfak, Papua Barat)",
+      "h3Count": 64,
+      "center": [
+        132.19098,
+        -2.87662
+      ],
+      "bounds": [
+        132.16017,
+        -2.93154,
+        132.21766,
+        -2.82723
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Kramongmongga",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Kramongmongga",
+      "label": "Kec. Kramongmongga, Fakfak",
+      "fullTitle": "Kecamatan Kramongmongga (Fakfak, Papua Barat)",
+      "h3Count": 57,
+      "center": [
+        132.38853,
+        -2.77477
+      ],
+      "bounds": [
+        132.32876,
+        -2.81845,
+        132.4368,
+        -2.73923
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Teluk Patipi",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Teluk Patipi",
+      "label": "Kec. Teluk Patipi, Fakfak",
+      "fullTitle": "Kecamatan Teluk Patipi (Fakfak, Papua Barat)",
+      "h3Count": 55,
+      "center": [
+        132.16207,
+        -2.72292
+      ],
+      "bounds": [
+        132.10138,
+        -2.7617,
+        132.23838,
+        -2.65985
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Karas",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Karas",
+      "label": "Kec. Karas, Fakfak",
+      "fullTitle": "Kecamatan Karas (Fakfak, Papua Barat)",
+      "h3Count": 40,
+      "center": [
+        132.78354,
+        -3.43772
+      ],
+      "bounds": [
+        132.67826,
+        -3.51179,
+        133.29384,
+        -3.07471
+      ]
+    },
+    {
+      "id": "Papua Barat::Fakfak::Fakfak",
+      "province": "Papua Barat",
+      "regency": "Fakfak",
+      "district": "Fakfak",
+      "label": "Kec. Fakfak, Fakfak",
+      "fullTitle": "Kecamatan Fakfak (Fakfak, Papua Barat)",
+      "h3Count": 28,
+      "center": [
+        132.27195,
+        -2.88175
+      ],
+      "bounds": [
+        132.25677,
+        -2.92669,
+        132.31492,
+        -2.82919
+      ]
+    },
+    {
+      "id": "Papua Barat::Kaimana::Teluk Arguni Bawah",
+      "province": "Papua Barat",
+      "regency": "Kaimana",
+      "district": "Teluk Arguni Bawah",
+      "label": "Kec. Teluk Arguni Bawah, Kaimana",
+      "fullTitle": "Kecamatan Teluk Arguni Bawah (Kaimana, Papua Barat)",
+      "h3Count": 2,
+      "center": [
+        133.44784,
+        -3.21009
+      ],
+      "bounds": [
+        133.38188,
+        -3.27683,
+        133.51381,
+        -3.14335
+      ]
+    },
+    {
+      "id": "Papua Barat::Kaimana::Teluk Arguni",
+      "province": "Papua Barat",
+      "regency": "Kaimana",
+      "district": "Teluk Arguni",
+      "label": "Kec. Teluk Arguni, Kaimana",
+      "fullTitle": "Kecamatan Teluk Arguni (Kaimana, Papua Barat)",
+      "h3Count": 1,
+      "center": [
+        133.77524,
+        -3.001
+      ],
+      "bounds": [
+        133.77524,
+        -3.001,
+        133.77524,
+        -3.001
+      ]
+    },
+    {
+      "id": "Papua Barat::Manokwari Selatan::Dataran Isim",
+      "province": "Papua Barat",
+      "regency": "Manokwari Selatan",
+      "district": "Dataran Isim",
+      "label": "Kec. Dataran Isim, Manokwari Selatan",
+      "fullTitle": "Kecamatan Dataran Isim (Manokwari Selatan, Papua Barat)",
+      "h3Count": 1,
+      "center": [
+        133.84714,
+        -1.75507
+      ],
+      "bounds": [
+        133.84714,
+        -1.75507,
+        133.84714,
+        -1.75507
+      ]
+    },
+    {
+      "id": "Papua Barat::Manokwari Selatan::Tahota",
+      "province": "Papua Barat",
+      "regency": "Manokwari Selatan",
+      "district": "Tahota",
+      "label": "Kec. Tahota, Manokwari Selatan",
+      "fullTitle": "Kecamatan Tahota (Manokwari Selatan, Papua Barat)",
+      "h3Count": 1,
+      "center": [
+        133.83627,
+        -1.79261
+      ],
+      "bounds": [
+        133.83627,
+        -1.79261,
+        133.83627,
+        -1.79261
+      ]
+    },
+    {
+      "id": "Papua Barat::Pegunungan Arfak::Testega",
+      "province": "Papua Barat",
+      "regency": "Pegunungan Arfak",
+      "district": "Testega",
+      "label": "Kec. Testega, Pegunungan Arfak",
+      "fullTitle": "Kecamatan Testega (Pegunungan Arfak, Papua Barat)",
+      "h3Count": 1,
+      "center": [
+        133.36303,
+        -1.28428
+      ],
+      "bounds": [
+        133.36303,
+        -1.28428,
+        133.36303,
+        -1.28428
+      ]
+    },
+    {
+      "id": "Papua Barat::Tambrauw::Senopi",
+      "province": "Papua Barat",
+      "regency": "Tambrauw",
+      "district": "Senopi",
+      "label": "Kec. Senopi, Tambrauw",
+      "fullTitle": "Kecamatan Senopi (Tambrauw, Papua Barat)",
+      "h3Count": 1,
+      "center": [
+        132.72028,
+        -1.16459
+      ],
+      "bounds": [
+        132.72028,
+        -1.16459,
+        132.72028,
+        -1.16459
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Kuri",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Kuri",
+      "label": "Kec. Kuri, Teluk Bintuni",
+      "fullTitle": "Kecamatan Kuri (Teluk Bintuni, Papua Barat)",
+      "h3Count": 1244,
+      "center": [
+        133.99297,
+        -2.50135
+      ],
+      "bounds": [
+        133.76664,
+        -2.80797,
+        134.1438,
+        -2.24961
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Aroba",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Aroba",
+      "label": "Kec. Aroba, Teluk Bintuni",
+      "fullTitle": "Kecamatan Aroba (Teluk Bintuni, Papua Barat)",
+      "h3Count": 818,
+      "center": [
+        133.4786,
+        -2.71772
+      ],
+      "bounds": [
+        133.29374,
+        -2.83992,
+        133.65384,
+        -2.5987
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Masyeta",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Masyeta",
+      "label": "Kec. Masyeta, Teluk Bintuni",
+      "fullTitle": "Kecamatan Masyeta (Teluk Bintuni, Papua Barat)",
+      "h3Count": 649,
+      "center": [
+        133.03931,
+        -1.49069
+      ],
+      "bounds": [
+        132.74179,
+        -1.58205,
+        133.2193,
+        -1.35062
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Tomu",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Tomu",
+      "label": "Kec. Tomu, Teluk Bintuni",
+      "fullTitle": "Kecamatan Tomu (Teluk Bintuni, Papua Barat)",
+      "h3Count": 619,
+      "center": [
+        133.06025,
+        -2.13699
+      ],
+      "bounds": [
+        132.94683,
+        -2.28648,
+        133.50677,
+        -2.01675
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Manimeri",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Manimeri",
+      "label": "Kec. Manimeri, Teluk Bintuni",
+      "fullTitle": "Kecamatan Manimeri (Teluk Bintuni, Papua Barat)",
+      "h3Count": 594,
+      "center": [
+        133.78094,
+        -1.94042
+      ],
+      "bounds": [
+        133.68537,
+        -2.07755,
+        133.88036,
+        -1.78417
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Meyado",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Meyado",
+      "label": "Kec. Meyado, Teluk Bintuni",
+      "fullTitle": "Kecamatan Meyado (Teluk Bintuni, Papua Barat)",
+      "h3Count": 442,
+      "center": [
+        133.14297,
+        -1.65304
+      ],
+      "bounds": [
+        133.02006,
+        -1.76306,
+        133.26107,
+        -1.55017
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Moskona Utara",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Moskona Utara",
+      "label": "Kec. Moskona Utara, Teluk Bintuni",
+      "fullTitle": "Kecamatan Moskona Utara (Teluk Bintuni, Papua Barat)",
+      "h3Count": 325,
+      "center": [
+        132.82348,
+        -1.25273
+      ],
+      "bounds": [
+        132.7114,
+        -1.40997,
+        132.96,
+        -1.16304
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Aranday",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Aranday",
+      "label": "Kec. Aranday, Teluk Bintuni",
+      "fullTitle": "Kecamatan Aranday (Teluk Bintuni, Papua Barat)",
+      "h3Count": 313,
+      "center": [
+        133.28488,
+        -2.09258
+      ],
+      "bounds": [
+        133.16875,
+        -2.21328,
+        133.37744,
+        -1.89412
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Weriagar",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Weriagar",
+      "label": "Kec. Weriagar, Teluk Bintuni",
+      "fullTitle": "Kecamatan Weriagar (Teluk Bintuni, Papua Barat)",
+      "h3Count": 297,
+      "center": [
+        132.93094,
+        -2.00192
+      ],
+      "bounds": [
+        132.84995,
+        -2.27405,
+        133.02689,
+        -1.8423
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Biscoop",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Biscoop",
+      "label": "Kec. Biscoop, Teluk Bintuni",
+      "fullTitle": "Kecamatan Biscoop (Teluk Bintuni, Papua Barat)",
+      "h3Count": 290,
+      "center": [
+        133.42452,
+        -1.59127
+      ],
+      "bounds": [
+        133.30294,
+        -1.73587,
+        133.56484,
+        -1.37192
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Moskona Barat",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Moskona Barat",
+      "label": "Kec. Moskona Barat, Teluk Bintuni",
+      "fullTitle": "Kecamatan Moskona Barat (Teluk Bintuni, Papua Barat)",
+      "h3Count": 244,
+      "center": [
+        132.60199,
+        -1.77582
+      ],
+      "bounds": [
+        132.49034,
+        -1.84833,
+        132.705,
+        -1.6978
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Bintuni",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Bintuni",
+      "label": "Kec. Bintuni, Teluk Bintuni",
+      "fullTitle": "Kecamatan Bintuni (Teluk Bintuni, Papua Barat)",
+      "h3Count": 229,
+      "center": [
+        133.59447,
+        -2.13093
+      ],
+      "bounds": [
+        133.503,
+        -2.22991,
+        133.70478,
+        -2.02197
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Tembuni",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Tembuni",
+      "label": "Kec. Tembuni, Teluk Bintuni",
+      "fullTitle": "Kecamatan Tembuni (Teluk Bintuni, Papua Barat)",
+      "h3Count": 206,
+      "center": [
+        133.48813,
+        -1.92485
+      ],
+      "bounds": [
+        133.41564,
+        -1.99562,
+        133.57692,
+        -1.85408
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Merdey",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Merdey",
+      "label": "Kec. Merdey, Teluk Bintuni",
+      "fullTitle": "Kecamatan Merdey (Teluk Bintuni, Papua Barat)",
+      "h3Count": 205,
+      "center": [
+        133.31209,
+        -1.3813
+      ],
+      "bounds": [
+        133.16556,
+        -1.59923,
+        133.44938,
+        -1.25337
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Fafurwar",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Fafurwar",
+      "label": "Kec. Fafurwar, Teluk Bintuni",
+      "fullTitle": "Kecamatan Fafurwar (Teluk Bintuni, Papua Barat)",
+      "h3Count": 157,
+      "center": [
+        133.73687,
+        -2.95951
+      ],
+      "bounds": [
+        133.62705,
+        -3.00847,
+        133.81587,
+        -2.75959
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Moskona Selatan",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Moskona Selatan",
+      "label": "Kec. Moskona Selatan, Teluk Bintuni",
+      "fullTitle": "Kecamatan Moskona Selatan (Teluk Bintuni, Papua Barat)",
+      "h3Count": 157,
+      "center": [
+        132.92972,
+        -1.71662
+      ],
+      "bounds": [
+        132.7747,
+        -1.84365,
+        133.0403,
+        -1.58033
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Dataran Beimes",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Dataran Beimes",
+      "label": "Kec. Dataran Beimes, Teluk Bintuni",
+      "fullTitle": "Kecamatan Dataran Beimes (Teluk Bintuni, Papua Barat)",
+      "h3Count": 152,
+      "center": [
+        133.77057,
+        -1.72095
+      ],
+      "bounds": [
+        133.64577,
+        -1.78487,
+        133.86631,
+        -1.66971
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Sumuri",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Sumuri",
+      "label": "Kec. Sumuri, Teluk Bintuni",
+      "fullTitle": "Kecamatan Sumuri (Teluk Bintuni, Papua Barat)",
+      "h3Count": 147,
+      "center": [
+        133.1196,
+        -2.51331
+      ],
+      "bounds": [
+        133.04426,
+        -2.58013,
+        133.19696,
+        -2.4671
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Babo",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Babo",
+      "label": "Kec. Babo, Teluk Bintuni",
+      "fullTitle": "Kecamatan Babo (Teluk Bintuni, Papua Barat)",
+      "h3Count": 113,
+      "center": [
+        133.52692,
+        -2.47112
+      ],
+      "bounds": [
+        133.41309,
+        -2.59961,
+        133.63639,
+        -2.40553
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Wamesa",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Wamesa",
+      "label": "Kec. Wamesa, Teluk Bintuni",
+      "fullTitle": "Kecamatan Wamesa (Teluk Bintuni, Papua Barat)",
+      "h3Count": 88,
+      "center": [
+        133.89367,
+        -2.06249
+      ],
+      "bounds": [
+        133.84974,
+        -2.10902,
+        133.93945,
+        -2.02028
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Moskona Timur",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Moskona Timur",
+      "label": "Kec. Moskona Timur, Teluk Bintuni",
+      "fullTitle": "Kecamatan Moskona Timur (Teluk Bintuni, Papua Barat)",
+      "h3Count": 68,
+      "center": [
+        133.00567,
+        -1.29962
+      ],
+      "bounds": [
+        132.80899,
+        -1.40083,
+        133.11989,
+        -1.2271
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Tuhiba",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Tuhiba",
+      "label": "Kec. Tuhiba, Teluk Bintuni",
+      "fullTitle": "Kecamatan Tuhiba (Teluk Bintuni, Papua Barat)",
+      "h3Count": 53,
+      "center": [
+        133.5337,
+        -1.98017
+      ],
+      "bounds": [
+        133.40286,
+        -2.03222,
+        133.68221,
+        -1.91395
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Bintuni::Kaitaro",
+      "province": "Papua Barat",
+      "regency": "Teluk Bintuni",
+      "district": "Kaitaro",
+      "label": "Kec. Kaitaro, Teluk Bintuni",
+      "fullTitle": "Kecamatan Kaitaro (Teluk Bintuni, Papua Barat)",
+      "h3Count": 4,
+      "center": [
+        133.62013,
+        -2.69329
+      ],
+      "bounds": [
+        133.58672,
+        -2.73748,
+        133.65956,
+        -2.65407
+      ]
+    },
+    {
+      "id": "Papua Barat::Teluk Wondama::Nikiwar",
+      "province": "Papua Barat",
+      "regency": "Teluk Wondama",
+      "district": "Nikiwar",
+      "label": "Kec. Nikiwar, Teluk Wondama",
+      "fullTitle": "Kecamatan Nikiwar (Teluk Wondama, Papua Barat)",
+      "h3Count": 7,
+      "center": [
+        134.06747,
+        -2.42469
+      ],
+      "bounds": [
+        134.05522,
+        -2.53469,
+        134.07396,
+        -2.28767
       ]
     },
     {
@@ -2460,15 +9699,15 @@
       "district": "Sungai Mandau",
       "label": "Kec. Sungai Mandau, Siak",
       "fullTitle": "Kecamatan Sungai Mandau (Siak, Riau)",
-      "h3Count": 3,
+      "h3Count": 2,
       "center": [
-        103.99068,
-        -1.02267
+        103.18365,
+        0.43901
       ],
       "bounds": [
         103.18107,
-        -3.94604,
-        105.60476,
+        0.43538,
+        103.18622,
         0.44264
       ]
     },

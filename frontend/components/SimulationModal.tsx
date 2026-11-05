@@ -21,6 +21,7 @@ import {
   Layers,
   ChevronRight,
   Trash2,
+  CloudRain,
 } from "lucide-react";
 import {
   SimulationRunResult,
@@ -34,13 +35,16 @@ interface SimulationModalProps {
   onClose: () => void;
   onSimulationApplied: () => void;
   activeScenarioName?: string | null;
+  initialMode?: "DROUGHT" | "RAIN";
 }
 
 type TabType = "NEW" | "HISTORY";
 type StepPhase = "FORM" | "RUNNING" | "RESULT";
+type SimulationMode = "DROUGHT" | "RAIN";
 
 interface PresetScenario {
   id: string;
+  category: SimulationMode;
   nameId: string;
   nameEn: string;
   icon: string;
@@ -54,8 +58,10 @@ interface PresetScenario {
 }
 
 const PRESETS: PresetScenario[] = [
+  // Drought Scenarios
   {
     id: "7d",
+    category: "DROUGHT",
     nameId: "Kemarau Pendek (7 Hari)",
     nameEn: "7-Day Short Dry Spell",
     icon: "🌤️",
@@ -69,6 +75,7 @@ const PRESETS: PresetScenario[] = [
   },
   {
     id: "14d",
+    category: "DROUGHT",
     nameId: "Puncak El Niño (14 Hari)",
     nameEn: "14-Day Peak El Niño",
     icon: "🔥",
@@ -82,6 +89,7 @@ const PRESETS: PresetScenario[] = [
   },
   {
     id: "25d",
+    category: "DROUGHT",
     nameId: "Krisis Ekstrem Multi-Minggu (25 Hari)",
     nameEn: "25-Day Extreme Crisis",
     icon: "🌋",
@@ -92,6 +100,50 @@ const PRESETS: PresetScenario[] = [
     badge: "Bencana Darurat",
     descriptionId: "Kekeringan parah berkepanjangan. Target Operasi Semai Awan (OMC) dan sekat bakar melonjak masif.",
     descriptionEn: "Prolonged severe drought. Target cloud seeding (OMC) and firebreak interventions spike massively.",
+  },
+
+  // Rain Scenarios (Tahap 2: Simulasi Hujan & Pembasahan)
+  {
+    id: "rain_omc",
+    category: "RAIN",
+    nameId: "Intervensi OMC Sukses (3 Hari)",
+    nameEn: "OMC Success Intervention (3 Days)",
+    icon: "✈️",
+    dwrDelta: -7,
+    gwlDelta: 8.0,
+    vpdDelta: -0.6,
+    sarBoost: false,
+    badge: "Presipitasi OMC",
+    descriptionId: "Operasi semai awan memicu hujan lokal. Muka air tanah pulih +8 cm, menekan hotspot potensial.",
+    descriptionEn: "Cloud seeding operation induces local rainfall. Groundwater recovers by +8 cm, suppressing ignition.",
+  },
+  {
+    id: "rain_monsoon",
+    category: "RAIN",
+    nameId: "Hujan Monsun Tropis (7-10 Hari)",
+    nameEn: "Tropical Monsoon Rainfall (7-10 Days)",
+    icon: "🌧️",
+    dwrDelta: -14,
+    gwlDelta: 18.0,
+    vpdDelta: -1.2,
+    sarBoost: false,
+    badge: "Pembasahan Alami",
+    descriptionId: "Presipitasi merata membasahi kubah gambut. Muka air tanah melonjak ke zona aman (> -40 cm).",
+    descriptionEn: "Widespread monsoon rainfall rehydrates peat domes. GWL rises safely above -40 cm threshold.",
+  },
+  {
+    id: "rain_deluge",
+    category: "RAIN",
+    nameId: "Hujan Lebat / Saturasi (+15 Hari)",
+    nameEn: "Continuous Heavy Deluge (+15 Days)",
+    icon: "🌊",
+    dwrDelta: -25,
+    gwlDelta: 30.0,
+    vpdDelta: -2.0,
+    sarBoost: false,
+    badge: "Saturasi Penuh",
+    descriptionId: "Hujan lebat kontinu menyebabkan lahan gambut tergenang/saturasi total. Risiko karhutla kembali nihil.",
+    descriptionEn: "Prolonged torrential rainfall brings peat to 100% saturation. Fire ignition risk drops to near zero.",
   },
 ];
 
@@ -105,12 +157,14 @@ export default function SimulationModal({
   onClose,
   onSimulationApplied,
   activeScenarioName,
+  initialMode = "DROUGHT",
 }: SimulationModalProps) {
   const { language } = useTranslation();
   const isId = language === "id";
 
   const [activeTab, setActiveTab] = useState<TabType>("NEW");
   const [stepPhase, setStepPhase] = useState<StepPhase>("FORM");
+  const [simMode, setSimMode] = useState<SimulationMode>(initialMode);
 
   // Form State
   const [selectedPresetId, setSelectedPresetId] = useState<string>("14d");
@@ -122,12 +176,50 @@ export default function SimulationModal({
   const [vpdDelta, setVpdDelta] = useState<number>(1.2);
   const [sarBoost, setSarBoost] = useState<boolean>(true);
 
+  // Sync mode when initialMode changes or modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setSimMode(initialMode);
+      if (initialMode === "RAIN") {
+        const defaultRain = PRESETS.find((p) => p.id === "rain_monsoon")!;
+        setSelectedPresetId(defaultRain.id);
+        setScenarioName(isId ? defaultRain.nameId : defaultRain.nameEn);
+        setDwrDelta(defaultRain.dwrDelta);
+        setGwlDelta(defaultRain.gwlDelta);
+        setVpdDelta(defaultRain.vpdDelta);
+        setSarBoost(defaultRain.sarBoost);
+      } else {
+        const defaultDrought = PRESETS.find((p) => p.id === "14d")!;
+        setSelectedPresetId(defaultDrought.id);
+        setScenarioName(isId ? defaultDrought.nameId : defaultDrought.nameEn);
+        setDwrDelta(defaultDrought.dwrDelta);
+        setGwlDelta(defaultDrought.gwlDelta);
+        setVpdDelta(defaultDrought.vpdDelta);
+        setSarBoost(defaultDrought.sarBoost);
+      }
+    }
+  }, [isOpen, initialMode, isId]);
+
   // Execution & Result State
   const [runResult, setRunResult] = useState<SimulationRunResult | null>(null);
   const [historyList, setHistoryList] = useState<SimulationHistoryItem[]>([]);
   const [isLoadingHistory, setIsLoadingHistory] = useState<boolean>(false);
   const [executionStep, setExecutionStep] = useState<number>(1);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [simElapsedSeconds, setSimElapsedSeconds] = useState<number>(0);
+  const [isResetting, setIsResetting] = useState<boolean>(false);
+
+  // Switch Category Tab (Drought vs Rain)
+  const handleSwitchMode = (mode: SimulationMode) => {
+    setSimMode(mode);
+    if (mode === "RAIN") {
+      const p = PRESETS.find((pr) => pr.id === "rain_monsoon")!;
+      handleSelectPreset(p);
+    } else {
+      const p = PRESETS.find((pr) => pr.id === "14d")!;
+      handleSelectPreset(p);
+    }
+  };
 
   // Apply Preset
   const handleSelectPreset = (p: PresetScenario) => {
@@ -170,10 +262,21 @@ export default function SimulationModal({
     setStepPhase("RUNNING");
     setExecutionStep(1);
     setErrorMessage(null);
+    setSimElapsedSeconds(0);
 
-    // Visual step progression
-    const timer1 = setTimeout(() => setExecutionStep(2), 500);
-    const timer2 = setTimeout(() => setExecutionStep(3), 1200);
+    // Live execution timer & progression across 124,545 nationwide cells (~15-25s)
+    const startTime = Date.now();
+    const timerInterval = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setSimElapsedSeconds(elapsed);
+      if (elapsed >= 16) {
+        setExecutionStep(3);
+      } else if (elapsed >= 5) {
+        setExecutionStep(2);
+      } else {
+        setExecutionStep(1);
+      }
+    }, 1000);
 
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/simulation/run`, {
@@ -202,13 +305,13 @@ export default function SimulationModal({
       setErrorMessage(err.message || "Gagal menjalankan simulasi.");
       setStepPhase("FORM");
     } finally {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
+      clearInterval(timerInterval);
     }
   };
 
   // Reset to Baseline
   const handleResetToBaseline = async () => {
+    setIsResetting(true);
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/simulation/reset`, {
         method: "POST",
@@ -216,18 +319,33 @@ export default function SimulationModal({
       });
       if (res.ok) {
         onSimulationApplied();
-        fetchHistory();
+        await fetchHistory();
         onClose();
       }
     } catch (err) {
       console.error("Reset error:", err);
+    } finally {
+      setIsResetting(false);
     }
   };
 
   // Apply historical scenario
   const handleApplyHistory = async (id: number) => {
     setStepPhase("RUNNING");
-    setExecutionStep(2);
+    setExecutionStep(1);
+    setSimElapsedSeconds(0);
+
+    const startTime = Date.now();
+    const timerInterval = setInterval(() => {
+      const elapsed = Math.floor((Date.now() - startTime) / 1000);
+      setSimElapsedSeconds(elapsed);
+      if (elapsed >= 10) {
+        setExecutionStep(3);
+      } else if (elapsed >= 3) {
+        setExecutionStep(2);
+      }
+    }, 1000);
+
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/simulation/apply/${id}`, {
         method: "POST",
@@ -243,6 +361,8 @@ export default function SimulationModal({
     } catch (err) {
       console.error("Apply history error:", err);
       setStepPhase("FORM");
+    } finally {
+      clearInterval(timerInterval);
     }
   };
 
@@ -286,8 +406,8 @@ export default function SimulationModal({
               </div>
               <p className="text-xs text-slate-400">
                 {isId
-                  ? "Uji ketahanan 35.216 sel gambut nasional terhadap gelombang panas El Niño & kekeringan"
-                  : "Stress-test 35,216 national peat cells under extreme El Niño heatwaves & drought"}
+                  ? "Uji ketahanan 124.545 sel gambut nasional terhadap gelombang panas El Niño & kekeringan"
+                  : "Stress-test 124,545 national peat cells under extreme El Niño heatwaves & drought"}
               </p>
             </div>
           </div>
@@ -348,13 +468,54 @@ export default function SimulationModal({
           {/* ======================================================== */}
           {stepPhase === "FORM" && activeTab === "NEW" && (
             <div className="space-y-6">
+              {/* Category Mode Switcher: Kemarau vs Hujan */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/80 border border-white/10">
+                <div>
+                  <span className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold block">
+                    {isId ? "Mode Skenario Simulasi:" : "Simulation Scenario Mode:"}
+                  </span>
+                  <span className="text-[11px] text-slate-400">
+                    {simMode === "DROUGHT"
+                      ? (isId ? "Simulasi kekeringan, gelombang panas, dan lonjakan risiko karhutla" : "Simulate drought, extreme heat, and fire risk surges")
+                      : (isId ? "Simulasi presipitasi hujan monsun, pembasahan kubah gambut, & intervensi OMC" : "Simulate monsoon rainfall, peat dome re-wetting & cloud seeding")}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-1.5 p-1 bg-obsidian rounded-xl border border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchMode("DROUGHT")}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                      simMode === "DROUGHT"
+                        ? "bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-md shadow-rose-950/40 ring-1 ring-amber-400/40"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <Flame className="w-3.5 h-3.5 text-amber-300" />
+                    <span>{isId ? "Kemarau" : "Drought"}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleSwitchMode("RAIN")}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                      simMode === "RAIN"
+                        ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-md shadow-cyan-950/40 ring-1 ring-cyan-400/40"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    <CloudRain className="w-3.5 h-3.5 text-cyan-300" />
+                    <span>{isId ? "Hujan (Pembasahan)" : "Rain (Rewetting)"}</span>
+                  </button>
+                </div>
+              </div>
+
               {/* Presets Cards */}
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5">
                   1. {isId ? "Pilih Skenario Cepat (Quick Presets):" : "Select Quick Scenario Preset:"}
                 </label>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  {PRESETS.map((p) => {
+                  {PRESETS.filter((p) => p.category === simMode).map((p) => {
                     const isSelected = selectedPresetId === p.id;
                     return (
                       <button
@@ -363,7 +524,9 @@ export default function SimulationModal({
                         onClick={() => handleSelectPreset(p)}
                         className={`p-3.5 rounded-xl border text-left transition-all relative ${
                           isSelected
-                            ? "bg-gradient-to-b from-cyan-950/60 to-slate-900 border-sentinel-cyan shadow-lg shadow-cyan-950/30 ring-1 ring-sentinel-cyan/50"
+                            ? simMode === "RAIN"
+                              ? "bg-gradient-to-b from-cyan-950/70 to-slate-900 border-cyan-400 shadow-lg shadow-cyan-950/40 ring-1 ring-cyan-400/50"
+                              : "bg-gradient-to-b from-amber-950/70 to-slate-900 border-amber-400 shadow-lg shadow-rose-950/30 ring-1 ring-amber-400/50"
                             : "bg-slate-900/60 border-white/10 hover:border-white/20 hover:bg-slate-900/90 text-slate-300"
                         }`}
                       >
@@ -372,7 +535,9 @@ export default function SimulationModal({
                           <span
                             className={`px-1.5 py-0.5 rounded text-[9px] font-mono font-bold ${
                               isSelected
-                                ? "bg-sentinel-cyan/20 text-sentinel-cyan border border-sentinel-cyan/40"
+                                ? simMode === "RAIN"
+                                  ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
+                                  : "bg-amber-500/20 text-amber-300 border border-amber-500/40"
                                 : "bg-white/5 text-slate-400 border border-white/10"
                             }`}
                           >
@@ -386,9 +551,13 @@ export default function SimulationModal({
                           {isId ? p.descriptionId : p.descriptionEn}
                         </p>
                         <div className="flex items-center gap-2 text-[10px] font-mono text-slate-400 pt-2 border-t border-white/5">
-                          <span>+{p.dwrDelta}d HTH</span>
+                          <span>
+                            {p.dwrDelta >= 0 ? `+${p.dwrDelta}d HTH` : `${p.dwrDelta}d HTH`}
+                          </span>
                           <span>•</span>
-                          <span className="text-rose-400">{p.gwlDelta}cm</span>
+                          <span className={p.gwlDelta >= 0 ? "text-cyan-400" : "text-rose-400"}>
+                            {p.gwlDelta >= 0 ? `+${p.gwlDelta}cm` : `${p.gwlDelta}cm`}
+                          </span>
                         </div>
                       </button>
                     );
@@ -404,7 +573,7 @@ export default function SimulationModal({
                     2. {isId ? "Penyesuaian Parameter Biofisik" : "Biophysical Parameter Tuning"}
                   </span>
                   <span className="text-[11px] font-mono text-sentinel-cyan">
-                    35.216 {isId ? "Sel Nasional" : "National Cells"}
+                    124.545 {isId ? "Sel Nasional" : "National Cells"}
                   </span>
                 </div>
 
@@ -413,15 +582,16 @@ export default function SimulationModal({
                   <div className="flex justify-between text-xs">
                     <span className="text-slate-300 flex items-center gap-1.5">
                       <Clock className="w-3.5 h-3.5 text-amber-400" />
-                      {isId ? "Tambahan Hari Tanpa Hujan (ΔHTH):" : "Days Without Rain (ΔDWR):"}
+                      {isId ? "Perubahan Hari Tanpa Hujan (ΔHTH):" : "Days Without Rain Shift (ΔDWR):"}
                     </span>
-                    <span className="font-mono font-bold text-amber-400">
-                      +{dwrDelta} {isId ? "Hari" : "Days"}
+                    <span className={`font-mono font-bold ${dwrDelta < 0 ? "text-cyan-400" : "text-amber-400"}`}>
+                      {dwrDelta > 0 ? `+${dwrDelta}` : dwrDelta} {isId ? "Hari" : "Days"}
+                      {dwrDelta < 0 && (isId ? " (Hujan Aktif)" : " (Rain Active)")}
                     </span>
                   </div>
                   <input
                     type="range"
-                    min={0}
+                    min={-30}
                     max={30}
                     step={1}
                     value={dwrDelta}
@@ -432,39 +602,40 @@ export default function SimulationModal({
                     className="w-full accent-amber-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                    <span>+0d (Baseline)</span>
-                    <span>+14d (Siaga)</span>
-                    <span>+30d (Darurat)</span>
+                    <span className="text-cyan-400">-30d (Hujan Masif)</span>
+                    <span>0d (Baseline)</span>
+                    <span className="text-amber-400">+30d (Kekeringan Ekstrem)</span>
                   </div>
                 </div>
 
-                {/* Slider 2: Groundwater Depletion */}
+                {/* Slider 2: Groundwater Depletion / Rewetting */}
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-xs">
                     <span className="text-slate-300 flex items-center gap-1.5">
                       <Droplets className="w-3.5 h-3.5 text-cyan-400" />
-                      {isId ? "Deplesi Muka Air Tanah (ΔGWL):" : "Groundwater Depletion (ΔGWL):"}
+                      {isId ? "Perubahan Muka Air Tanah (ΔGWL):" : "Groundwater Level Shift (ΔGWL):"}
                     </span>
-                    <span className="font-mono font-bold text-rose-400">
-                      {gwlDelta.toFixed(1)} cm
+                    <span className={`font-mono font-bold ${gwlDelta >= 0 ? "text-cyan-400" : "text-rose-400"}`}>
+                      {gwlDelta > 0 ? `+${gwlDelta.toFixed(1)}` : gwlDelta.toFixed(1)} cm
+                      {gwlDelta > 0 && (isId ? " (Pembasahan)" : " (Rewetting)")}
                     </span>
                   </div>
                   <input
                     type="range"
                     min={-35}
-                    max={0}
+                    max={35}
                     step={1}
                     value={gwlDelta}
                     onChange={(e) => {
                       setGwlDelta(Number(e.target.value));
                       setSelectedPresetId("custom");
                     }}
-                    className="w-full accent-rose-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer"
+                    className={`w-full ${gwlDelta >= 0 ? "accent-cyan-400" : "accent-rose-500"} bg-slate-800 h-1.5 rounded-lg cursor-pointer`}
                   />
                   <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                    <span className="text-rose-400">-35 cm (Kering Parah)</span>
-                    <span className="text-amber-400">-15 cm (Ambang Kritis)</span>
-                    <span className="text-emerald-400">0 cm (Normal)</span>
+                    <span className="text-rose-400">-35 cm (Kering Kritis)</span>
+                    <span>0 cm (Baseline)</span>
+                    <span className="text-cyan-400">+35 cm (Saturasi Gambut)</span>
                   </div>
                 </div>
 
@@ -475,13 +646,14 @@ export default function SimulationModal({
                       <Wind className="w-3.5 h-3.5 text-purple-400" />
                       {isId ? "Defisit Tekanan Uap Udara (ΔVPD):" : "Vapor Pressure Deficit (ΔVPD):"}
                     </span>
-                    <span className="font-mono font-bold text-purple-400">
-                      +{vpdDelta.toFixed(1)} kPa
+                    <span className={`font-mono font-bold ${vpdDelta < 0 ? "text-cyan-400" : "text-purple-400"}`}>
+                      {vpdDelta > 0 ? `+${vpdDelta.toFixed(1)}` : vpdDelta.toFixed(1)} kPa
+                      {vpdDelta < 0 && (isId ? " (Lembap Basah)" : " (Humid Moist)")}
                     </span>
                   </div>
                   <input
                     type="range"
-                    min={0.0}
+                    min={-2.5}
                     max={3.0}
                     step={0.1}
                     value={vpdDelta}
@@ -492,9 +664,9 @@ export default function SimulationModal({
                     className="w-full accent-purple-500 bg-slate-800 h-1.5 rounded-lg cursor-pointer"
                   />
                   <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                    <span>+0.0 kPa</span>
-                    <span>+1.5 kPa (El Niño Kuat)</span>
-                    <span>+3.0 kPa (Atmosfer Kering)</span>
+                    <span className="text-cyan-400">-2.5 kPa (Atmosfer Sangat Basah)</span>
+                    <span>0.0 kPa</span>
+                    <span className="text-purple-400">+3.0 kPa (Atmosfer Kering)</span>
                   </div>
                 </div>
 
@@ -563,10 +735,19 @@ export default function SimulationModal({
                 </span>
                 <button
                   onClick={handleResetToBaseline}
-                  className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                  disabled={isResetting}
+                  className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold flex items-center gap-1.5 transition-colors disabled:opacity-50"
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>{isId ? "Kembali ke Data Asli (Baseline)" : "Restore Real Baseline"}</span>
+                  <RotateCcw className={`w-3.5 h-3.5 ${isResetting ? "animate-spin" : ""}`} />
+                  <span>
+                    {isResetting
+                      ? isId
+                        ? "Memulihkan Baseline..."
+                        : "Restoring Baseline..."
+                      : isId
+                      ? "Kembali ke Data Asli (Baseline)"
+                      : "Restore Real Baseline"}
+                  </span>
                 </button>
               </div>
 
@@ -661,7 +842,7 @@ export default function SimulationModal({
           {/* PHASE 2: RUNNING ANIMATION (Tetap di tengah modal) */}
           {/* ======================================================== */}
           {stepPhase === "RUNNING" && (
-            <div className="py-10 text-center space-y-6">
+            <div className="py-8 text-center space-y-5">
               <div className="relative w-24 h-24 mx-auto flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full border-2 border-sentinel-cyan/30 animate-ping" />
                 <div className="absolute inset-2 rounded-full border border-amber-500/40 animate-spin" />
@@ -671,14 +852,41 @@ export default function SimulationModal({
               </div>
 
               <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sentinel-cyan/20 border border-sentinel-cyan/40 text-[11px] font-mono text-sentinel-cyan mb-2">
+                  <span className="w-2 h-2 rounded-full bg-sentinel-cyan animate-ping" />
+                  <span>
+                    {isId ? "WAKTU BERJALAN" : "ELAPSED TIME"}: {Math.floor(simElapsedSeconds / 60).toString().padStart(2, "0")}:{(simElapsedSeconds % 60).toString().padStart(2, "0")}s
+                  </span>
+                  <span>•</span>
+                  <span>{isId ? "ESTIMASI: ~20 DETIK" : "EST: ~20 SEC"}</span>
+                </div>
+
                 <h3 className="text-sm font-bold text-white mb-1">
-                  {isId ? "Mengevaluasi Skenario Krisis Iklim..." : "Evaluating Climate Crisis Scenario..."}
+                  {simMode === "RAIN"
+                    ? (isId ? "Mengevaluasi Skenario Hujan & Pembasahan Gambut..." : "Evaluating Monsoon & Rewetting Scenario...")
+                    : (isId ? "Mengevaluasi Skenario Krisis Iklim & Kemarau..." : "Evaluating Climate Crisis & Drought Scenario...")}
                 </h3>
                 <p className="text-xs text-slate-400 font-mono">
                   {isId
-                    ? "Injeksi parameter ke 35.216 sel heksagon Kesatuan Hidrologis Gambut"
-                    : "Injecting parameters into 35,216 national peatland cells"}
+                    ? "Injeksi parameter ke 124.545 sel heksagon Kesatuan Hidrologis Gambut (Sumatera, Kalimantan, Papua)"
+                    : "Injecting parameters into 124,545 national peatland cells (Sumatra, Kalimantan, Papua)"}
                 </p>
+              </div>
+
+              {/* Dynamic Progress Bar */}
+              <div className="max-w-md mx-auto">
+                <div className="w-full h-2 rounded-full bg-slate-900 border border-white/10 overflow-hidden mb-1.5">
+                  <div
+                    className="h-full bg-gradient-to-r from-cyan-500 via-amber-500 to-rose-500 transition-all duration-500 ease-out"
+                    style={{
+                      width: `${Math.min(94, Math.round(15 + (simElapsedSeconds / 22) * 80))}%`,
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between text-[10px] font-mono text-slate-400">
+                  <span>{isId ? "Memproses 124.545 sel..." : "Processing 124,545 cells..."}</span>
+                  <span>{Math.min(94, Math.round(15 + (simElapsedSeconds / 22) * 80))}%</span>
+                </div>
               </div>
 
               {/* Step Progression Indicators */}
@@ -687,23 +895,29 @@ export default function SimulationModal({
                   executionStep >= 1 ? "bg-cyan-950/40 border-cyan-500/40 text-cyan-300" : "bg-white/5 border-white/5 text-slate-500"
                 }`}>
                   <Layers className="w-4 h-4 shrink-0" />
-                  <span>1. Mengemas 35.216 vektor biofisik ke Protobuf stream</span>
-                  {executionStep > 1 && <CheckCircle2 className="w-3.5 h-3.5 ml-auto text-emerald-400" />}
+                  <span className="truncate flex-1">
+                    1. {isId ? "Menyiapkan 124.545 vektor parameter biofisik & cuaca" : "Preparing 124,545 biophysical & weather vectors"}
+                  </span>
+                  {executionStep > 1 && <CheckCircle2 className="w-3.5 h-3.5 ml-auto text-emerald-400 shrink-0" />}
                 </div>
 
                 <div className={`p-2.5 rounded-lg border flex items-center gap-2.5 transition-all ${
                   executionStep >= 2 ? "bg-amber-950/40 border-amber-500/40 text-amber-300" : "bg-white/5 border-white/5 text-slate-500"
                 }`}>
                   <Cpu className="w-4 h-4 shrink-0" />
-                  <span>2. Inferensi XGBoost GPU Hist (AMD Cloud ROCm / Engine)</span>
-                  {executionStep > 2 && <CheckCircle2 className="w-3.5 h-3.5 ml-auto text-emerald-400" />}
+                  <span className="truncate flex-1">
+                    2. {isId ? "Inferensi model XGBoost GPU / High-throughput Matrix" : "XGBoost GPU / High-throughput Matrix inference"}
+                  </span>
+                  {executionStep > 2 && <CheckCircle2 className="w-3.5 h-3.5 ml-auto text-emerald-400 shrink-0" />}
                 </div>
 
                 <div className={`p-2.5 rounded-lg border flex items-center gap-2.5 transition-all ${
                   executionStep >= 3 ? "bg-rose-950/40 border-rose-500/40 text-rose-300" : "bg-white/5 border-white/5 text-slate-500"
                 }`}>
                   <Flame className="w-4 h-4 shrink-0" />
-                  <span>3. Mengkalkulasi ulang rute patroli VRP & target semai awan (OMC)</span>
+                  <span className="truncate flex-1">
+                    3. {isId ? "Menyimpan snapshot PostGIS & rute patroli VRP preskriptif" : "Persisting PostGIS snapshots & VRP patrol routes"}
+                  </span>
                 </div>
               </div>
             </div>

@@ -84,8 +84,9 @@ const INITIAL_VIEW_STATE = {
 };
 
 const REGION_COORDINATES: Record<string, { longitude: number; latitude: number; zoom: number; pitch: number }> = {
-  ALL: { longitude: 108.0, latitude: -0.8, zoom: 5.4, pitch: 30 },
+  ALL: { longitude: 118.0, latitude: -2.5, zoom: 4.8, pitch: 30 },
   KALIMANTAN: { longitude: 112.5, latitude: -1.5, zoom: 6.8, pitch: 35 },
+  PAPUA: { longitude: 138.5, latitude: -5.5, zoom: 6.5, pitch: 35 },
   KUBU_RAYA: { longitude: 109.35, latitude: -0.28, zoom: 11.2, pitch: 42 },
   PULANG_PISAU: { longitude: 114.25, latitude: -2.75, zoom: 11.2, pitch: 42 },
   SUMATERA: { longitude: 102.5, latitude: 0.5, zoom: 6.6, pitch: 35 },
@@ -157,9 +158,11 @@ export default function DeckMapViewport({
     }
 
     if (selectedRegion === "KALIMANTAN") {
-      features = features.filter((f) => f.properties.centroidLon && f.properties.centroidLon >= 108.0);
+      features = features.filter((f) => f.properties.centroidLon && f.properties.centroidLon >= 108.0 && f.properties.centroidLon < 120.0);
     } else if (selectedRegion === "SUMATERA") {
       features = features.filter((f) => f.properties.centroidLon && f.properties.centroidLon < 108.0);
+    } else if (selectedRegion === "PAPUA") {
+      features = features.filter((f) => f.properties.centroidLon && f.properties.centroidLon >= 130.0);
     } else if (selectedRegion === "KUBU_RAYA") {
       features = features.filter(
         (f) =>

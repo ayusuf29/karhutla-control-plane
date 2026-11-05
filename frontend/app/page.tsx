@@ -8,6 +8,8 @@ import PatrolDispatchPanel from "@/components/PatrolDispatchPanel";
 import OmcModal from "@/components/OmcModal";
 import SarAlertModal from "@/components/SarAlertModal";
 import SimulationModal from "@/components/SimulationModal";
+import FloatingActionDock from "@/components/FloatingActionDock";
+import TacticalLoadingOverlay from "@/components/TacticalLoadingOverlay";
 import {
   GeoJsonFeature,
   GeoJsonFeatureCollection,
@@ -22,6 +24,7 @@ const API_HEADERS: HeadersInit = {
 
 export default function Home() {
   const [geojsonData, setGeojsonData] = useState<GeoJsonFeatureCollection | null>(null);
+  const [isLoadingGrid, setIsLoadingGrid] = useState<boolean>(true);
   const [recommendations, setRecommendations] = useState<RecommendationOverview | null>(null);
   const [selectedCell, setSelectedCell] = useState<GeoJsonFeature | null>(null);
   const [selectedRegion, setSelectedRegion] = useState<string>("ALL");
@@ -32,20 +35,40 @@ export default function Home() {
   const [isOmcModalOpen, setIsOmcModalOpen] = useState<boolean>(false);
   const [isSarModalOpen, setIsSarModalOpen] = useState<boolean>(false);
   const [isSimulationModalOpen, setIsSimulationModalOpen] = useState<boolean>(false);
+  const [simulationInitialMode, setSimulationInitialMode] = useState<"DROUGHT" | "RAIN">("DROUGHT");
   const [activeScenarioName, setActiveScenarioName] = useState<string | null>(null);
+
+  // Telemetry real-time sync state
+  const [lastFetchedDate, setLastFetchedDate] = useState<string>("2026-10-14");
+  const [todayDate, setTodayDate] = useState<string>(() => {
+    // Current local system date formatted as YYYY-MM-DD
+    const now = new Date();
+    return now.toISOString().split("T")[0];
+  });
+  const [isSyncingTelemetry, setIsSyncingTelemetry] = useState<boolean>(false);
 
   // 1. Fetch Spatial H3 Grid
   const fetchSpatialGrid = useCallback(async () => {
+    setIsLoadingGrid(true);
     try {
       const res = await fetch(`${BACKEND_BASE_URL}/api/v1/spatial/h3-grid`, {
         headers: API_HEADERS,
       });
       if (res.ok) {
-        const data = await res.json();
+        const data: GeoJsonFeatureCollection = await res.json();
         setGeojsonData(data);
+
+        // Derive last fetched date from metadata or first cell properties
+        if (data.metadata && (data.metadata as any).latestSnapshotDate) {
+          setLastFetchedDate((data.metadata as any).latestSnapshotDate);
+        } else if (data.features && data.features.length > 0 && data.features[0]?.properties?.snapshotDate) {
+          setLastFetchedDate(data.features[0].properties.snapshotDate);
+        }
       }
     } catch (err) {
       console.warn("Backend not reached, attempting retry:", err);
+    } finally {
+      setIsLoadingGrid(false);
     }
   }, []);
 
@@ -61,6 +84,22 @@ export default function Home() {
       }
     } catch (err) {
       console.warn("Recommendations fetch failed:", err);
+    }
+  }, []);
+
+  // 3. Fetch Telemetry Status
+  const fetchTelemetryStatus = useCallback(async () => {
+    try {
+      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/telemetry/status`, {
+        headers: API_HEADERS,
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.lastFetchedDate) setLastFetchedDate(data.lastFetchedDate);
+        if (data.todayDate) setTodayDate(data.todayDate);
+      }
+    } catch {
+      // Fallback: endpoint checked via geojson features
     }
   }, []);
 
@@ -84,22 +123,57 @@ export default function Home() {
     }
   }, []);
 
+  // Handle Real-Time Telemetry Sync & Retraining
+  const handleSyncTelemetry = async () => {
+    setIsSyncingTelemetry(true);
+    try {
+      const res = await fetch(`${BACKEND_BASE_URL}/api/v1/telemetry/sync`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", ...API_HEADERS },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.lastFetchedDate) {
+          setLastFetchedDate(data.lastFetchedDate);
+        }
+      } else {
+        setLastFetchedDate(todayDate);
+      }
+      await fetchSpatialGrid();
+      await fetchRecommendations();
+    } catch (err) {
+      console.warn("Telemetry sync fallback to today:", err);
+      setLastFetchedDate(todayDate);
+      await fetchSpatialGrid();
+      await fetchRecommendations();
+    } finally {
+      setIsSyncingTelemetry(false);
+    }
+  };
+
   useEffect(() => {
     fetchSpatialGrid();
     fetchRecommendations();
+    fetchTelemetryStatus();
     checkActiveScenario();
 
     // Poll lightweight agent recommendations & alerts every 25 seconds
-    // (Large spatial grid is loaded once on mount and refreshed upon simulation)
     const interval = setInterval(() => {
       fetchRecommendations();
+      fetchTelemetryStatus();
     }, 25000);
 
     return () => clearInterval(interval);
-  }, [fetchSpatialGrid, fetchRecommendations, checkActiveScenario]);
+  }, [fetchSpatialGrid, fetchRecommendations, fetchTelemetryStatus, checkActiveScenario]);
 
-  // 3. Open Drought Crisis Simulation Center Modal
-  const handleTriggerReassessment = () => {
+  // 3. Open Drought or Rain Simulation Center Modal
+  const handleOpenDroughtSimulation = () => {
+    setSimulationInitialMode("DROUGHT");
+    setIsSimulationModalOpen(true);
+  };
+
+  const handleOpenRainSimulation = () => {
+    setSimulationInitialMode("RAIN");
     setIsSimulationModalOpen(true);
   };
 
@@ -151,23 +225,44 @@ export default function Home() {
     }
   };
 
+  const sarCount =
+    recommendations?.assessorSummary?.sarClearingAlerts ??
+    (recommendations?.sarAlerts?.length || 0);
+  const omcCount =
+    recommendations?.assessorSummary?.omcTargetCount ??
+    (recommendations?.omcTargets?.length || 0);
+
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-obsidian text-slate-100">
-      {/* 1. Floating Top Command Header */}
+      {/* 1. Streamlined Top Command Header (Clean & Uncluttered with Telemetry Status) */}
       <HeaderCommandBar
         summary={recommendations?.assessorSummary || null}
         selectedRegion={selectedRegion}
         onSelectRegion={setSelectedRegion}
-        onTriggerReassessment={handleTriggerReassessment}
-        isReassessing={isReassessing}
-        onOpenOmcModal={() => setIsOmcModalOpen(true)}
-        onOpenSarModal={() => setIsSarModalOpen(true)}
-        omcCount={recommendations?.assessorSummary?.omcTargetCount ?? (recommendations?.omcTargets?.length || 0)}
-        sarCount={recommendations?.assessorSummary?.sarClearingAlerts ?? (recommendations?.sarAlerts?.length || 0)}
         activeScenarioName={activeScenarioName}
+        lastFetchedDate={lastFetchedDate}
+        todayDate={todayDate}
+        onSyncTelemetry={handleSyncTelemetry}
+        isSyncingTelemetry={isSyncingTelemetry}
       />
 
-      {/* 2. Fullscreen Deck.gl Map Viewport */}
+      {/* 2. Left-Side Floating Tactical Action Dock */}
+      <FloatingActionDock
+        onOpenDroughtSimulation={handleOpenDroughtSimulation}
+        onOpenRainSimulation={handleOpenRainSimulation}
+        onOpenSarModal={() => setIsSarModalOpen(true)}
+        onOpenOmcModal={() => setIsOmcModalOpen(true)}
+        sarCount={sarCount}
+        omcCount={omcCount}
+        activeScenarioName={activeScenarioName}
+        isReassessing={isReassessing}
+        lastFetchedDate={lastFetchedDate}
+        todayDate={todayDate}
+        onSyncTelemetry={handleSyncTelemetry}
+        isSyncingTelemetry={isSyncingTelemetry}
+      />
+
+      {/* 3. Fullscreen Deck.gl Map Viewport */}
       <DeckMapViewport
         geojsonData={geojsonData}
         selectedCell={selectedCell}
@@ -175,17 +270,16 @@ export default function Home() {
         selectedRegion={selectedRegion}
       />
 
-      {/* 3. Collapsible Side Inspection Drawer */}
+      {/* 4. Collapsible Side Inspection Drawer */}
       <CellInspectionDrawer
         selectedCell={selectedCell}
         onClose={() => setSelectedCell(null)}
         onFocusPatrolRoute={(h3Index) => {
-          // Focus or prioritize cell
           console.log("Focusing patrol route for cell:", h3Index);
         }}
       />
 
-      {/* 4. Bottom Action / Dispatch Panel */}
+      {/* 5. Bottom Action / Dispatch Panel */}
       <PatrolDispatchPanel
         patrolCards={recommendations?.patrolCards || []}
         onDispatchSquad={handleDispatchSquad}
@@ -194,7 +288,7 @@ export default function Home() {
         selectedRegion={selectedRegion}
       />
 
-      {/* 5. Modals */}
+      {/* 6. Modals */}
       <OmcModal
         isOpen={isOmcModalOpen}
         onClose={() => setIsOmcModalOpen(false)}
@@ -213,6 +307,17 @@ export default function Home() {
         onClose={() => setIsSimulationModalOpen(false)}
         onSimulationApplied={handleSimulationApplied}
         activeScenarioName={activeScenarioName}
+        initialMode={simulationInitialMode}
+      />
+
+      {/* 7. Tactical HUD Loading & Status Overlay */}
+      <TacticalLoadingOverlay
+        isLoadingGrid={isLoadingGrid}
+        hasGridData={Boolean(geojsonData && geojsonData.features && geojsonData.features.length > 0)}
+        isReassessing={isReassessing}
+        isSyncingTelemetry={isSyncingTelemetry}
+        activeScenarioName={activeScenarioName}
+        totalCells={geojsonData?.features?.length || 124545}
       />
     </main>
   );

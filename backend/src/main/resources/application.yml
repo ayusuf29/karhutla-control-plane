@@ -5,4 +5,4 @@ spring:
     active: local
 
 server:
-  port: 8080
+  port: ${BACKEND_PORT:7080}

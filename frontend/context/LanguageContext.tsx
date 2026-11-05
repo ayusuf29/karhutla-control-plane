@@ -18,6 +18,9 @@ export interface Translations {
   regionSumatera: string;
   regionSumateraBadge: string;
   regionSumateraSubtitle: string;
+  regionPapua: string;
+  regionPapuaBadge: string;
+  regionPapuaSubtitle: string;
   regionKubuRaya: string;
   regionKubuRayaBadge: string;
   regionKubuRayaSubtitle: string;
@@ -127,6 +130,18 @@ export interface Translations {
   sarColDetectionDate: string;
   sarColAction: string;
   sarBtnInspect: string;
+
+  // Tactical Loading & Status
+  loadingGridTitle: string;
+  loadingGridSubtitle: string;
+  loadingStage1: string;
+  loadingStage2: string;
+  loadingStage3: string;
+  loadingCacheHint: string;
+  loadingReassessingTitle: string;
+  loadingReassessingSubtitle: string;
+  loadingSyncTitle: string;
+  loadingSyncSubtitle: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -137,13 +152,16 @@ const translations: Record<Language, Translations> = {
     pocBadge: "LIVE",
     regionAll: "Semua Wilayah",
     regionAllBadge: "Nasional",
-    regionAllSubtitle: "35,216 Heksagon Gambut Sumatera & Kalimantan",
+    regionAllSubtitle: "124,485 Heksagon Gambut Sumatera, Kalimantan & Papua",
     regionKalimantan: "Kalimantan (Kubah Gambut)",
     regionKalimantanBadge: "Borneo",
-    regionKalimantanSubtitle: "11,551 Sel Gambut Kalbar, Kalteng & Kalsel",
+    regionKalimantanSubtitle: "37,025 Sel Gambut Kalteng, Kalbar, Kalsel, Kaltim, Kalut",
     regionSumatera: "Sumatera (Kubah Gambut)",
     regionSumateraBadge: "Sumatera",
-    regionSumateraSubtitle: "23,665 Sel Gambut Riau, Jambi & Sumsel",
+    regionSumateraSubtitle: "43,892 Sel Gambut Riau, Jambi, Sumsel, Lampung, Babel",
+    regionPapua: "Papua (Kubah Gambut)",
+    regionPapuaBadge: "Papua",
+    regionPapuaSubtitle: "43,568 Sel Gambut Papua & Papua Barat (Mappi, Asmat, Bintuni)",
     regionKubuRaya: "Kab. Kubu Raya",
     regionKubuRayaBadge: "Kalbar",
     regionKubuRayaSubtitle: "Posko Daops Pontianak",
@@ -151,9 +169,9 @@ const translations: Record<Language, Translations> = {
     regionPulangPisauBadge: "Kalteng",
     regionPulangPisauSubtitle: "Kubah Gambut Sebangau & Kahayan",
     regionDropdownTitle: "PILIH CAKUPAN WILAYAH GAMBUT",
-    searchDistrictPlaceholder: "Cari kecamatan / kabupaten (175 kecamatan)...",
+    searchDistrictPlaceholder: "Cari kecamatan / kabupaten (556 kecamatan)...",
     sectionMacro: "CAKUPAN MAKRO & WILAYAH",
-    sectionDistricts: "KECAMATAN PRIORITAS GAMBUT (175 KECAMATAN)",
+    sectionDistricts: "KECAMATAN PRIORITAS GAMBUT (556 KECAMATAN)",
     noDistrictFound: "Tidak ada kecamatan yang cocok",
     metricCriticalExtreme: "KRITIS EXTREME:",
     metricAvgGwl: "RATA GWL:",
@@ -253,6 +271,18 @@ const translations: Record<Language, Translations> = {
     sarColDetectionDate: "Waktu Lintasan Radar",
     sarColAction: "Aksi",
     sarBtnInspect: "Inspeksi Sel di Peta",
+
+    // Tactical Loading & Status
+    loadingGridTitle: "MEMUAT 124.545 HEKSAGON GAMBUT NASIONAL",
+    loadingGridSubtitle: "Mengunduh dan merender ~65MB vektor spasial resolusi tinggi PostGIS (Sumatera, Kalimantan, Papua)",
+    loadingStage1: "Membuka koneksi pool PostGIS & membaca 124.545 poligon spasial H3...",
+    loadingStage2: "Mengunduh 124.545 fitur GeoJSON & sinkronisasi telemetri biofisik...",
+    loadingStage3: "Mengompilasi layer GPU WebGL Deck.gl & memetakan zonasi risiko gambut...",
+    loadingCacheHint: "Inisialisasi ~15 detik hanya terjadi saat pertama kali dimuat. Permintaan berikutnya instan (<200ms) dari RAM Cache.",
+    loadingReassessingTitle: "MEMPERBARUI SKENARIO KRISIS IKATAN SPASIAL",
+    loadingReassessingSubtitle: "Menyelaraskan 124.545 sel heksagon & kalkulasi ulang rute patroli...",
+    loadingSyncTitle: "SINKRONISASI TELEMETRI SATELIT",
+    loadingSyncSubtitle: "Mengambil data iklim terbaru & mengevaluasi risiko kebakaran...",
   },
   en: {
     // Brand & Header
@@ -261,13 +291,16 @@ const translations: Record<Language, Translations> = {
     pocBadge: "LIVE",
     regionAll: "All Regions",
     regionAllBadge: "National",
-    regionAllSubtitle: "35,216 Peat H3 Cells across Sumatra & Kalimantan",
+    regionAllSubtitle: "124,485 Peat H3 Cells across Sumatra, Kalimantan & Papua",
     regionKalimantan: "Kalimantan (Peat Domes)",
     regionKalimantanBadge: "Borneo",
-    regionKalimantanSubtitle: "11,551 Peat Cells across West, Central & South Kal",
+    regionKalimantanSubtitle: "37,025 Peat Cells in Central, West, South & East Kalimantan",
     regionSumatera: "Sumatra (Peat Domes)",
     regionSumateraBadge: "Sumatra",
-    regionSumateraSubtitle: "23,665 Peat Cells across Riau, Jambi & South Sumatra",
+    regionSumateraSubtitle: "43,892 Peat Cells in Riau, Jambi, South Sumatra, Lampung & Babel",
+    regionPapua: "Papua (Peat Domes)",
+    regionPapuaBadge: "Papua",
+    regionPapuaSubtitle: "43,568 Peat Cells in Papua & West Papua (Mappi, Asmat, Bintuni)",
     regionKubuRaya: "Kubu Raya Regency",
     regionKubuRayaBadge: "West Kal",
     regionKubuRayaSubtitle: "Pontianak Daops Post",
@@ -275,9 +308,9 @@ const translations: Record<Language, Translations> = {
     regionPulangPisauBadge: "Central Kal",
     regionPulangPisauSubtitle: "Sebangau & Kahayan Peat Domes",
     regionDropdownTitle: "SELECT PEATLAND COVERAGE",
-    searchDistrictPlaceholder: "Search district / regency (175 districts)...",
+    searchDistrictPlaceholder: "Search district / regency (556 districts)...",
     sectionMacro: "MACRO & REGIONAL COVERAGE",
-    sectionDistricts: "PEATLAND PRIORITY DISTRICTS (175 DISTRICTS)",
+    sectionDistricts: "PEATLAND PRIORITY DISTRICTS (556 DISTRICTS)",
     noDistrictFound: "No matching districts found",
     metricCriticalExtreme: "CRITICAL EXTREME:",
     metricAvgGwl: "AVG GWL:",
@@ -377,6 +410,18 @@ const translations: Record<Language, Translations> = {
     sarColDetectionDate: "Radar Acquisition Timestamp",
     sarColAction: "Action",
     sarBtnInspect: "Inspect Cell on Map",
+
+    // Tactical Loading & Status
+    loadingGridTitle: "LOADING 124,545 NATIONWIDE PEATLAND H3 CELLS",
+    loadingGridSubtitle: "Streaming and rendering ~65MB high-resolution PostGIS spatial vectors (Sumatra, Kalimantan, Papua)",
+    loadingStage1: "Querying PostGIS spatial engine & reading 124,545 H3 polygon geometries...",
+    loadingStage2: "Streaming 124,545 GeoJSON features & syncing biophysical peat telemetry...",
+    loadingStage3: "Compiling Deck.gl GPU WebGL layers & mapping ignition danger zones...",
+    loadingCacheHint: "The ~15s initialization occurs only on initial fetch. Subsequent requests load instantly (<200ms) from RAM Cache.",
+    loadingReassessingTitle: "APPLYING SPATIAL CLIMATE CRISIS SCENARIO",
+    loadingReassessingSubtitle: "Realigning 124,545 peat cells & re-solving prescriptive patrol routes...",
+    loadingSyncTitle: "SYNCING SATELLITE TELEMETRY",
+    loadingSyncSubtitle: "Fetching real-time climate data & reassessing nationwide ignition risk...",
   },
 };
 
@@ -420,7 +465,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       value={{
         language,
         setLanguage,
-        t: translations[language],
+        t: translations[language === "en" ? "en" : "id"],
       }}
     >
       {children}
