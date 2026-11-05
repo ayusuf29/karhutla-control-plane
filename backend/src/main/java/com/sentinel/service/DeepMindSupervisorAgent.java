@@ -35,14 +35,14 @@ public class DeepMindSupervisorAgent {
 
     public DeepMindSupervisorAgent(
             @Value("${sentinel.deepmind.api-key:}") String apiKey,
-            @Value("${sentinel.deepmind.model:gemini-1.5-flash}") String model,
+            @Value("${sentinel.deepmind.model:gemini-2.5-flash}") String model,
             @Value("${sentinel.deepmind.enabled:true}") boolean enabled,
             @Value("${sentinel.amd.api-key:}") String amdApiKey,
             @Value("${sentinel.amd.base-url:https://developer.amd.com.cn/radeon/api/v1}") String amdBaseUrl,
             @Value("${sentinel.amd.model:Qwen3.8-Flash-Next}") String amdModel,
             @Value("${sentinel.amd.enabled:true}") boolean amdEnabled) {
         this.apiKey = apiKey != null ? apiKey.trim() : "";
-        this.model = model != null ? model.trim() : "gemini-1.5-flash";
+        this.model = model != null ? model.trim() : "gemini-2.5-flash";
         this.enabled = enabled;
         this.amdApiKey = amdApiKey != null ? amdApiKey.trim() : "";
         this.amdBaseUrl = amdBaseUrl != null ? amdBaseUrl.trim() : "https://developer.amd.com.cn/radeon/api/v1";
@@ -53,12 +53,14 @@ public class DeepMindSupervisorAgent {
                 .connectTimeout(Duration.ofSeconds(15))
                 .build();
 
-        if (!this.apiKey.isEmpty()) {
-            log.info("DeepMindSupervisorAgent initialized with Google DeepMind Gemini model: {} as FIRST PRIORITY", this.model);
-        } else if (!this.amdApiKey.isEmpty()) {
-            log.info("DeepMindSupervisorAgent initialized with live AMD Instinct Cloud Model: {} (AMD Token Factory)", this.amdModel);
+        if (!this.amdApiKey.isEmpty()) {
+            log.info("DeepMindSupervisorAgent initialized with 3-Tier Strategy: Tier 1 = AMD ({}) -> Tier 2 = Gemini ({}) -> Tier 3 = Offline Deterministic",
+                    this.amdModel, this.model);
+        } else if (!this.apiKey.isEmpty()) {
+            log.info("DeepMindSupervisorAgent initialized with Cloud AI: Tier 1 = Gemini ({}) -> Tier 2 = Offline Deterministic",
+                    this.model);
         } else {
-            log.info("DeepMindSupervisorAgent initialized in autonomous deterministic mode (Set GEMINI_API_KEY or AMD_API_KEY).");
+            log.info("DeepMindSupervisorAgent initialized in 100% Autonomous Deterministic Offline Mode (Zero cloud dependency).");
         }
     }
 
@@ -85,24 +87,25 @@ public class DeepMindSupervisorAgent {
         boolean isSarAnomaly = Boolean.TRUE.equals(focal.getSarClearingDetected());
         String actualRegion = regionName != null && !regionName.isBlank() ? regionName : "Kab. Kubu Raya";
 
-        // 1. Primary AI Provider: Google DeepMind Gemini (USER FIRST PRIORITY)
-        if (enabled && !apiKey.isEmpty()) {
-            try {
-                return callDeepMindGeminiApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
-            } catch (Exception e) {
-                log.warn("DeepMind Gemini API call encountered error: {}. Trying fallback AI provider.", e.getMessage());
-            }
-        }
-
-        // 2. Secondary AI Provider: AMD Instinct Cloud (AMD Token Factory)
+        // Tier 1: AMD Instinct Cloud (jika AMD_API_KEY terisi dan amdEnabled)
         if (amdEnabled && !amdApiKey.isEmpty()) {
             try {
                 return callAmdTokenFactoryApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
             } catch (Exception e) {
-                log.warn("AMD Token Factory API encountered error: {}. Reverting to local tactical protocol.", e.getMessage());
+                log.warn("AMD Token Factory API encountered error: {}. Falling back to Tier 2 (Gemini).", e.getMessage());
             }
         }
 
+        // Tier 2: Google DeepMind Gemini Cloud (jika AMD kosong atau gagal, dan GEMINI_API_KEY terisi)
+        if (enabled && !apiKey.isEmpty()) {
+            try {
+                return callDeepMindGeminiApi(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion);
+            } catch (Exception e) {
+                log.warn("DeepMind Gemini API call encountered error: {}. Falling back to Tier 3 (Offline Deterministic).", e.getMessage());
+            }
+        }
+
+        // Tier 3: 100% Offline Deterministic Tactical Protocol (Bebas Biaya & Tanpa Internet)
         return buildLocalTacticalPlan(focal, canalDist, roadDist, peatDepth, isSarAnomaly, actualRegion, false);
     }
 
@@ -238,6 +241,27 @@ public class DeepMindSupervisorAgent {
             boolean isSarAnomaly,
             String regionName) throws Exception {
 
+        try {
+            return executeGeminiGenerateContent(model, focal, canalDist, roadDist, peatDepth, isSarAnomaly, regionName);
+        } catch (Exception e) {
+            if (!"gemini-3.5-flash".equalsIgnoreCase(model) &&
+                    (e.getMessage().contains("429") || e.getMessage().contains("timed out") || e.getMessage().contains("RESOURCE_EXHAUSTED"))) {
+                log.warn("Gemini model {} exceeded quota or timed out. Retrying with alternative active model 'gemini-3.5-flash'...", model);
+                return executeGeminiGenerateContent("gemini-3.5-flash", focal, canalDist, roadDist, peatDepth, isSarAnomaly, regionName);
+            }
+            throw e;
+        }
+    }
+
+    private AgentDto.TacticalActionPlan executeGeminiGenerateContent(
+            String activeModel,
+            H3DailyRiskSnapshot focal,
+            double canalDist,
+            double roadDist,
+            double peatDepth,
+            boolean isSarAnomaly,
+            String regionName) throws Exception {
+
         String prompt = String.format(
                 "Anda adalah Google DeepMind AI Tactical Supervisor untuk Penanggulangan Kebakaran Hutan & Lahan Gambut (Karhutla) Indonesia, mendukung Satgas Daops Manggala Agni (KLHK) dan BPBD.\n" +
                 "Analisis telemetri berikut yang baru saja diproses oleh AMD Cloud GPU Accelerator:\n" +
@@ -282,13 +306,13 @@ public class DeepMindSupervisorAgent {
 
         String endpoint = String.format(
                 "https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s",
-                model, apiKey
+                activeModel, apiKey
         );
 
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(endpoint))
                 .header("Content-Type", "application/json")
-                .timeout(Duration.ofSeconds(12))
+                .timeout(Duration.ofSeconds(30))
                 .POST(HttpRequest.BodyPublishers.ofString(objectMapper.writeValueAsString(requestBody)))
                 .build();
 
@@ -311,12 +335,12 @@ public class DeepMindSupervisorAgent {
                     equipmentList = getDefaultEquipment();
                 }
 
-                log.info("Successfully generated Tactical Action Plan from live Google DeepMind Gemini API for H3: {}", focal.getH3Index());
+                log.info("Successfully generated Tactical Action Plan from live Google DeepMind Gemini API ({}) for H3: {}", activeModel, focal.getH3Index());
 
                 return new AgentDto.TacticalActionPlan(
                         "PLAN-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase(),
                         Instant.now(),
-                        "Google DeepMind " + model.toUpperCase() + " (via GCP Vertex AI)",
+                        "Google DeepMind " + activeModel.toUpperCase() + " (via Google AI)",
                         focal.getH3Index(),
                         regionName,
                         parsed.path("situationAssessment").asText("Analisis situasi darurat gambut aktif."),

@@ -102,6 +102,17 @@ export default function PatrolDispatchPanel({
       return;
     }
 
+    if (selectedRegion === "PAPUA") {
+      const idx = patrolCards.findIndex(
+        (s) =>
+          s.squadId.includes("PAPUA") ||
+          s.squadName.toLowerCase().includes("papua") ||
+          s.regionName.toLowerCase().includes("papua")
+      );
+      if (idx >= 0) setSelectedSquadIndex(idx);
+      return;
+    }
+
     // Specific district selection (e.g. "Kalimantan Barat::Kubu Raya::Sungai Raya" or "Riau::Siak::Dayun")
     const lower = selectedRegion.toLowerCase();
     if (

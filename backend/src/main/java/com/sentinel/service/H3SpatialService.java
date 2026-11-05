@@ -121,6 +121,9 @@ public class H3SpatialService {
         Map<String, Object> metadata = new LinkedHashMap<>();
         metadata.put("totalFeatures", features.size());
         metadata.put("h3Resolution", 8);
+        if (!latestSnapshots.isEmpty() && latestSnapshots.get(0).getSnapshotDate() != null) {
+            metadata.put("latestSnapshotDate", latestSnapshots.get(0).getSnapshotDate().toString());
+        }
         GeoJsonDto result = new GeoJsonDto(features, metadata);
         if (isUnfiltered) {
             this.cachedAllGeoJson = result;
@@ -129,6 +132,12 @@ public class H3SpatialService {
         }
 
         return result;
+    }
+
+    public void evictCache() {
+        this.cachedAllGeoJson = null;
+        this.cacheTimestamp = 0;
+        log.info("H3 Spatial GeoJSON cache explicitly evicted.");
     }
 
     private GeoJsonDto.Geometry convertJtsPolygonToGeoJson(Polygon polygon) {
